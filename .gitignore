@@ -1,5 +1,9 @@
 .idea
+<<<<<<< HEAD
 bin/*
+=======
+bin
+>>>>>>> 55240f2c4ebbbc614eb82ee95dfedb2a4d17868b
 /src/Migrations/
 phpunit.xml.dist
 
