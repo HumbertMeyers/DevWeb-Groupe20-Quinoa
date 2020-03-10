@@ -1,5 +1,5 @@
 .idea
-bin/*
+bin
 /src/Migrations/
 phpunit.xml.dist
 
