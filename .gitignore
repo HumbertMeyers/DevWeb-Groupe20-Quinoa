@@ -1,5 +1,10 @@
 .idea
 bin/*
+src/Migrations
+composer.json
+composer.lock
+symfony.lock
+phpunit.xml.dist
 
 ###> symfony/framework-bundle ###
 /.env.local

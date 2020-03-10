@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Evenement;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
+use App\Repository\EvenementRepository;
 
 class EvenementController extends AbstractController
 {
@@ -23,7 +24,7 @@ class EvenementController extends AbstractController
         $evenement->setNom('Gandhi');
         $evenement->setLieu('Inde');
         $evenement->setDate(1947);
-        $evenement->setDescription('Gandhi s\'est battu pour l\'independence de l\Inde.');
+        $evenement->setDescription('Gandhi s\'est battu pour l\'independence de l\'Inde.');
 
         // tell Doctrine you want to (eventually) save the Product (no queries yet)
         $entityManager->persist($evenement);
@@ -31,6 +32,23 @@ class EvenementController extends AbstractController
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
-        return new Response('Saved new product with id '.$evenement->getId());
+        return new Response('Nouvel evenement enregisté avec l\'id '.$evenement->getId());
+    }
+
+    /**
+     * @Route("/evenement/{id}", name="evenement_show")
+     */
+    public function show($id)
+    {
+        $evenement = $this->getDoctrine()
+            ->getRepository(Evenement::class)
+            ->find($id);
+
+        if (!$evenement) {
+            throw $this->createNotFoundException(
+                'Pas d\'evenement trouvé avec l\'id '.$id
+            );
+        }
+        return new Response('Cet événement : ' . $evenement->getDescription() . ' était marquant');
     }
 }
