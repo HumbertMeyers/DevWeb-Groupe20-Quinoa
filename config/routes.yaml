@@ -7,3 +7,7 @@
 app_lucky_number:
   path: /lucky/number
   controller: App\Controller\LuckyController::number
+
+app_quizz:
+  path: /index/index
+  controller: App\Controller\IndexController::index
