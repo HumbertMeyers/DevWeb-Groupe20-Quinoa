@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
+
+class PagesController extends AbstractController
+{
+
+    /**
+     * @Route("/", name="home")
+     */
+    public function home()
+    {
+        return $this->render('pages/home.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+
+    /**
+     * @Route("/inscription", name="inscription")
+     */
+    public function inscription()
+    {
+        return $this->render('pages/inscription.html.twig', [
+            'controller_name' => 'PagesController',
+        ]);
+    }
+}
