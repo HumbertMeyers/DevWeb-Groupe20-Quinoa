@@ -23,8 +23,6 @@ class PagesController extends AbstractController
      */
     public function inscription()
     {
-        return $this->render('pages/inscription.html.twig', [
-            'controller_name' => 'PagesController',
-        ]);
+        return $this->render('pages/inscription.html.twig');
     }
 }
