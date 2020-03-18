@@ -22,23 +22,61 @@ class Evenement
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
+     */
+    private $periode;
+
+    /**
+     * @ORM\Column(type="string", length=200)
      */
     private $lieu;
 
     /**
-     * @ORM\Column(type="integer", length=4)
+     * @ORM\Column(type="string", length=250)
      */
-    private $date;
+    private $lutte;
+
+    /**
+     * @ORM\Column(type="string", length=250)
+     */
+    private $strategie;
+
+    /**
+     * @ORM\Column(type="string", length=750)
+     */
+    private $action;
+
+    /**
+     * @ORM\Column(type="string", length=750)
+     */
+    private $victoire;
 
     /**
      * @ORM\Column(type="string", length=500)
      */
-    private $description;
+    private $anecdote;
 
-    public function getId(): ?int
+    /**
+    * @ORM\Column(type="string", length=500)
+    */
+    private $citation;
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
     }
 
     /**
@@ -60,6 +98,22 @@ class Evenement
     /**
      * @return mixed
      */
+    public function getPeriode()
+    {
+        return $this->periode;
+    }
+
+    /**
+     * @param mixed $periode
+     */
+    public function setPeriode($periode): void
+    {
+        $this->periode = $periode;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getLieu()
     {
         return $this->lieu;
@@ -76,34 +130,97 @@ class Evenement
     /**
      * @return mixed
      */
-    public function getDate()
+    public function getLutte()
     {
-        return $this->date;
+        return $this->lutte;
     }
 
     /**
-     * @param mixed $date
+     * @param mixed $lutte
      */
-    public function setDate($date): void
+    public function setLutte($lutte): void
     {
-        $this->date = $date;
+        $this->lutte = $lutte;
     }
 
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getStrategie()
     {
-        return $this->description;
+        return $this->strategie;
     }
 
     /**
-     * @param mixed $description
+     * @param mixed $strategie
      */
-    public function setDescription($description): void
+    public function setStrategie($strategie): void
     {
-        $this->description = $description;
+        $this->strategie = $strategie;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getAction()
+    {
+        return $this->action;
+    }
+
+    /**
+     * @param mixed $action
+     */
+    public function setAction($action): void
+    {
+        $this->action = $action;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVictoire()
+    {
+        return $this->victoire;
+    }
+
+    /**
+     * @param mixed $victoire
+     */
+    public function setVictoire($victoire): void
+    {
+        $this->victoire = $victoire;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnecdote()
+    {
+        return $this->anecdote;
+    }
+
+    /**
+     * @param mixed $anecdote
+     */
+    public function setAnecdote($anecdote): void
+    {
+        $this->anecdote = $anecdote;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCitation()
+    {
+        return $this->citation;
+    }
+
+    /**
+     * @param mixed $citation
+     */
+    public function setCitation($citation): void
+    {
+        $this->citation = $citation;
+    }
 
 }
