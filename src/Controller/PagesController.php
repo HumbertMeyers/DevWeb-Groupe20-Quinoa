@@ -25,4 +25,12 @@ class PagesController extends AbstractController
     {
         return $this->render('pages/inscription.html.twig');
     }
+
+     /**
+     * @Route("/donnees", name="donnees")
+     */
+    public function donnees()
+    {
+        return $this->render('pages/donnees.html.twig');
+    }
 }
