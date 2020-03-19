@@ -12,12 +12,8 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from 'react-router-dom';
+import '../css/app.css';
+import Home from './components/Home';
 
-require("../css/app.css");
-
-const App = () => {
-  return <h1>Bonjour</h1>;
-};
-
-const rootElement = document.querySelector("#app");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<Router><Home /></Router>, document.getElementById('root'));
