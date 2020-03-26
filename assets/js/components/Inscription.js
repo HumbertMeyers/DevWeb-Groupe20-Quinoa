@@ -15,7 +15,7 @@ class Inscription extends Component {
                     </Label>
                     <Label className="radioAge">
                         <Input type="radio" name="16"/>
-                        <Label>18-21</Label>
+                        <Label>19-21</Label>
                     </Label>
                     <br></br>
                 </FormGroup>
