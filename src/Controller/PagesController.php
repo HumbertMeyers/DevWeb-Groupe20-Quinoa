@@ -25,9 +25,9 @@ class PagesController extends AbstractController
     }
 
     /**
-     * @Route("/inscription", name="inscription")
+     * @Route("/inscriptions", name="inscriptions")
      */
-    public function inscription()
+    public function inscriptions()
     {
         return $this->render('pages/inscription.html.twig');
     }

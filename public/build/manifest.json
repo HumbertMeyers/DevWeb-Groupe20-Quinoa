@@ -2,5 +2,8 @@
   "build/app.css": "/build/app.css",
   "build/app.js": "/build/app.js",
   "build/runtime.js": "/build/runtime.js",
-  "build/vendors~app.js": "/build/vendors~app.js"
+  "build/vendors~app.js": "/build/vendors~app.js",
+  "build/fonts/orange juice 2.0.ttf": "/build/fonts/orange juice 2.0.e96f186f.ttf",
+  "build/images/logo.png": "/build/images/logo.b927b26a.png",
+  "build/vendors~app.css": "/build/vendors~app.css"
 }

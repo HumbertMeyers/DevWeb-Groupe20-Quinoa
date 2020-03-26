@@ -3,11 +3,6 @@ import axios from 'axios';
 
 
 class Posts extends Component {
-    constructor() {
-        super();
-
-        this.state = { posts: [], loading: true}
-    }
 
     componentDidMount() {
         this.getPosts();
