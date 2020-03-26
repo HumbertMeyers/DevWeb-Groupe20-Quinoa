@@ -1,9 +1,19 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.backup.html.twig' %}
+
+ {% form_theme formDonnees 'bootstrap_4_layout.html.twig' %}
 
 {% block title %}Home{% endblock %}
 
 {% block body %}
     <div id="app">Page pour ajouter des données</div>
 
-    {{ form(formDonnees) }}
+    {{ form_start(formDonnees) }}
+
+        {{ form_row(formDonnees) }}
+
+        <button type="submit" class="btn btn-success"> Ajouter</button>
+
+    {{ form_end(formDonnees) }}
+
+
 {% endblock %}
