@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Respnse;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use App\Entity\Evenement;
@@ -35,9 +36,9 @@ class PagesController extends AbstractController
     /**
      * @Route("/donnees", name="donnees")
      */
-    public function donnees(Evenement $evenement, Request $request, ObjectManager $manager)
+    public function donnees(Request $request)
     {
-        //$evenement = new Evenement();
+        $evenement = new Evenement();
 
         $form = $this->createFormBuilder($evenement)
                      ->add('Nom')
@@ -53,10 +54,13 @@ class PagesController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid())
+        if($form->isSubmitted())
         {
-            $manager->persist($evenement);
-            $manager->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($evenement);
+            $em->flush();
+
+            return new Response('Evenement ajouté');
         }
 
         return $this->render('pages/donnees.html.twig', [
