@@ -61,6 +61,11 @@ class PagesController extends AbstractController
             $em->flush();
 
             return new Response('Evenement ajouté');
+
+            $select = mysqli_query($conn, "SELECT * FROM evenements WHERE Nom = '".$_POST['Nom']."'");
+            if(mysqli_num_rows($select)) {
+                exit('Ce nom est déjà utilisé est déjà utilisé');
+            }
         }
 
         return $this->render('pages/donnees.html.twig', [
