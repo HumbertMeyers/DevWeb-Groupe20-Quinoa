@@ -52,7 +52,7 @@ class Evenement
     private $victoire;
 
     /**
-     * @ORM\Column(type="string", length=500)
+     * @ORM\Column(type="string", length=750)
      */
     private $anecdote;
 
