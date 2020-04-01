@@ -32,27 +32,27 @@ class Evenement
     private $lieu;
 
     /**
-     * @ORM\Column(type="string", length=250)
+     * @ORM\Column(type="string", length=500)
      */
     private $lutte;
 
     /**
-     * @ORM\Column(type="string", length=250)
+     * @ORM\Column(type="string", length=500)
      */
     private $strategie;
 
     /**
-     * @ORM\Column(type="string", length=750)
+     * @ORM\Column(type="string", length=1000)
      */
     private $action;
 
     /**
-     * @ORM\Column(type="string", length=750)
+     * @ORM\Column(type="string", length=1000)
      */
     private $victoire;
 
     /**
-     * @ORM\Column(type="string", length=750)
+     * @ORM\Column(type="string", length=1000)
      */
     private $anecdote;
 
