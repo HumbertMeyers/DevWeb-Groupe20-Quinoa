@@ -1,8 +1,8 @@
 :root {
-  primary: #c57153;
-  secondary: #ffc636;
-  third: #a76249;
-  fourth: rgb(194, 191, 191);
+  --primary: #c57153;
+  --secondary: #ffc636;
+  --third: #a76249;
+  --fourth: rgb(194, 191, 191);
 }
 
 * {
@@ -12,9 +12,9 @@
 }
 
 body {
-  color: var(fourth);
+  color: var(--fourth);
   /*font-family: comic;*/
-  background-color: var(primary);
+  background-color: var(--primary);
 }
 
 @font-face {
@@ -22,13 +22,20 @@ body {
   font-family: comic;
 }
 
+.container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* NAVBAR */
+
 .logo {
   width: 200px;
 }
 
 .navbar {
   height: 100px;
-  background-color: var(primary);
+  background-color: var(--primary);
   justify-content: space-between;
 }
 
@@ -41,30 +48,27 @@ NavItem {
 }
 
 a {
-  color: var(secondary);
+  color: var(--secondary);
   display: inline-block;
   padding: 0px 20px;
   list-style: none;
 }
 
 a:hover {
-  color: var(fourth);
+  color: var(--fourth);
 }
 
-button:hover {
-  background-color: var(fourth);
-}
-
-.container {
-  margin-right: auto;
-  margin-left: auto;
-}
+/* Inscription & SeConnecter */
 
 form {
-  background-color: var(third);
+  background-color: var(--third);
   border-radius: 10px;
   padding: 10px 20px;
   margin: 30px 0;
+}
+
+button:hover {
+  background-color: var(--fourth);
 }
 
 .radio {
@@ -85,15 +89,19 @@ input.radioAge {
 
 .btnLogin {
   background: none;
-  border: 2px solid var(secondary);
-  color: var(secondary);
+  border: 2px solid var(--secondary);
+  color: var(--secondary);
   padding: 6px 12px;
   border-radius: 20px;
   text-transform: uppercase;
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
   display: inline-block;
-  font-size: 1em;
+  font-size: 1.5em;
   margin-bottom: 20px;
+}
+
+.wrapper {
+  text-align: center;
 }
 
 input[type="text"],
@@ -103,7 +111,7 @@ select.form-control {
   background: rgba(255, 255, 255, 0.05);
   padding: 10px 16px;
   border-radius: 20px;
-  border: 2px solid var(secondary);
+  border: 2px solid var(--secondary);
   font-size: 1em;
 }
 
@@ -119,15 +127,25 @@ select.form-control:focus {
 
 #tabDesobei {
   margin: auto;
-  width: 70% !important;
 }
 
 td,
 th {
-  background-color: var(primary);
+  background-color: var(--primary);
   text-align: left;
   padding: 8px;
 }
+.thead {
+  color: var(--secondary);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.radioTab {
+  text-align: center;
+  vertical-align: middle;
+}
+
 /* top-left border-radius */
 table tr:first-child th:first-child {
   border-top-left-radius: 10px;

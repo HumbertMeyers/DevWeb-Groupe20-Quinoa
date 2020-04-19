@@ -1,6 +1,6 @@
+// noprotect
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import TextField from "@material-ui/core/TextField";
 
 class Inscription extends Component {
   render() {
@@ -8,7 +8,7 @@ class Inscription extends Component {
       <div className="container center">
         <div className="row justify-content-md-center">
           <form className="login-form col-lg-7 col-md-10 col-sm-11 col-xs-12">
-            <h1 className="formTitle text-center">Inscripti</h1>
+            <h1 className="formTitle text-center">Inscription</h1>
             <FormGroup>
               <h3>Pseudo</h3>
               <Input type="text" name="pseudo" id="pseudo" placeholder="" />
@@ -54,64 +54,98 @@ class Inscription extends Component {
               </FormGroup>
             </FormGroup>
             <FormGroup>
-              <h6 className="text-center">laisser un commentaire</h6>
-              <TextField id="comDesobei" inputProps={{ maxLength: 12 }} />
+              <h6 className="text-center">
+                laisser un commentaire (optionnel)
+              </h6>
+              <textarea id="comDesobei" maxLength="200" />
             </FormGroup>
             <FormGroup>
               <table id="tabDesobei">
                 <tbody>
                   <tr>
-                    <th>Company</th>
-                    <th>Contact</th>
-                    <th>Country</th>
+                    <th className="thead">Action</th>
+                    <th className="thead">Déjà réalisé</th>
+                    <th className="thead">Efficace</th>
                   </tr>
-                </tbody>
-                <tbody>
                   <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany</td>
+                    <td>Signer une pétition</td>
+                    <td className="radioTab">
+                      <Input type="radio" name="petitionRealise" />
+                    </td>
+                    <td className="radioTab">
+                      <Input type="radio" name="petitionEfficace" />
+                    </td>
                   </tr>
-                </tbody>
-                <tbody>
                   <tr>
-                    <td>Centro comercial Moctezuma</td>
-                    <td>Francisco Chang</td>
-                    <td>Mexico</td>
+                    <td>Faire un don</td>
+                    <td className="radioTab">
+                      <Input type="radio" name="donRealise" />
+                    </td>
+                    <td className="radioTab">
+                      <Input type="radio" name="donEfficace" />
+                    </td>
                   </tr>
-                </tbody>
-                <tbody>
                   <tr>
-                    <td>Ernst Handel</td>
-                    <td>Roland Mendel</td>
-                    <td>Austria</td>
+                    <td>Pratiquer le zéro déchet, changer mes habitudes</td>
+                    <td className="radioTab">
+                      <Input type="radio" name="ecologiqueRealise" />
+                    </td>
+                    <td className="radioTab">
+                      <Input type="radio" name="ecologiqueEfficace" />
+                    </td>
                   </tr>
-                </tbody>
-                <tbody>
                   <tr>
-                    <td>Island Trading</td>
-                    <td>Helen Bennett</td>
-                    <td>UK</td>
+                    <td>M’informer à propos de l'actualité</td>
+                    <td className="radioTab">
+                      <Input type="radio" name="informerRealise" />
+                    </td>
+                    <td className="radioTab">
+                      <Input type="radio" name="informerEfficace" />
+                    </td>
                   </tr>
-                </tbody>
-                <tbody>
                   <tr>
-                    <td>Laughing Bacchus Winecellars</td>
-                    <td>Yoshi Tannamuri</td>
-                    <td>Canada</td>
+                    <td>M’engager en politique</td>
+                    <td className="radioTab">
+                      <Input type="radio" name="politiqueRealise" />
+                    </td>
+                    <td className="radioTab">
+                      <Input type="radio" name="politiqueEfficace" />
+                    </td>
                   </tr>
-                </tbody>
-                <tbody>
                   <tr>
-                    <td>Magazzini Alimentari Riuniti</td>
-                    <td>Giovanni Rovelli</td>
-                    <td>Italy</td>
+                    <td>Faire la grève</td>
+                    <td className="radioTab">
+                      <Input type="radio" name="greveRealise" />
+                    </td>
+                    <td className="radioTab">
+                      <Input type="radio" name="greveEfficace" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Manifester</td>
+                    <td className="radioTab">
+                      <Input type="radio" name="manifesterRealise" />
+                    </td>
+                    <td className="radioTab">
+                      <Input type="radio" name="manifesterEfficace" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Faire de la désobéissance civile</td>
+                    <td className="radioTab">
+                      <Input type="radio" name="desobeissantRealise" />
+                    </td>
+                    <td className="radioTab">
+                      <Input type="radio" name="desobeissantEfficace" />
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </FormGroup>
             <br></br>
-            <Button className="btnLogin">S'inscrire</Button>
+            <FormGroup className="wrapper">
+              <Button className="btnLogin">S'inscrire</Button>
+            </FormGroup>
           </form>
         </div>
       </div>
