@@ -1,4 +1,3 @@
-// noprotect
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
@@ -7,7 +6,7 @@ class Inscription extends Component {
     return (
       <div className="container center">
         <div className="row justify-content-md-center">
-          <form className="login-form col-lg-7 col-md-10 col-sm-11 col-xs-12">
+          <form className="cadreSombre col-lg-7 col-md-10 col-sm-11 col-xs-12">
             <h1 className="formTitle text-center">Inscription</h1>
             <FormGroup>
               <h3>Pseudo</h3>
@@ -70,73 +69,73 @@ class Inscription extends Component {
                   <tr>
                     <td>Signer une pétition</td>
                     <td className="radioTab">
-                      <Input type="radio" name="petitionRealise" />
+                      <Input type="checkbox" name="petitionRealise" />
                     </td>
                     <td className="radioTab">
-                      <Input type="radio" name="petitionEfficace" />
+                      <Input type="checkbox" name="petitionEfficace" />
                     </td>
                   </tr>
                   <tr>
                     <td>Faire un don</td>
                     <td className="radioTab">
-                      <Input type="radio" name="donRealise" />
+                      <Input type="checkbox" name="donRealise" />
                     </td>
                     <td className="radioTab">
-                      <Input type="radio" name="donEfficace" />
+                      <Input type="checkbox" name="donEfficace" />
                     </td>
                   </tr>
                   <tr>
                     <td>Pratiquer le zéro déchet, changer mes habitudes</td>
                     <td className="radioTab">
-                      <Input type="radio" name="ecologiqueRealise" />
+                      <Input type="checkbox" name="ecologiqueRealise" />
                     </td>
                     <td className="radioTab">
-                      <Input type="radio" name="ecologiqueEfficace" />
+                      <Input type="checkbox" name="ecologiqueEfficace" />
                     </td>
                   </tr>
                   <tr>
                     <td>M’informer à propos de l'actualité</td>
                     <td className="radioTab">
-                      <Input type="radio" name="informerRealise" />
+                      <Input type="checkbox" name="informerRealise" />
                     </td>
                     <td className="radioTab">
-                      <Input type="radio" name="informerEfficace" />
+                      <Input type="checkbox" name="informerEfficace" />
                     </td>
                   </tr>
                   <tr>
                     <td>M’engager en politique</td>
                     <td className="radioTab">
-                      <Input type="radio" name="politiqueRealise" />
+                      <Input type="checkbox" name="politiqueRealise" />
                     </td>
                     <td className="radioTab">
-                      <Input type="radio" name="politiqueEfficace" />
+                      <Input type="checkbox" name="politiqueEfficace" />
                     </td>
                   </tr>
                   <tr>
                     <td>Faire la grève</td>
                     <td className="radioTab">
-                      <Input type="radio" name="greveRealise" />
+                      <Input type="checkbox" name="greveRealise" />
                     </td>
                     <td className="radioTab">
-                      <Input type="radio" name="greveEfficace" />
+                      <Input type="checkbox" name="greveEfficace" />
                     </td>
                   </tr>
                   <tr>
                     <td>Manifester</td>
                     <td className="radioTab">
-                      <Input type="radio" name="manifesterRealise" />
+                      <Input type="checkbox" name="manifesterRealise" />
                     </td>
                     <td className="radioTab">
-                      <Input type="radio" name="manifesterEfficace" />
+                      <Input type="checkbox" name="manifesterEfficace" />
                     </td>
                   </tr>
                   <tr>
                     <td>Faire de la désobéissance civile</td>
                     <td className="radioTab">
-                      <Input type="radio" name="desobeissantRealise" />
+                      <Input type="checkbox" name="desobeissantRealise" />
                     </td>
                     <td className="radioTab">
-                      <Input type="radio" name="desobeissantEfficace" />
+                      <Input type="checkbox" name="desobeissantEfficace" />
                     </td>
                   </tr>
                 </tbody>
