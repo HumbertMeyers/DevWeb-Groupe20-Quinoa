@@ -3,70 +3,53 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 class Inscription extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-
-  handleSubmit(event) {
-    alert('Vous êtes bien inscrit : ' + this.state.value);
-    event.preventDefault();
-  }
-
   render() {
     return (
       <div className="container center">
         <div className="row justify-content-md-center">
-          <form onSubmit={this.handleSubmit} className="login-form col-lg-7 col-md-10 col-sm-11 col-xs-12" >
+          <form className="cadreSombre col-lg-7 col-md-10 col-sm-11 col-xs-12">
             <h1 className="formTitle text-center">Inscription</h1>
             <FormGroup>
               <h3>Pseudo</h3>
-              <Input value={this.state.value} onChange={this.handleChange} type="text" name="pseudo" id="pseudo" placeholder="" />
+              <Input type="text" name="pseudo" id="pseudo" placeholder="" />
             </FormGroup>
             <FormGroup>
               <h3>Adresse mail</h3>
-              <Input value={this.state.value} onChange={this.handleChange} type="email" name="email" id="Email" placeholder="" />
+              <Input type="email" name="email" id="Email" placeholder="" />
             </FormGroup>
             <h3>Age</h3>
             <FormGroup className="radio">
-              <Input value={this.state.value} onChange={this.handleChange} type="radio" name="radioAge" id="16" />
+              <Input type="radio" name="radioAge" id="16" />
               <Label>16-18</Label>
             </FormGroup>
             <FormGroup className="radio">
-              <Input value={this.state.value} onChange={this.handleChange} type="radio" name="radioAge" id="19" />
+              <Input type="radio" name="radioAge" id="19" />
               <Label>19-21</Label>
             </FormGroup>
             <FormGroup className="radio">
-              <Input value={this.state.value} onChange={this.handleChange} type="radio" name="radioAge" id="22" />
+              <Input type="radio" name="radioAge" id="22" />
               <Label>22-25</Label>
             </FormGroup>
             <FormGroup className="radio">
-              <Input value={this.state.value} onChange={this.handleChange} type="radio" name="radioAge" id="26" />
+              <Input type="radio" name="radioAge" id="26" />
               <Label>26-29</Label>
             </FormGroup>
             <FormGroup className="radio">
-              <Input value={this.state.value} onChange={this.handleChange} type="radio" name="radioAge" id="30" />
+              <Input type="radio" name="radioAge" id="30" />
               <Label>+ 30</Label>
             </FormGroup>
             <FormGroup>
               <h3>Est-ce que vous vous considérez comme «désobéissant» ?</h3>
               <FormGroup className="radio">
-                <Input value={this.state.value} onChange={this.handleChange} type="radio" name="desobei" id="oui" />
+                <Input type="radio" name="desobei" id="oui" />
                 <Label>oui</Label>
               </FormGroup>
               <FormGroup className="radio">
-                <Input value={this.state.value} onChange={this.handleChange} type="radio" name="desobei" id="unPeu" />
+                <Input type="radio" name="desobei" id="unPeu" />
                 <Label>un peu</Label>
               </FormGroup>
               <FormGroup className="radio">
-                <Input value={this.state.value} onChange={this.handleChange} type="radio" name="desobei" id="non" />
+                <Input type="radio" name="desobei" id="non" />
                 <Label>non</Label>
               </FormGroup>
             </FormGroup>
@@ -74,7 +57,7 @@ class Inscription extends Component {
               <h6 className="text-center">
                 laisser un commentaire (optionnel)
               </h6>
-              <textarea value={this.state.value} onChange={this.handleChange} id="comDesobei" maxLength="200" />
+              <textarea id="comDesobei" maxLength="200" />
             </FormGroup>
             <FormGroup>
               <table id="tabDesobei">
