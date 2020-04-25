@@ -87,7 +87,8 @@ class Inscription extends Component {
                   <tr>
                     <td>Signer une pétition</td>
                     <td className="radioTab">
-                      <Input type="checkbox" name="petitionRealise" />
+                      <Input type="checkbox" id="petitionRealise" name="petitionRealise" />
+                      <label for="petitionRealise"></label>
                     </td>
                     <td className="radioTab">
                       <Input type="checkbox" name="petitionEfficace" />
