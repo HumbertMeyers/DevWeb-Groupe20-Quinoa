@@ -36,164 +36,84 @@ class Inscription
 
 
 
-    /**
+     /**
      * @return mixed
      */
-    public function getId()
+    public function getPseudo()
     {
-        return $this->id;
+        return $this->pseudo;
     }
 
     /**
-     * @param mixed $id
+     * @param mixed $pseudo
      */
-    public function setId($id): void
+    public function setPseudo($pseudo): void
     {
-        $this->id = $id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * @param mixed $nom
-     */
-    public function setNom($nom): void
-    {
-        $this->nom = $nom;
+        $this->pseudo = $pseudo;
     }
 
     /**
      * @return mixed
      */
-    public function getPeriode()
+    public function getMail()
     {
-        return $this->periode;
+        return $this->mail;
     }
 
     /**
-     * @param mixed $periode
+     * @param mixed $mail
      */
-    public function setPeriode($periode): void
+    public function setMail($mail): void
     {
-        $this->periode = $periode;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLieu()
-    {
-        return $this->lieu;
-    }
-
-    /**
-     * @param mixed $lieu
-     */
-    public function setLieu($lieu): void
-    {
-        $this->lieu = $lieu;
+        $this->mail = $mail;
     }
 
     /**
      * @return mixed
      */
-    public function getLutte()
+    public function getAge()
     {
-        return $this->lutte;
+        return $this->age;
     }
 
     /**
-     * @param mixed $lutte
+     * @param mixed $age
      */
-    public function setLutte($lutte): void
+    public function setAge($age): void
     {
-        $this->lutte = $lutte;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStrategie()
-    {
-        return $this->strategie;
-    }
-
-    /**
-     * @param mixed $strategie
-     */
-    public function setStrategie($strategie): void
-    {
-        $this->strategie = $strategie;
+        $this->age = $age;
     }
 
     /**
      * @return mixed
      */
-    public function getAction()
+    public function getDesobeissant()
     {
-        return $this->action;
+        return $this->desobeissant;
     }
 
     /**
-     * @param mixed $action
+     * @param mixed $desobeissant
      */
-    public function setAction($action): void
+    public function setDesobeissant($desobeissant): void
     {
-        $this->action = $action;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getVictoire()
-    {
-        return $this->victoire;
-    }
-
-    /**
-     * @param mixed $victoire
-     */
-    public function setVictoire($victoire): void
-    {
-        $this->victoire = $victoire;
+        $this->desobeissant = $desobeissant;
     }
 
     /**
      * @return mixed
      */
-    public function getAnecdote()
+    public function getCommantaire()
     {
-        return $this->anecdote;
+        return $this->commantaire;
     }
 
     /**
-     * @param mixed $anecdote
+     * @param mixed $commantaire
      */
-    public function setAnecdote($anecdote): void
+    public function setCommantaire($commantaire): void
     {
-        $this->anecdote = $anecdote;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCitation()
-    {
-        return $this->citation;
-    }
-
-    /**
-     * @param mixed $citation
-     */
-    public function setCitation($citation): void
-    {
-        $this->citation = $citation;
+        $this->commantaire = $commantaire;
     }
 
 }
