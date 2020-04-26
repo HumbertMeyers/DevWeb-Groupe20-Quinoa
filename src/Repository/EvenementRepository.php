@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Evenement;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @method Evenement|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,37 +15,43 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class EvenementRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private $manager;
+
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $manager)
     {
         parent::__construct($registry, Evenement::class);
+        $this->manager = $manager;
     }
 
-    // /**
-    //  * @return Evenement[] Returns an array of Evenement objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function saveEvenement($nom, $periode, $lieu, $lutte, $strategie, $action, $victoire, $anecdote, $citation)
     {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $newEvenement = new Evenement();
 
-    /*
-    public function findOneBySomeField($value): ?Evenement
-    {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $newEvenement->setNom($nom);
+        $newEvenement->setPeriode($periode);
+        $newEvenement->setLieu($lieu);
+        $newEvenement->setLutte($lutte);
+        $newEvenement->setStrategie($strategie);
+        $newEvenement->setAction($action);
+        $newEvenement->setVictoire($victoire);
+        $newEvenement->setAnecdote($anecdote);
+        $newEvenement->setCitation($citation);
+
+        $this->manager->persist($newEvenement);
+        $this->manager->flush();
     }
-    */
+
+    public function updateEvenement(Evenement $evenement): Evenement
+    {
+        $this->manager->persist($evenement);
+        $this->manager->flush();
+
+        return $evenement;
+    }
+
+    public function removeEvenement(Evenement $evenement)
+    {
+        $this->manager->remove($evenement);
+        $this->manager->flush();
+    }
 }

@@ -223,4 +223,20 @@ class Evenement
         $this->citation = $citation;
     }
 
+    public function toArray()
+    {
+        return [
+            'id' => $this->getId(),
+            'nom' => $this->getNom(),
+            'periode' => $this->getPeriode(),
+            'lieu' => $this->getLieu(),
+            'lutte' => $this->getLutte(),
+            'strategie' => $this->getStrategie(),
+            'action' => $this->getAction(),
+            'victoire' => $this->getVictoire(),
+            'anecdote' => $this->getAnecdote(),
+            'citation' => $this->getCitation()
+        ];
+    }
+
 }
