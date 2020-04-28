@@ -6,7 +6,7 @@ class SeConnecter extends Component {
     return (
       <div className="container center">
         <div className="row justify-content-md-center">
-          <form className="cadreSombre col-lg-7 col-md-10 col-sm-11 col-xs-12">
+          <form className="cadreSombre">
             <h1 className="formTitle text-center">Se Connecter</h1>
             <FormGroup>
               <h3>Pseudo</h3>

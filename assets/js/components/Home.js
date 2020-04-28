@@ -15,7 +15,7 @@ class Home extends Component {
     return (
       <div className="container">
         <div className="row justify-content-md-center">
-          <Nav className="navbar col-md-12">
+          <Nav className="navbar">
             <img className="logo" src={Logo} alt="logo Quinoa" />
             <NavItem>
               <NavLink className="nav-link" href="/accueil">

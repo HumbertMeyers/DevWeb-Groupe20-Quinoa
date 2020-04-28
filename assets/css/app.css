@@ -13,10 +13,13 @@
 
 body {
   color: var(--fourth);
+  font-size: 1.4em;
   /*font-family: comic;*/
   background-color: var(--primary);
-  /* background-image: url("../img/paper.jpg");
-  height: auto;
+  background-image: url("../img/foule.png");
+  background-size: cover;
+  background-attachment: fixed;
+  /* height: auto;
   width: 500px;
   background-position: center;
   background-repeat: repeat;
@@ -34,6 +37,14 @@ body {
   margin-left: auto;
 }
 
+.cadreSombre {
+  background-color: var(--third);
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 30px 0;
+  width: 900px;
+}
+
 /* NAVBAR */
 
 .logo {
@@ -44,6 +55,7 @@ body {
   height: 100px;
   background-color: var(--primary);
   justify-content: space-between;
+  width: 80vw;
 }
 
 NavItem {
@@ -63,13 +75,6 @@ a {
 
 a:hover {
   color: var(--fourth);
-}
-
-.cadreSombre {
-  background-color: var(--third);
-  border-radius: 10px;
-  padding: 10px 20px;
-  margin: 30px 0;
 }
 
 /* Inscription & SeConnecter */
@@ -122,11 +127,11 @@ select.form-control {
   font-size: 1em;
 }
 
-input[type="text"]:focus,
+/* input[type="text"]:focus,
 select.form-control:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
-}
+} */
 
 #comDesobei {
   width: 100%;
@@ -210,4 +215,42 @@ ul {
 .accueilTitre {
   text-align: center;
   font-weight: bold;
+  color: var(--secondary);
+}
+
+.imgAccueil {
+  float: right;
+  display: block;
+  max-width: 500px;
+  max-height: 350px;
+  width: auto;
+  height: auto;
+  margin: 0 1vw;
+}
+
+.accueilContenu {
+  display: flex;
+  margin: 2vh 1vw;
+}
+
+/* Responsive */
+@media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
+  body {
+    font-size: 1.5em;
+  }
+
+  .cadreSombre {
+  }
+  .accueilContenu {
+    display: block;
+    width: 80vw;
+    text-align: center;
+  }
+  .imgAccueil {
+    max-width: 75vw;
+    max-height: 40vh;
+    float: none;
+    text-align: center;
+    margin: 2vh auto;
+  }
 }
