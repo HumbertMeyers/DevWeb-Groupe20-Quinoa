@@ -17,8 +17,8 @@ class Accueil extends Component {
                 </p>
                 <p>
                   Le jeu permet de découvrir des actrices et acteurs des luttes
-                  d’hier et d’aujourd’hui. Si ces personnages ont joué un rôle
-                  important dans l’Histoire.
+                  d’hier et d’aujourd’hui ainsi que de voir si ces personnages
+                  ont joué un rôle important dans l’Histoire.
                 </p>
               </span>
               <img src={dezobey} className="imgAccueil" />
