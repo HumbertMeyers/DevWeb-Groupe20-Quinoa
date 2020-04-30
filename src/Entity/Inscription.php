@@ -127,15 +127,4 @@ class Inscription
             'commentaire' => $this->getCommentaire()
         ];
     }
-
-    public function toArray()
-    {
-        return [
-            'pseudo' => $this->getPseudo(),
-            'mail' => $this->getMail(),
-            'age' => $this->getAge(),
-            'desobeissant' => $this->getDesobeissant(),
-            'commentaire' => $this->getCommentaire()
-        ];
-    }
 }
