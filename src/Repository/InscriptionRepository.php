@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Inscription;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @method Inscription|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,37 +15,39 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class InscriptionRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private $manager;
+
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $manager)
     {
         parent::__construct($registry, Inscription::class);
+        $this->manager = $manager;
     }
 
-    // /**
-    //  * @return Inscription[] Returns an array of Inscription objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function saveInscription($pseudo, $mail, $age, $desobeissant, $commentaire)
     {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+        $newInscription = new Inscription();
 
-    /*
-    public function findOneBySomeField($value): ?Inscription
-    {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $newInscription->setNom($pseudo);
+        $newInscription->setMail($mail);
+        $newInscription->setAge($age);
+        $newInscription->setDesobeissant($desobeissant);
+        $newInscription->setCommantaire($commentaire);
+
+        $this->manager->persist($newInscription);
+        $this->manager->flush();
     }
-    */
+
+    public function updateInscription(Inscription $inscription): Inscription
+    {
+        $this->manager->persist($inscription);
+        $this->manager->flush();
+
+        return $inscription;
+    }
+
+    public function removeInscription(Inscription $inscription)
+    {
+        $this->manager->remove($inscription);
+        $this->manager->flush();
+    }
 }

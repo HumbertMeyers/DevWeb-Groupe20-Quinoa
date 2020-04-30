@@ -15,6 +15,7 @@ class Inscription
     private $pseudo;
 
     /**
+     * @ORM\Id()
      * @ORM\Column(type="string", length=50)
      */
     private $mail;
@@ -32,7 +33,7 @@ class Inscription
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $commantaire;
+    private $commentaire;
 
 
 
@@ -103,17 +104,28 @@ class Inscription
     /**
      * @return mixed
      */
-    public function getCommantaire()
+    public function getCommentaire()
     {
-        return $this->commantaire;
+        return $this->commentaire;
     }
 
     /**
-     * @param mixed $commantaire
+     * @param mixed $commentaire
      */
-    public function setCommantaire($commantaire): void
+    public function setCommentaire($commentaire): void
     {
-        $this->commantaire = $commantaire;
+        $this->commentaire = $commentaire;
+    }
+
+    public function toArray()
+    {
+        return [
+            'pseudo' => $this->getPseudo(),
+            'mail' => $this->getMail(),
+            'age' => $this->getAge(),
+            'desobeissant' => $this->getDesobeissant(),
+            'commentaire' => $this->getCommentaire()
+        ];
     }
 
     public function toArray()
