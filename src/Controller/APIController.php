@@ -1,18 +1,15 @@
 <?php
 
-
 namespace App\Controller;
 
-
-use App\Entity\Inscription;
 use App\Entity\Evenement;
-use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\InscriptionRepository;
 use App\Repository\EvenementRepository;
+use App\Repository\InscriptionRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Routing\Annotation\Route;
 
 class APIController
 {
@@ -35,10 +32,11 @@ class APIController
         $pseudo = $data['pseudo'];
         $mail = $data['mail'];
         $age = $data['age'];
+        $sexe = $sexe['sexe'];
         $desobeissant = $data['desobeissant'];
         $commentaire = $data['commentaire'];
 
-        if (empty($pseudo) || empty($mail) || empty($age) || empty($desobeissant) || empty($commentaire)) {
+        if (empty($pseudo) || empty($mail) || empty($age) || empty($sexe) || empty($desobeissant) || empty($commentaire)) {
             throw new NotFoundHttpException('Paramètres obligatoires attendus!');
         }
 
@@ -58,6 +56,7 @@ class APIController
             'pseudo' => $inscription->getPseudo(),
             'mail' => $inscription->getMail(),
             'age' => $inscription->getAge(),
+            'sexe' => $inscription->getSexe(),
             'desobeissant' => $inscription->getDesobeissant(),
             'commentaire' => $inscription->getCommentaire(),
         ];
@@ -78,6 +77,7 @@ class APIController
                 'pseudo' => $inscription->getPseudo(),
                 'mail' => $inscription->getMail(),
                 'age' => $inscription->getAge(),
+                'sexe' => $inscription->getSexe(),
                 'desobeissant' => $inscription->getDesobeissant(),
                 'commentaire' => $inscription->getCommentaire(),
             ];
@@ -98,6 +98,7 @@ class APIController
         empty($data['pseudo']) ? true : $inscription->setPseudo($data['pseudo']);
         empty($data['mail']) ? true : $inscription->setMail($data['mail']);
         empty($data['age']) ? true : $inscription->setAge($data['age']);
+        empty($data['sexe']) ? true : $inscription->setSexe($data['sexe']);
         empty($data['desobeissant']) ? true : $inscription->setDesobeissant($data['desobeissant']);
         empty($data['commentaire']) ? true : $inscription->setCommentaire($data['commentaire']);
 

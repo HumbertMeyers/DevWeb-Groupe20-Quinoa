@@ -1,6 +1,7 @@
 // noprotect
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import axios from "axios";
 
 class Inscription extends Component {
   constructor(props) {
@@ -9,33 +10,57 @@ class Inscription extends Component {
       pseudo: "",
       mail: "",
       age: "",
+      sexe: "",
       commentaire: "",
       desobeissant: "",
     };
-
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    const value = event.currentTarget.value;
-    this.setState({
-      mail: value,
-      pseudo: value,
-      age: value,
-      commentaire: value,
-      desobeissant: value,
-    });
+  createUser() {
+    axios.post("/api/users/add");
+  }
+
+  handleChange(item, champ) {
+    let itemValue = item.target.value;
+    switch (champ) {
+      case "pseudo": {
+        this.setState({ pseudo: itemValue });
+      }
+      case "mail": {
+        this.setState({ mail: itemValue });
+      }
+      case "age": {
+        this.setState({ age: itemValue });
+      }
+      case "sexe": {
+        this.setState({ sexe: itemValue });
+      }
+      case "desobeissant": {
+        this.setState({ desobeissant: itemValue });
+      }
+      case "commentaire": {
+        this.setState({ commentaire: itemValue });
+      }
+    }
+  }
+
+  handleSubmit() {
+    let obj = {};
+    obj.pseudo = this.state.pseudo;
+    obj.mail = this.state.mail;
+    obj.age = this.state.age;
+    obj.sexe = this.state.sexe;
+    obj.desobeissant = this.state.desobeissant;
+    obj.commentaire = this.state.commentaire;
+
+    console.warn("données envoyées", obj);
   }
 
   render() {
     return (
       <div className="container center">
         <div className="row justify-content-md-center">
-          <form
-            className="cadreSombre"
-            method="POST"
-            onSubmit={this.handleSubmit}
-          >
+          <form className="cadreSombre" method="POST">
             <h1 className="formTitle text-center">Inscription</h1>
             <FormGroup>
               <h3>Pseudo</h3>
@@ -44,8 +69,7 @@ class Inscription extends Component {
                 name="pseudo"
                 id="pseudo"
                 placeholder=""
-                value={this.state.pseudo}
-                onChange={this.handleChange(pseudo)}
+                onChange={(item) => this.handleChange(item, "pseudo")}
               />
             </FormGroup>
             <FormGroup>
@@ -55,8 +79,7 @@ class Inscription extends Component {
                 name="email"
                 id="Email"
                 placeholder=""
-                value={this.state.mail}
-                onChange={this.handleChange(mail)}
+                onChange={(item) => this.handleChange(item, "mail")}
               />
             </FormGroup>
             <h3>Age</h3>
@@ -65,8 +88,8 @@ class Inscription extends Component {
                 type="radio"
                 name="radioAge"
                 id="16"
-                value={this.state.desobeissant}
-                onChange={this.handleChange(age)}
+                value="16"
+                onChange={(item) => this.handleChange(item, "age")}
               />
               <Label>16-18</Label>
             </FormGroup>
@@ -75,8 +98,8 @@ class Inscription extends Component {
                 type="radio"
                 name="radioAge"
                 id="19"
-                value={this.state.value}
-                onChange={this.handleChange(ag)}
+                value="19"
+                onChange={(item) => this.handleChange(item, "age")}
               />
               <Label>19-21</Label>
             </FormGroup>
@@ -85,8 +108,8 @@ class Inscription extends Component {
                 type="radio"
                 name="radioAge"
                 id="22"
-                value={this.state.value}
-                onChange={this.handleChange(desobeissant)}
+                value="22"
+                onChange={(item) => this.handleChange(item, "age")}
               />
               <Label>22-25</Label>
             </FormGroup>
@@ -95,8 +118,8 @@ class Inscription extends Component {
                 type="radio"
                 name="radioAge"
                 id="26"
-                value={this.state.value}
-                onChange={this.handleChange(desobeissant)}
+                value="26"
+                onChange={(item) => this.handleChange(item, "age")}
               />
               <Label>26-29</Label>
             </FormGroup>
@@ -105,10 +128,41 @@ class Inscription extends Component {
                 type="radio"
                 name="radioAge"
                 id="30"
-                value={this.state.value}
-                onChange={this.handleChange(desobeissant)}
+                value="30"
+                onChange={(item) => this.handleChange(item, "mail")}
               />
               <Label>+ 30</Label>
+            </FormGroup>
+            <h3>Sexe</h3>
+            <FormGroup className="radio">
+              <Input
+                type="radio"
+                name="sexe"
+                id="homme"
+                value="homme"
+                onChange={(item) => this.handleChange(item, "sexe")}
+              />
+              <Label>homme</Label>
+            </FormGroup>
+            <FormGroup className="radio">
+              <Input
+                type="radio"
+                name="sexe"
+                id="femme"
+                value="femme"
+                onChange={(item) => this.handleChange(item, "sexe")}
+              />
+              <Label>femme</Label>
+            </FormGroup>
+            <FormGroup className="radio">
+              <Input
+                type="radio"
+                name="sexe"
+                id="autre"
+                value="autre"
+                onChange={(item) => this.handleChange(item, "sexe")}
+              />
+              <Label>autre</Label>
             </FormGroup>
             <FormGroup>
               <h3>Est-ce que vous vous considérez comme «désobéissant» ?</h3>
@@ -117,8 +171,8 @@ class Inscription extends Component {
                   type="radio"
                   name="desobei"
                   id="oui"
-                  value={this.state.desobeissant}
-                  onChange={this.handleChange(desobeissant)}
+                  value="oui"
+                  onChange={(item) => this.handleChange(item, "desobeissant")}
                 />
                 <Label>oui</Label>
               </FormGroup>
@@ -127,8 +181,8 @@ class Inscription extends Component {
                   type="radio"
                   name="desobei"
                   id="unPeu"
-                  value={this.state.desobeissant}
-                  onChange={this.handleChange}
+                  value="un peu"
+                  onChange={(item) => this.handleChange(item, "desobeissant")}
                 />
                 <Label>un peu</Label>
               </FormGroup>
@@ -137,8 +191,8 @@ class Inscription extends Component {
                   type="radio"
                   name="desobei"
                   id="non"
-                  value={this.state.desobeissant}
-                  onChange={this.handleChange}
+                  value="non"
+                  onChange={(item) => this.handleChange(item, "desobeissant")}
                 />
                 <Label>non</Label>
               </FormGroup>
@@ -150,8 +204,7 @@ class Inscription extends Component {
               <textarea
                 id="comDesobei"
                 maxLength="200"
-                value={this.state.co}
-                onChange={this.handleChange}
+                onChange={(item) => this.handleChange(item, "commentaire")}
               />
             </FormGroup>
             <FormGroup>
@@ -239,7 +292,9 @@ class Inscription extends Component {
             </FormGroup>
             <br></br>
             <FormGroup className="wrapper">
-              <Button className="btnLogin">S'inscrire</Button>
+              <Button className="btnLogin" onClick={() => this.handleSubmit()}>
+                S'inscrire
+              </Button>
             </FormGroup>
           </form>
         </div>

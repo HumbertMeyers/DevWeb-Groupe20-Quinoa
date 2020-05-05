@@ -26,6 +26,11 @@ class Inscription
     private $age;
 
     /**
+     * @ORM\Column(type="string", length=7)
+     */
+    private $sexe;
+
+    /**
      * @ORM\Column(type="string", length=10)
      */
     private $desobeissant;
@@ -35,9 +40,7 @@ class Inscription
      */
     private $commentaire;
 
-
-
-     /**
+    /**
      * @return mixed
      */
     public function getPseudo()
@@ -88,6 +91,22 @@ class Inscription
     /**
      * @return mixed
      */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * @param mixed $sexe
+     */
+    public function setSexe($sexe): void
+    {
+        $this->sexe = $sexe;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getDesobeissant()
     {
         return $this->desobeissant;
@@ -123,8 +142,9 @@ class Inscription
             'pseudo' => $this->getPseudo(),
             'mail' => $this->getMail(),
             'age' => $this->getAge(),
+            'sexe' => $this->getSexe(),
             'desobeissant' => $this->getDesobeissant(),
-            'commentaire' => $this->getCommentaire()
+            'commentaire' => $this->getCommentaire(),
         ];
     }
 }
