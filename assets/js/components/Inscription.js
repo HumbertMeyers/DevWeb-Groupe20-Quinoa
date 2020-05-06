@@ -23,7 +23,21 @@ class Inscription extends Component {
   }
 
   createUser() {
-    axios.post("/api/users/add");
+    const userObject = {
+      pseudo: this.state.pseudo,
+      mail: this.state.mail,
+      age: this.state.age,
+      sexe: this.state.sexe,
+      desobeissant: this.state.desobeissant,
+    };
+    axios
+      .post("/api/users/add", userObject)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   handleChange(item, champ) {
@@ -107,6 +121,7 @@ class Inscription extends Component {
     if (isValid) {
       console.log(this.state);
       this.props.history.push("/quizz");
+      this.createUser();
     }
   }
 
