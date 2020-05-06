@@ -185,7 +185,11 @@ class APIController
      */
     public function getEvent($id): JsonResponse
     {
-        $evenement = $this->evenementRepository->findOneBy(['id' => $id]);
+        if (is_numeric($id)) {
+            $evenement = $this->evenementRepository->findOneBy(['id' => $id]);
+        } else {
+            $evenement = $this->evenementRepository->findOneBy(['nom' => $id]);
+        }
 
         $data = [
             'id' => $evenement->getId(),
@@ -240,7 +244,11 @@ class APIController
      */
     public function updateEvent($id, Request $request): JsonResponse
     {
-        $evenement = $this->evenementRepository->findOneBy(['id' => $id]);
+        if (is_numeric($id)) {
+            $evenement = $this->evenementRepository->findOneBy(['id' => $id]);
+        } else {
+            $evenement = $this->evenementRepository->findOneBy(['nom' => $id]);
+        }
         $data = json_decode($request->getContent(), true);
 
         empty($data['nom']) ? true : $evenement->setNom($data['nom']);
@@ -270,7 +278,11 @@ class APIController
      */
     public function deleteEvent($id): JsonResponse
     {
-        $evenement = $this->evenementRepository->findOneBy(['id' => $id]);
+        if (is_numeric($id)) {
+            $evenement = $this->evenementRepository->findOneBy(['id' => $id]);
+        } else {
+            $evenement = $this->evenementRepository->findOneBy(['nom' => $id]);
+        }
 
         $this->evenementRepository->removeEvenement($evenement);
 
