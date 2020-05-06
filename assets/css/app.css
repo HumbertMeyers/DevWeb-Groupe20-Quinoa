@@ -53,7 +53,6 @@ body {
 
 .navbar {
   height: 100px;
-  background-color: var(--primary);
   justify-content: space-between;
   width: 80vw;
 }
@@ -115,6 +114,9 @@ input.radioAge {
   font-size: 1.5em;
   margin-bottom: 20px;
 }
+.erreur {
+  color: #811f2c;
+}
 
 .wrapper {
   text-align: center;
@@ -131,15 +133,15 @@ select.form-control {
   font-size: 1em;
 }
 
-/* input[type="text"]:focus,
+input[type="text"]:focus,
 select.form-control:focus {
   -webkit-box-shadow: none;
   box-shadow: none;
-} */
-
-#comDesobei {
-  width: 100%;
 }
+
+/* #comDesobei {
+  width: 100%;
+} */
 
 #tabDesobei {
   margin: auto;

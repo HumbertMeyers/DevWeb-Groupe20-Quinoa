@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 class Inscription extends Component {
   constructor(props) {
@@ -11,8 +12,13 @@ class Inscription extends Component {
       mail: "",
       age: "",
       sexe: "",
-      commentaire: "",
+      // commentaire: "",
       desobeissant: "",
+      pseudoErreur: "",
+      mailErreur: "",
+      ageErreur: "",
+      sexeErreur: "",
+      desobeissantErreur: "",
     };
   }
 
@@ -25,35 +31,83 @@ class Inscription extends Component {
     switch (champ) {
       case "pseudo": {
         this.setState({ pseudo: itemValue });
+        break;
       }
       case "mail": {
         this.setState({ mail: itemValue });
+        break;
       }
       case "age": {
         this.setState({ age: itemValue });
+        break;
       }
       case "sexe": {
         this.setState({ sexe: itemValue });
+        break;
       }
       case "desobeissant": {
         this.setState({ desobeissant: itemValue });
+        break;
       }
-      case "commentaire": {
-        this.setState({ commentaire: itemValue });
-      }
+      // case "commentaire": {
+      //   this.setState({ commentaire: itemValue });
+      // }
     }
   }
 
-  handleSubmit() {
-    let obj = {};
-    obj.pseudo = this.state.pseudo;
-    obj.mail = this.state.mail;
-    obj.age = this.state.age;
-    obj.sexe = this.state.sexe;
-    obj.desobeissant = this.state.desobeissant;
-    obj.commentaire = this.state.commentaire;
+  validate() {
+    let pseudoErreur = "";
+    let mailErreur = "";
+    let ageErreur = "";
+    let sexeErreur = "";
+    let desobeissantErreur = "";
 
-    console.warn("données envoyées", obj);
+    if (!this.state.pseudo) {
+      pseudoErreur = "le champ doit être rempli";
+    }
+
+    if (!this.state.mail.includes("@")) {
+      mailErreur = "l'email est invalide";
+    }
+
+    if (!this.state.age) {
+      ageErreur = "le champ doit être rempli";
+    }
+
+    if (!this.state.sexe) {
+      sexeErreur = "le champ doit être rempli";
+    }
+
+    if (!this.state.desobeissant) {
+      desobeissantErreur = "le champ doit être rempli";
+    }
+
+    if (
+      mailErreur ||
+      pseudoErreur ||
+      ageErreur ||
+      sexeErreur ||
+      desobeissantErreur
+    ) {
+      this.setState({
+        mailErreur,
+        pseudoErreur,
+        ageErreur,
+        sexeErreur,
+        desobeissantErreur,
+      });
+      return false;
+    }
+
+    return true;
+  }
+
+  handleSubmit() {
+    const isValid = this.validate();
+    if (isValid) {
+      console.log(this.state);
+      this.props.history.push("/quizz");
+    }
   }
 
   render() {
@@ -71,98 +125,107 @@ class Inscription extends Component {
                 placeholder=""
                 onChange={(item) => this.handleChange(item, "pseudo")}
               />
+              <div className="erreur">{this.state.pseudoErreur}</div>
             </FormGroup>
+
             <FormGroup>
-              <h3>Adresse mail</h3>
+              <h3>Adresse Mail</h3>
               <Input
                 type="email"
                 name="email"
-                id="Email"
+                id="email"
                 placeholder=""
                 onChange={(item) => this.handleChange(item, "mail")}
               />
+              <div className="erreur">{this.state.mailErreur}</div>
             </FormGroup>
-            <h3>Age</h3>
-            <FormGroup className="radio">
-              <Input
-                type="radio"
-                name="radioAge"
-                id="16"
-                value="16"
-                onChange={(item) => this.handleChange(item, "age")}
-              />
-              <Label>16-18</Label>
+            <FormGroup>
+              <h3>Age</h3>
+              <FormGroup className="radio">
+                <Input
+                  type="radio"
+                  name="radioAge"
+                  id="16"
+                  value="16"
+                  onChange={(item) => this.handleChange(item, "age")}
+                />
+                <Label>16-18</Label>
+              </FormGroup>
+              <FormGroup className="radio">
+                <Input
+                  type="radio"
+                  name="radioAge"
+                  id="19"
+                  value="19"
+                  onChange={(item) => this.handleChange(item, "age")}
+                />
+                <Label>19-21</Label>
+              </FormGroup>
+              <FormGroup className="radio">
+                <Input
+                  type="radio"
+                  name="radioAge"
+                  id="22"
+                  value="22"
+                  onChange={(item) => this.handleChange(item, "age")}
+                />
+                <Label>22-25</Label>
+              </FormGroup>
+              <FormGroup className="radio">
+                <Input
+                  type="radio"
+                  name="radioAge"
+                  id="26"
+                  value="26"
+                  onChange={(item) => this.handleChange(item, "age")}
+                />
+                <Label>26-29</Label>
+              </FormGroup>
+              <FormGroup className="radio">
+                <Input
+                  type="radio"
+                  name="radioAge"
+                  id="30"
+                  value="30"
+                  onChange={(item) => this.handleChange(item, "mail")}
+                />
+                <Label>+ 30</Label>
+              </FormGroup>
+              <div className="erreur">{this.state.ageErreur}</div>
             </FormGroup>
-            <FormGroup className="radio">
-              <Input
-                type="radio"
-                name="radioAge"
-                id="19"
-                value="19"
-                onChange={(item) => this.handleChange(item, "age")}
-              />
-              <Label>19-21</Label>
-            </FormGroup>
-            <FormGroup className="radio">
-              <Input
-                type="radio"
-                name="radioAge"
-                id="22"
-                value="22"
-                onChange={(item) => this.handleChange(item, "age")}
-              />
-              <Label>22-25</Label>
-            </FormGroup>
-            <FormGroup className="radio">
-              <Input
-                type="radio"
-                name="radioAge"
-                id="26"
-                value="26"
-                onChange={(item) => this.handleChange(item, "age")}
-              />
-              <Label>26-29</Label>
-            </FormGroup>
-            <FormGroup className="radio">
-              <Input
-                type="radio"
-                name="radioAge"
-                id="30"
-                value="30"
-                onChange={(item) => this.handleChange(item, "mail")}
-              />
-              <Label>+ 30</Label>
-            </FormGroup>
-            <h3>Sexe</h3>
-            <FormGroup className="radio">
-              <Input
-                type="radio"
-                name="sexe"
-                id="homme"
-                value="homme"
-                onChange={(item) => this.handleChange(item, "sexe")}
-              />
-              <Label>homme</Label>
-            </FormGroup>
-            <FormGroup className="radio">
-              <Input
-                type="radio"
-                name="sexe"
-                id="femme"
-                value="femme"
-                onChange={(item) => this.handleChange(item, "sexe")}
-              />
-              <Label>femme</Label>
-            </FormGroup>
-            <FormGroup className="radio">
-              <Input
-                type="radio"
-                name="sexe"
-                id="autre"
-                value="autre"
-                onChange={(item) => this.handleChange(item, "sexe")}
-              />
-              <Label>autre</Label>
+            <FormGroup>
+              <h3>Sexe</h3>
+              <FormGroup className="radio">
+                <Input
+                  type="radio"
+                  name="sexe"
+                  id="homme"
+                  value="homme"
+                  onChange={(item) => this.handleChange(item, "sexe")}
+                />
+                <Label>homme</Label>
+              </FormGroup>
+              <FormGroup className="radio">
+                <Input
+                  type="radio"
+                  name="sexe"
+                  id="femme"
+                  value="femme"
+                  onChange={(item) => this.handleChange(item, "sexe")}
+                />
+                <Label>femme</Label>
+              </FormGroup>
+              <FormGroup className="radio">
+                <Input
+                  type="radio"
+                  name="sexe"
+                  id="autre"
+                  value="autre"
+                  onChange={(item) => this.handleChange(item, "sexe")}
+                />
+                <Label>autre</Label>
+              </FormGroup>
+              <div className="erreur">{this.state.sexeErreur}</div>
             </FormGroup>
             <FormGroup>
               <h3>Est-ce que vous vous considérez comme «désobéissant» ?</h3>
@@ -196,8 +259,9 @@ class Inscription extends Component {
                 />
                 <Label>non</Label>
               </FormGroup>
+              <div className="erreur">{this.state.desobeissantErreur}</div>
             </FormGroup>
-            <FormGroup>
+            {/* <FormGroup>
               <h6 className="text-center">
                 laisser un commentaire (optionnel)
               </h6>
@@ -206,7 +270,7 @@ class Inscription extends Component {
                 maxLength="200"
                 onChange={(item) => this.handleChange(item, "commentaire")}
               />
-            </FormGroup>
+            </FormGroup> */}
             <FormGroup>
               <table id="tabDesobei">
                 <tbody>

@@ -57,6 +57,7 @@ class Quizz extends React.Component {
   checkAnswer = (answer) => {
     this.setState({ myAnswer: answer, disabled: false });
   };
+
   finishHandler = () => {
     if (this.state.currentQuestion === quizzdata.length - 1) {
       this.setState({

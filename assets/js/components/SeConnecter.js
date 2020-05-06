@@ -9,8 +9,8 @@ class SeConnecter extends Component {
           <form className="cadreSombre">
             <h1 className="formTitle text-center">Se Connecter</h1>
             <FormGroup>
-              <h3>Pseudo</h3>
-              <Input type="text" name="pseudo" id="pseudo" placeholder="" />
+              <h3>Adresse Mail</h3>
+              <Input type="email" name="email" id="email" placeholder="" />
             </FormGroup>
             {/* <FormGroup>
               <h3>Adresse mail</h3>
