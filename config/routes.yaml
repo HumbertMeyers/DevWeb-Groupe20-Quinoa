@@ -12,6 +12,6 @@ app_quizz:
   path: /index/index
   controller: App\Controller\IndexController::index
 
- http://vps799626.ovh.net:8000/:
-    type: redirect
-    to: https://www.vps799626.ovh.net:8000/
+#  http://vps799626.ovh.net:8000/:
+#     type: redirect
+#     to: https://www.vps799626.ovh.net:8000/
