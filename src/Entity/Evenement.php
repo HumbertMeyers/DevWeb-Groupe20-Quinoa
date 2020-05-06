@@ -62,32 +62,32 @@ class Evenement
     private $citation;
 
     /**
-    * @ORM\Column(type="string", length=100)
+    * @ORM\Column(type="string", length=200)
     */
     private $question;
 
     /**
-    * @ORM\Column(type="string", length=50)
+    * @ORM\Column(type="string", length=200)
     */
     private $reponse1;
 
     /**
-    * @ORM\Column(type="string", length=50)
+    * @ORM\Column(type="string", length=200)
     */
     private $reponse2;
 
     /**
-    * @ORM\Column(type="string", length=50)
+    * @ORM\Column(type="string", length=200)
     */
     private $reponse3;
 
     /**
-    * @ORM\Column(type="string", length=200)
+    * @ORM\Column(type="string", length=500)
     */
     private $video;
 
     /**
-    * @ORM\Column(type="string", length=200)
+    * @ORM\Column(type="string", length=500)
     */
     private $article;
 
