@@ -223,6 +223,12 @@ class APIController
                 'victoire' => $evenement->getVictoire(),
                 'anecdote' => $evenement->getAnecdote(),
                 'citation' => $evenement->getCitation(),
+                'question' => $evenement->getQuestion(),
+                'reponse1' => $evenement->getReponse1(),
+                'reponse2' => $evenement->getReponse2(),
+                'reponse3' => $evenement->getReponse3(),
+                'video' => $evenement->getVideo(),
+                'article' => $evenement->getArticle(),
             ];
         }
 
@@ -246,6 +252,13 @@ class APIController
         empty($data['victoire']) ? true : $evenement->setVictoire($data['victoire']);
         empty($data['anecdote']) ? true : $evenement->setAnecdote($data['anecdote']);
         empty($data['citation']) ? true : $evenement->setCitation($data['citation']);
+        empty($data['question']) ? true : $evenement->setQuestion($data['question']);
+        empty($data['reponse1']) ? true : $evenement->setreponse1($data['reponse1']);
+        empty($data['reponse2']) ? true : $evenement->setreponse2($data['reponse2']);
+        empty($data['reponse3']) ? true : $evenement->setreponse3($data['reponse3']);
+        empty($data['video']) ? true : $evenement->setVideo($data['video']);
+        empty($data['article']) ? true : $evenement->setArticle($data['article']);
+
 
         $updatedEvenement = $this->evenementRepository->updateEvenement($evenement);
 

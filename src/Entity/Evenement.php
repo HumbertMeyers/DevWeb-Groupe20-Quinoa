@@ -61,6 +61,35 @@ class Evenement
     */
     private $citation;
 
+    /**
+    * @ORM\Column(type="string", length=100)
+    */
+    private $question;
+
+    /**
+    * @ORM\Column(type="string", length=50)
+    */
+    private $reponse1;
+
+    /**
+    * @ORM\Column(type="string", length=50)
+    */
+    private $reponse2;
+
+    /**
+    * @ORM\Column(type="string", length=50)
+    */
+    private $reponse3;
+
+    /**
+    * @ORM\Column(type="string", length=200)
+    */
+    private $video;
+
+    /**
+    * @ORM\Column(type="string", length=200)
+    */
+    private $article;
 
 
     /**
@@ -223,6 +252,106 @@ class Evenement
         $this->citation = $citation;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    /**
+     * @param mixed $question
+     */
+    public function setQuestion($question): void
+    {
+        $this->question = $question;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReponse1()
+    {
+        return $this->reponse1;
+    }
+
+    /**
+     * @param mixed $reponse1
+     */
+    public function setReponse1($reponse1): void
+    {
+        $this->reponse1 = $reponse1;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReponse2()
+    {
+        return $this->reponse2;
+    }
+
+    /**
+     * @param mixed $reponse2
+     */
+    public function setReponse2($reponse2): void
+    {
+        $this->reponse2 = $reponse2;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReponse3()
+    {
+        return $this->reponse3;
+    }
+
+    /**
+     * @param mixed $reponse3
+     */
+    public function setReponse3($reponse3): void
+    {
+        $this->reponse3 = $reponse3;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    /**
+     * @param mixed $video
+     */
+    public function setVideo($video): void
+    {
+        $this->video = $video;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+
+    /**
+     * @param mixed $article
+     */
+    public function setArticle($article): void
+    {
+        $this->article = $article;
+    }
+
+
+
+
+
     public function toArray()
     {
         return [
@@ -235,7 +364,13 @@ class Evenement
             'action' => $this->getAction(),
             'victoire' => $this->getVictoire(),
             'anecdote' => $this->getAnecdote(),
-            'citation' => $this->getCitation()
+            'citation' => $this->getCitation(),
+            'question' => $this->getQuestion(),
+            'reponse1' => $this->getReponse1(),
+            'reponse2' => $this->getReponse2(),
+            'reponse3' => $this->getReponse3(),
+            'video' => $this->getVideo(),
+            'article' => $this->getArticle(),
         ];
     }
 
