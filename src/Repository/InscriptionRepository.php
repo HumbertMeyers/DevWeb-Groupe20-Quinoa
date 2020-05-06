@@ -27,11 +27,11 @@ class InscriptionRepository extends ServiceEntityRepository
     {
         $newInscription = new Inscription();
 
-        $newInscription->setNom($pseudo);
+        $newInscription->setPseudo($pseudo);
         $newInscription->setMail($mail);
         $newInscription->setAge($age);
         $newInscription->setDesobeissant($desobeissant);
-        $newInscription->setCommantaire($commentaire);
+        $newInscription->setCommentaire($commentaire);
 
         $this->manager->persist($newInscription);
         $this->manager->flush();
