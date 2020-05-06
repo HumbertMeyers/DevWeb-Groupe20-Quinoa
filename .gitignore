@@ -30,3 +30,5 @@ yarn-error.log
 /assets/fichier Quinoa
 
 *.lock
+
+.DS_Store
