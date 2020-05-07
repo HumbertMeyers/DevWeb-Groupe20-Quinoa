@@ -6,6 +6,6 @@ index:
   path: /
   controller: App\Controller\ReactController::index
 
-  http://vps799626.ovh.net:8000/:
-     type: redirect
-     to: https://www.vps799626.ovh.net/
+#  http://vps799626.ovh.net:8000/:
+#     type: redirect
+#     to: https://www.vps799626.ovh.net:8000/
