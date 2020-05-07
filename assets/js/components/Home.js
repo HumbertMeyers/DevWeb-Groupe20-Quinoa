@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect, Link, withRouter } from "react-router-dom";
+import Accueil from "./Accueil";
 import Users from "./Users";
 import Posts from "./Posts";
-import Logo from "../../img/logo.png";
 import Inscription from "./Inscription";
 import LigneDuTemps from "./LigneDuTemps";
 import SeConnecter from "./SeConnecter";
 import Quizz from "./Quizz";
-import Accueil from "./Accueil";
+import Logo from "../../img/logo.png";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -38,7 +38,7 @@ class Home extends Component {
           </Nav>
 
           <Switch>
-            <Redirect exact from="/" to="/users" />
+            <Redirect exact from="/" to="/accueil" />
             <Route path="/users" component={Users} />
             <Route path="/posts" component={Posts} />
             <Route path="/seconnecter" component={SeConnecter} />

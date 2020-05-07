@@ -2,15 +2,9 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-
-
-app_lucky_number:
-  path: /lucky/number
-  controller: App\Controller\LuckyController::number
-
 app_quizz:
-  path: /index/index
-  controller: App\Controller\IndexController::index
+  path: /
+  controller: App\Controller\ReactController::index
 
 #  http://vps799626.ovh.net:8000/:
 #     type: redirect
