@@ -4,6 +4,7 @@ import Users from "./Users";
 import Posts from "./Posts";
 import Logo from "../../img/logo.png";
 import Inscription from "./Inscription";
+import LigneDuTemps from "./LigneDuTemps";
 import SeConnecter from "./SeConnecter";
 import Quizz from "./Quizz";
 import Accueil from "./Accueil";
@@ -24,6 +25,9 @@ class Home extends Component {
               <NavLink className="nav-link" href="/quizz">
                 Quizz
               </NavLink>
+              <NavLink className="nav-link" href="/LigneDuTemps">
+                LigneDuTemps
+              </NavLink>
               <NavLink className="nav-link" href="/seconnecter">
                 Se connecter
               </NavLink>
@@ -41,6 +45,7 @@ class Home extends Component {
             <Route path="/inscription" component={Inscription} />
             <Route path="/quizz" component={Quizz} />
             <Route path="/accueil" component={Accueil} />
+            <Route path="/LigneDuTemps" component={LigneDuTemps} />
           </Switch>
         </div>
       </div>
