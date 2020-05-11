@@ -1,7 +1,26 @@
 import React, { Component } from "react";
-import { Button, FormGroup, Input } from "reactstrap";
+import axios from 'axios';
 
 class LigneDuTemps extends Component {
+
+    constructor(props) { 
+        super(props); 
+  
+        this.state = { 
+            response: [], 
+            periode: "", 
+            nom: "", 
+        }; 
+    } 
+  
+    componentDidMount() { 
+        axios.get('url api') 
+        .then((response) => { 
+            this.setState({ response: response}); 
+        }); 
+    } 
+      
+
   render() {
     return (
       <div className="container center">
@@ -14,12 +33,16 @@ class LigneDuTemps extends Component {
                             <th>Noms</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Date</td>
-                            <td>Noms lier à cette date...</td>
-                        </tr>
-                    </tbody>
+                    <tbody>{ 
+                        this.state.response.map((y) => { 
+                            return ( 
+                                <tr>
+                                    <th>{y.periode}</th>
+                                    <th>{y.nom}</th>
+                                </tr>
+                            ); 
+                        }) 
+                    }</tbody>
                 </table>
             </div>
         </div>
