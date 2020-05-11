@@ -41,16 +41,12 @@ class LigneDuTemps extends Component {
                             <th>Noms</th>
                         </tr>
                     </thead>
-                    <tbody>{ 
-                        this.state.response.map((y) => { 
-                            return ( 
-                                <tr>
-                                    {elementsP}
-                                    {elementsN}
-                                </tr>
-                            ); 
-                        }) 
-                    }</tbody>
+                    <tbody>
+                        <tr>
+                            {elementsP}
+                            {elementsN}
+                        </tr> 
+                    </tbody>
                 </table>
             </div>
         </div>
