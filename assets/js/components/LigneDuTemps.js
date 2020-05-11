@@ -7,10 +7,10 @@ class LigneDuTemps extends Component {
         super(props); 
   
         this.state = { 
-            response: [], 
-            periode: "", 
-            nom: "", 
-        }; 
+            evenements: [  
+            { periode: " " }, 
+            { nom: " " },
+            ]}; 
     } 
   
     componentDidMount() { 
@@ -22,6 +22,14 @@ class LigneDuTemps extends Component {
       
 
   render() {
+
+    const elementsP = this.state.evenements.map(evenement => (
+        <td>{evenement.periode}</td>
+    ));
+    const elementsN = this.state.evenements.map(evenement => (
+        <td>{evenement.nom}</td>
+    ));
+
     return (
       <div className="container center">
         <div className="row justify-content-md-center">
@@ -37,8 +45,8 @@ class LigneDuTemps extends Component {
                         this.state.response.map((y) => { 
                             return ( 
                                 <tr>
-                                    <th>{y.periode}</th>
-                                    <th>{y.nom}</th>
+                                    {elementsP}
+                                    {elementsN}
                                 </tr>
                             ); 
                         }) 
