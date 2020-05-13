@@ -26,19 +26,14 @@ class Inscription
     private $age;
 
     /**
-     * @ORM\Column(type="string", length=7)
-     */
-    private $sexe;
-
-    /**
      * @ORM\Column(type="string", length=10)
      */
     private $desobeissant;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=7)
      */
-    private $commentaire;
+    private $sexe;
 
     /**
      * @return mixed
@@ -118,22 +113,6 @@ class Inscription
     public function setDesobeissant($desobeissant): void
     {
         $this->desobeissant = $desobeissant;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCommentaire()
-    {
-        return $this->commentaire;
-    }
-
-    /**
-     * @param mixed $commentaire
-     */
-    public function setCommentaire($commentaire): void
-    {
-        $this->commentaire = $commentaire;
     }
 
     public function toArray()

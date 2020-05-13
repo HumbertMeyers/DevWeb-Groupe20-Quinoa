@@ -11,25 +11,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PagesController extends AbstractController
 {
-
-    /**
-     * @Route("/home", name="home")
-     */
-    public function home(EvenementRepository $repo)
-    {
-        return $this->render('pages/home.html.twig', [
-            'controller_name' => 'PagesController',
-        ]);
-    }
-
-    /**
-     * @Route("/inscriptions", name="inscriptions")
-     */
-    public function inscriptions()
-    {
-        return $this->render('pages/inscription.html.twig');
-    }
-
     /**
      * @Route("/donnees", name="donnees")
      */
