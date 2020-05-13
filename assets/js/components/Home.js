@@ -7,7 +7,7 @@ import Inscription from "./Inscription";
 import LigneDuTemps from "./LigneDuTemps";
 import SeConnecter from "./SeConnecter";
 import Quizz from "./Quizz";
-import Logo from "../../img/logo.png";
+import dezobey from "../../img/dezobey.png";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -17,7 +17,7 @@ class Home extends Component {
       <div className="container">
         <div className="row justify-content-md-center">
           <Nav className="navbar">
-            <img className="logo" src={Logo} alt="logo Quinoa" />
+            <img className="logo" src={dezobey} alt="logo Quinoa" />
             <NavItem>
               <NavLink className="nav-link" href="/accueil">
                 Accueil
