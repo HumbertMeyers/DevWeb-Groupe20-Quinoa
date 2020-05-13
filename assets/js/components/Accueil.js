@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-import { CardImg } from "reactstrap";
 import dezobey from "../../img/dezobey.jpg";
 
 class Accueil extends Component {
@@ -62,7 +60,7 @@ class Accueil extends Component {
                   qui ont désobéi.
                 </p>
               </span>
-              <img className="imgAccueil" source={dezobey} alt="Accueil" />
+              <img className="imgAccueil" src={dezobey} alt="image du jeu" />
             </div>
           </div>
         </div>
