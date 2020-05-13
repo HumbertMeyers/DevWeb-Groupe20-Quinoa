@@ -61,7 +61,7 @@ class Accueil extends Component {
                   qui ont désobéi.
                 </p>
               </span>
-              <img src={dezobey} className="imgAccueil" />
+              <img source={require('../../img/dezobey.jpg')} className="imgAccueil" />
             </div>
           </div>
         </div>
