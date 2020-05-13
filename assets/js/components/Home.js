@@ -28,6 +28,9 @@ class Home extends Component {
               <NavLink className="nav-link" href="/LigneDuTemps">
                 LigneDuTemps
               </NavLink>
+              <NavLink className="nav-link" href="/resultat">
+                Resultat
+              </NavLink>
               <NavLink className="nav-link" href="/seconnecter">
                 Se connecter
               </NavLink>
@@ -45,7 +48,8 @@ class Home extends Component {
             <Route path="/inscription" component={Inscription} />
             <Route path="/quizz" component={Quizz} />
             <Route path="/accueil" component={Accueil} />
-            <Route path="/LigneDuTemps" component={LigneDuTemps} />
+            <Route path="/lignedutemps" component={LigneDuTemps} />
+            <Route path="/resultat" component={Resultat} />
           </Switch>
         </div>
       </div>

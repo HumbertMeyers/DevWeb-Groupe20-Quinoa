@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
 
 class Inscription extends Component {
   constructor(props) {
@@ -357,11 +356,7 @@ class Inscription extends Component {
             </FormGroup>
             <br></br>
             <FormGroup className="wrapper">
-              <Button
-                className="btnLogin"
-                onClick={() => this.handleSubmit()}
-                data-testid="button"
-              >
+              <Button className="btnLogin" onClick={() => this.handleSubmit()}>
                 <label>S'inscrire</label>
               </Button>
             </FormGroup>
