@@ -32,7 +32,7 @@ class APIController
         $pseudo = $data['pseudo'];
         $mail = $data['mail'];
         $age = $data['age'];
-        $sexe = $sexe['sexe'];
+        $sexe = $data['sexe'];
         $desobeissant = $data['desobeissant'];
         $commentaire = $data['commentaire'];
 
@@ -40,7 +40,7 @@ class APIController
             throw new NotFoundHttpException('Paramètres obligatoires attendus!');
         }
 
-        $this->inscriptionRepository->saveInscription($pseudo, $mail, $age, $desobeissant, $commentaire);
+        $this->inscriptionRepository->saveInscription($pseudo, $mail, $age, $sexe, $desobeissant, $commentaire);
 
         return new JsonResponse(['status' => 'Utilisateur crée!'], Response::HTTP_CREATED);
     }
@@ -266,7 +266,6 @@ class APIController
         empty($data['reponse3']) ? true : $evenement->setReponse3($data['reponse3']);
         empty($data['video']) ? true : $evenement->setVideo($data['video']);
         empty($data['article']) ? true : $evenement->setArticle($data['article']);
-
 
         $updatedEvenement = $this->evenementRepository->updateEvenement($evenement);
 

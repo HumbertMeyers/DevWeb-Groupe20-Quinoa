@@ -31,7 +31,7 @@ class Inscription extends Component {
       desobeissant: this.state.desobeissant,
     };
     axios
-      .post("/api/users/add", userObject)
+      .post("/api/users/add/", userObject)
       .then((response) => {
         console.log(response.data);
       })
@@ -129,7 +129,7 @@ class Inscription extends Component {
     return (
       <div className="container center">
         <div className="row justify-content-md-center">
-          <form className="cadreSombre" method="POST">
+          <Form className="cadreSombre" method="POST">
             <h1 className="formTitle text-center">Inscription</h1>
             <FormGroup>
               <h3>Pseudo</h3>
@@ -371,11 +371,15 @@ class Inscription extends Component {
             </FormGroup>
             <br></br>
             <FormGroup className="wrapper">
-              <Button className="btnLogin" onClick={() => this.handleSubmit()}>
-                S'inscrire
+              <Button
+                className="btnLogin"
+                onClick={() => this.handleSubmit()}
+                data-testid="button"
+              >
+                <label>S'inscrire</label>
               </Button>
             </FormGroup>
-          </form>
+          </Form>
         </div>
       </div>
     );
