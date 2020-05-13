@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-
-import { CardImg } from "reactstrap";
-//import dezobey from "../assets/img/dezobey.jpg";
+//import dezobey from "../../img/dezobey.jpg";
 
 class Accueil extends Component {
   render() {
