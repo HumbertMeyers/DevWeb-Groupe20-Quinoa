@@ -16,7 +16,7 @@ body {
   font-size: 1.4em;
   /*font-family: comic;*/
   background-color: var(--primary);
-  background-image: url("../img/foule.jpg");
+  background-image: url("../img/foule.png");
   background-size: cover;
   background-attachment: fixed;
   /* height: auto;
