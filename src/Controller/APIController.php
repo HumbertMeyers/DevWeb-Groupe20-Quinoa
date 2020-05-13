@@ -36,7 +36,7 @@ class APIController
         $desobeissant = $data['desobeissant'];
         $commentaire = $data['commentaire'];
 
-        if (empty($pseudo) || empty($mail) || empty($age) || empty($sexe) || empty($desobeissant) || empty($commentaire)) {
+        if (empty($pseudo) || empty($mail) || empty($age) || empty($sexe) || empty($desobeissant)) {
             throw new NotFoundHttpException('Paramètres obligatoires attendus!');
         }
 
