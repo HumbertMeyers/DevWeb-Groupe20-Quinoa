@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Dezobey from "../../img/dezobey.jpg";
+import Dezobey from "./../../img/dezobey.jpg";
 
 class Accueil extends Component {
   render() {
