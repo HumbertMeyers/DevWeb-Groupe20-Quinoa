@@ -11,7 +11,7 @@ import Resultat from "./Resultat";
 import logo from "../../img/logo.png";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
-
+a
 class Home extends Component {
   render() {
     return (
