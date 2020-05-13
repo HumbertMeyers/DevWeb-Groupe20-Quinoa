@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { CardImg } from "reactstrap";
-//import dezobey from "../../img/dezobey.jpg";
+import dezobey from "../../img/dezobey.jpg";
 
 class Accueil extends Component {
   render() {
@@ -61,7 +61,7 @@ class Accueil extends Component {
                   qui ont désobéi.
                 </p>
               </span>
-              <img source={require('../../img/dezobey.jpg')} className="imgAccueil" />
+              <img source={dezobey} className="imgAccueil" alt="imgAccueil"/>
             </div>
           </div>
         </div>
