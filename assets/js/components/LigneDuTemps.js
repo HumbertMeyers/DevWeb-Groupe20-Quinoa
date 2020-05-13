@@ -1,17 +1,13 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { ldtdata } from "./LDTData";
+
 
 class LigneDuTemps extends Component {
 
-    constructor(props) { 
-        super(props); 
-  
-        this.state = { 
-            evenements: [  
-            { periode: " " }, 
-            { nom: " " },
-            ]}; 
-    } 
+    state = {
+        
+      };
   
     componentDidMount() { 
         axios.get('url api') 
