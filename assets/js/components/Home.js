@@ -7,7 +7,7 @@ import Inscription from "./Inscription";
 import LigneDuTemps from "./LigneDuTemps";
 import SeConnecter from "./SeConnecter";
 import Quizz from "./Quizz";
-import dezobey from "../../img/dezobey.png";
+import logo from "../../img/logo.png";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
@@ -17,7 +17,7 @@ class Home extends Component {
       <div className="container">
         <div className="row justify-content-md-center">
           <Nav className="navbar">
-            <img className="logo" src={dezobey} alt="logo Quinoa" />
+            <img className="logo" src={logo} alt="logo Quinoa" />
             <NavItem>
               <NavLink className="nav-link" href="/accueil">
                 Accueil
@@ -27,9 +27,6 @@ class Home extends Component {
               </NavLink>
               <NavLink className="nav-link" href="/LigneDuTemps">
                 LigneDuTemps
-              </NavLink>
-              <NavLink className="nav-link" href="/resultat">
-                Resultat
               </NavLink>
               <NavLink className="nav-link" href="/seconnecter">
                 Se connecter
@@ -48,8 +45,7 @@ class Home extends Component {
             <Route path="/inscription" component={Inscription} />
             <Route path="/quizz" component={Quizz} />
             <Route path="/accueil" component={Accueil} />
-            <Route path="/lignedutemps" component={LigneDuTemps} />
-            <Route path="/resultat" component={Resultat} />
+            <Route path="/LigneDuTemps" component={LigneDuTemps} />
           </Switch>
         </div>
       </div>

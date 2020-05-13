@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import dezobey from "./../../img/dezobey.jpg";
+import logo from "./../../img/logo.jpg";
 
 class Accueil extends Component {
   render() {
@@ -60,7 +60,7 @@ class Accueil extends Component {
                   qui ont désobéi.
                 </p>
               </span>
-              <img className="imgAccueil" src={dezobey} alt="image du jeu" />
+              <img className="imgAccueil" src={logo} alt="image du jeu" />
             </div>
           </div>
         </div>
