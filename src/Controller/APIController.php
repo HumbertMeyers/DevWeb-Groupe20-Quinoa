@@ -34,13 +34,12 @@ class APIController
         $age = $data['age'];
         $sexe = $data['sexe'];
         $desobeissant = $data['desobeissant'];
-        $commentaire = $data['commentaire'];
 
         if (empty($pseudo) || empty($mail) || empty($age) || empty($sexe) || empty($desobeissant)) {
             throw new NotFoundHttpException('Paramètres obligatoires attendus!');
         }
 
-        $this->inscriptionRepository->saveInscription($pseudo, $mail, $age, $sexe, $desobeissant, $commentaire);
+        $this->inscriptionRepository->saveInscription($pseudo, $mail, $age, $sexe, $desobeissant);
 
         return new JsonResponse(['status' => 'Utilisateur crée!'], Response::HTTP_CREATED);
     }
