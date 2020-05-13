@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { View } from "reactstrap";
 
 //import { CardImg } from "reactstrap";
 import dezobey from "../../img/dezobey.jpg";
@@ -7,7 +6,6 @@ import dezobey from "../../img/dezobey.jpg";
 class Accueil extends Component {
   render() {
     return (
-      <View>
       <div className="container center">
         <div className="row justify-content-md-center">
           <div className="cadreSombre">
@@ -69,7 +67,6 @@ class Accueil extends Component {
           </div>
         </div>
       </div>
-      </View>
     );
   }
 }
