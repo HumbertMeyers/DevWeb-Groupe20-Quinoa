@@ -8,7 +8,7 @@ import LigneDuTemps from "./LigneDuTemps";
 import SeConnecter from "./SeConnecter";
 import Quizz from "./Quizz";
 import Resultat from "./Resultat";
-import logo from "../../img/dezobey.jpg";
+import logo from "../../img/logo.png";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
