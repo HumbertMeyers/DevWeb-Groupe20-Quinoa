@@ -13,6 +13,6 @@ export const ldtdata = [
     },
     {
         periode: 1930,
-        nom: ` Humbert`,
+        nom: ` Humber`,
     },
   ];
