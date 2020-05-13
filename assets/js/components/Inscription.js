@@ -12,7 +12,6 @@ class Inscription extends Component {
       mail: "",
       age: "",
       sexe: "",
-      // commentaire: "",
       desobeissant: "",
       pseudoErreur: "",
       mailErreur: "",
@@ -63,9 +62,6 @@ class Inscription extends Component {
         this.setState({ desobeissant: itemValue });
         break;
       }
-      // case "commentaire": {
-      //   this.setState({ commentaire: itemValue });
-      // }
     }
   }
 
@@ -276,16 +272,6 @@ class Inscription extends Component {
               </FormGroup>
               <div className="erreur">{this.state.desobeissantErreur}</div>
             </FormGroup>
-            {/* <FormGroup>
-              <h6 className="text-center">
-                laisser un commentaire (optionnel)
-              </h6>
-              <textarea
-                id="comDesobei"
-                maxLength="200"
-                onChange={(item) => this.handleChange(item, "commentaire")}
-              />
-            </FormGroup> */}
             <FormGroup>
               <table id="tabDesobei">
                 <tbody>
