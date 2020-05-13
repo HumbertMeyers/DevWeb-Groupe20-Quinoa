@@ -62,7 +62,7 @@ class Accueil extends Component {
                   qui ont désobéi.
                 </p>
               </span>
-              <img className="imgAccueil" source={dezobey} alt="Accueil" />
+              <img className="imgAccueil" source={dezobey} />
             </div>
           </div>
         </div>
