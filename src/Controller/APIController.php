@@ -32,14 +32,14 @@ class APIController
         $pseudo = $data['pseudo'];
         $mail = $data['mail'];
         $age = $data['age'];
-        $sexe = $data['sexe'];
         $desobeissant = $data['desobeissant'];
+        $sexe = $data['sexe'];
 
         if (empty($pseudo) || empty($mail) || empty($age) || empty($sexe) || empty($desobeissant)) {
             throw new NotFoundHttpException('Paramètres obligatoires attendus!');
         }
 
-        $this->inscriptionRepository->saveInscription($pseudo, $mail, $age, $sexe, $desobeissant);
+        $this->inscriptionRepository->saveInscription($pseudo, $mail, $age, $desobeissant, $sexe);
 
         return new JsonResponse(['status' => 'Utilisateur crée!'], Response::HTTP_CREATED);
     }
@@ -55,9 +55,8 @@ class APIController
             'pseudo' => $inscription->getPseudo(),
             'mail' => $inscription->getMail(),
             'age' => $inscription->getAge(),
-            'sexe' => $inscription->getSexe(),
             'desobeissant' => $inscription->getDesobeissant(),
-            'commentaire' => $inscription->getCommentaire(),
+            'sexe' => $inscription->getSexe(),
         ];
 
         return new JsonResponse($data, Response::HTTP_OK);
@@ -76,9 +75,8 @@ class APIController
                 'pseudo' => $inscription->getPseudo(),
                 'mail' => $inscription->getMail(),
                 'age' => $inscription->getAge(),
-                'sexe' => $inscription->getSexe(),
                 'desobeissant' => $inscription->getDesobeissant(),
-                'commentaire' => $inscription->getCommentaire(),
+                'sexe' => $inscription->getSexe(),
             ];
         }
 
@@ -97,9 +95,8 @@ class APIController
         empty($data['pseudo']) ? true : $inscription->setPseudo($data['pseudo']);
         empty($data['mail']) ? true : $inscription->setMail($data['mail']);
         empty($data['age']) ? true : $inscription->setAge($data['age']);
-        empty($data['sexe']) ? true : $inscription->setSexe($data['sexe']);
         empty($data['desobeissant']) ? true : $inscription->setDesobeissant($data['desobeissant']);
-        empty($data['commentaire']) ? true : $inscription->setCommentaire($data['commentaire']);
+        empty($data['sexe']) ? true : $inscription->setSexe($data['sexe']);
 
         $updatedInscription = $this->inscriptionRepository->updateInscription($inscription);
 
