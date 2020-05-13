@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, FormGroup } from "reactstrap";
-import { useHistory } from "react-router-dom";
 
 class Resultat extends Component {
   constructor(props) {
