@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import { CardImg } from "reactstrap";
+import { View } from "reactstrap";
+
+//import { CardImg } from "reactstrap";
 import dezobey from "../../img/dezobey.jpg";
 
 class Accueil extends Component {
   render() {
     return (
+      <View>
       <div className="container center">
         <div className="row justify-content-md-center">
           <div className="cadreSombre">
@@ -61,11 +64,12 @@ class Accueil extends Component {
                   qui ont désobéi.
                 </p>
               </span>
-              <img source={dezobey} className="imgAccueil" alt="imgAccueil"/>
+              <img className="imgAccueil" source={dezobey} alt="Accueil" />
             </div>
           </div>
         </div>
       </div>
+      </View>
     );
   }
 }
