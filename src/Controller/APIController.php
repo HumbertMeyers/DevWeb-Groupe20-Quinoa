@@ -293,22 +293,20 @@ class APIController
     /**
      * @Route("/api/quizz/{id}", name="quizz", methods={"GET"})
      */
-    public function getQuizz(): JsonResponse
+    public function getQuizz($id): JsonResponse
     {
         if (is_numeric($id)) {
-            $evenement = $this->evenementRepository->findOneBy(['id' => $id]);
+            $quizz = $this->evenementRepository->findOneBy(['id' => $id]);
         } else {
-            $evenement = $this->evenementRepository->findOneBy(['nom' => $id]);
+            $quizz = $this->evenementRepository->findOneBy(['nom' => $id]);
         }       
 
-        foreach ($quizz as $evenement) {
-            $data[] = [
-                'question' => $evenement->getQuestion(),
-                'reponse1' => $evenement->getReponse1(),
-                'reponse2' => $evenement->getReponse2(),
-                'reponse3' => $evenement->getReponse3(),
-            ];
-        }
+        $data = [
+            'question' => $evenement->getQuestion(),
+            'reponse1' => $evenement->getReponse1(),
+            'reponse2' => $evenement->getReponse2(),
+            'reponse3' => $evenement->getReponse3(),
+        ];
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
