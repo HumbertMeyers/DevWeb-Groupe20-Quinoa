@@ -198,6 +198,12 @@ class APIController
             'victoire' => $evenement->getVictoire(),
             'anecdote' => $evenement->getAnecdote(),
             'citation' => $evenement->getCitation(),
+            'question' => $evenement->getQuestion(),
+            'reponse1' => $evenement->getReponse1(),
+            'reponse2' => $evenement->getReponse2(),
+            'reponse3' => $evenement->getReponse3(),
+            'video' => $evenement->getVideo(),
+            'article' => $evenement->getArticle(),
         ];
 
         return new JsonResponse($data, Response::HTTP_OK);
