@@ -283,4 +283,11 @@ class APIController
 
         return new JsonResponse(['status' => 'Evenement deleted'], Response::HTTP_NO_CONTENT);
     }
+    /**
+     * @Route("/api/LigneDuTemps/", name="ligne_du_temps", methods={"GET"})
+     */
+    public function getLDT(): JsonResponse
+    {
+        
+    }
 }
