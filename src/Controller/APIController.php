@@ -296,9 +296,9 @@ class APIController
     public function getQuizz($id): JsonResponse
     {
         if (is_numeric($id)) {
-            $quizz = $this->evenementRepository->findOneBy(['id' => $id]);
+            $evenement = $this->evenementRepository->findOneBy(['id' => $id]);
         } else {
-            $quizz = $this->evenementRepository->findOneBy(['nom' => $id]);
+            $evenement = $this->evenementRepository->findOneBy(['nom' => $id]);
         }       
 
         $data = [
