@@ -26,10 +26,10 @@ class Quizz extends React.Component {
 
 
   componentDidMount() {
-    axios.get('https://vps799626.ovh.net:8000/api/quizz') 
-        .then((response) => { 
-            this.setState({ response: response}); 
-        });
+    // axios.get('https://vps799626.ovh.net:8000/api/quizz') 
+    //     .then((response) => { 
+    //         this.setState({ response: response}); 
+    //     });
   }
   nextQuestionHandler = () => {
     // console.log('test')
