@@ -26,7 +26,7 @@ class Quizz extends React.Component {
 
 
   componentDidMount() {
-    this.loadQuiz();
+    this.loadquizzdata();
   }
   nextQuestionHandler = () => {
     // console.log('test')
