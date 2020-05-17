@@ -10,7 +10,7 @@ import Quizz from "./Quizz";
 import Resultat from "./Resultat";
 import logo from "../../img/logo.png";
 import { Nav, NavItem, NavLink } from "reactstrap";
-import "../../css/bootstrap/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 
 class Home extends Component {
   render() {
