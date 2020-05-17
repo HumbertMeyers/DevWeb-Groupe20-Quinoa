@@ -6,10 +6,10 @@ class Quizz extends React.Component {
     question: null
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const url= "https://vps799626.ovh.net:8000/api/quizz/";
-    const response = fetch(url);
-    const data = response.json();
+    const response = await fetch(url);
+    const data = await response.json();
     this.setState({ question: data.results[1],loading: false });
   }
   
