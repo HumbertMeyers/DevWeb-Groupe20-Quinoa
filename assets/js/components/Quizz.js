@@ -1,17 +1,27 @@
 import React from "react";
 import { quizzdata } from "./QuizzData";
-	
+import axios from 'axios';
+
 
 class Quizz extends React.Component {
-  state = {
-    currentQuestion: 0,
-    myAnswer: null,
-    options: [],
-    score: 1,
-    disabled: true,
-    isEnd: false,
-  };
 
+  constructor (props) {
+    super(props); 
+
+    this.state = {
+      currentQuestion: 0,
+      myAnswer: null,
+      options: [],
+      score: 1,
+      disabled: true,
+      isEnd: false,
+      items: [],
+    }
+  axios.get('https://vps799626.ovh.net:8000/api/quizz/') 
+    .then(res => {
+        this.setState({ items: res.data });  
+   });
+  }
 
   loadquizzdata = () => {
     // console.log(quizzdata[0].question)
@@ -28,6 +38,7 @@ class Quizz extends React.Component {
   componentDidMount() {
     this.loadquizzdata();
   }
+  
   nextQuestionHandler = () => {
     // console.log('test')
     const { myAnswer, answer, score } = this.state;
@@ -96,15 +107,11 @@ class Quizz extends React.Component {
       return (
         <div className="App cadreSombre">
           <h1>{this.state.questions} </h1>
-          <span>{`Questions ${currentQuestion}  out of ${
-            quizzdata.length - 1
-          } remaining `}</span>
+          <span>{`Questions ${currentQuestion}  out of ${ quizzdata.length - 1} remaining `}</span>
           {options.map((option) => (
             <p
               key={option.id}
-              className={`ui floating message options
-          ${myAnswer === option ? "selected" : null}
-          `}
+              className={`ui floating message options ${myAnswer === option ? "selected" : null}`}
               onClick={() => this.checkAnswer(option)}
             >
               {option}
