@@ -25,8 +25,8 @@ class Quizz extends React.Component {
   componentDidMount() {
     this.loadquizzdata();
   }
+
   nextQuestionHandler = () => {
-    // console.log('test')
     const { myAnswer, answer, score } = this.state;
 
     if (myAnswer === answer) {
@@ -72,16 +72,16 @@ class Quizz extends React.Component {
       return (
         <div className="result cadreSombre">
           <h3>Game Over your Final score is {this.state.score} points </h3>
-          <p>
-            The correct answer's for the questions was
-            <ul>
-              {quizzdata.map((item, index) => (
-                <li className="ui floating message options" key={index}>
-                  {item.answer}
-                </li>
-              ))}
-            </ul>
-          </p>
+          <br></br>
+          The correct answer's for the questions was
+          <ul>
+            {quizzdata.map((item, index) => (
+              <li className="ui floating message options" key={index}>
+                {item.answer}
+              </li>
+            ))}
+          </ul>
+          <br></br>
         </div>
       );
     } else {

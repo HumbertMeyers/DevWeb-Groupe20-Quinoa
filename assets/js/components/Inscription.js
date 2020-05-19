@@ -113,8 +113,16 @@ class Inscription extends Component {
 
   handleSubmit() {
     const isValid = this.validate();
+    let obj = {};
+    obj.pseudo = this.state.pseudo;
+    obj.mail = this.state.mail;
+    obj.age = this.state.age;
+    obj.sexe = this.state.sexe;
+    obj.desobeissant = this.state.desobeissant;
+    obj.commentaire = this.state.commentaire;
+
     if (isValid) {
-      console.log(this.state);
+      console.warn("données envoyées", obj);
       this.props.history.push("/quizz");
       this.createUser();
     }
@@ -206,34 +214,43 @@ class Inscription extends Component {
             <FormGroup>
               <h3>Sexe</h3>
               <FormGroup className="radio">
-                <Input
-                  type="radio"
-                  name="sexe"
-                  id="homme"
-                  value="homme"
-                  onChange={(item) => this.handleChange(item, "sexe")}
-                />
-                <Label>homme</Label>
+                <Label>
+                  <Input
+                    type="radio"
+                    name="sexe"
+                    id="homme"
+                    value="homme"
+                    data-testid="homme"
+                    onChange={(item) => this.handleChange(item, "sexe")}
+                  />
+                  homme
+                </Label>
               </FormGroup>
               <FormGroup className="radio">
-                <Input
-                  type="radio"
-                  name="sexe"
-                  id="femme"
-                  value="femme"
-                  onChange={(item) => this.handleChange(item, "sexe")}
-                />
-                <Label>femme</Label>
+                <Label>
+                  <Input
+                    type="radio"
+                    name="sexe"
+                    id="femme"
+                    value="femme"
+                    data-testid="femme"
+                    onChange={(item) => this.handleChange(item, "sexe")}
+                  />
+                  femme
+                </Label>
               </FormGroup>
               <FormGroup className="radio">
-                <Input
-                  type="radio"
-                  name="sexe"
-                  id="autre"
-                  value="autre"
-                  onChange={(item) => this.handleChange(item, "sexe")}
-                />
-                <Label>autre</Label>
+                <Label>
+                  <Input
+                    type="radio"
+                    name="sexe"
+                    id="autre"
+                    value="autre"
+                    data-testid="autre"
+                    onChange={(item) => this.handleChange(item, "sexe")}
+                  />
+                  autre
+                </Label>
               </FormGroup>
               <div className="erreur">{this.state.sexeErreur}</div>
             </FormGroup>
