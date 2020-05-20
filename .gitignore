@@ -2,6 +2,7 @@
 bin
 /src/Migrations/
 phpunit.xml.dist
+.history
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -23,6 +24,7 @@ phpunit.xml.dist
 
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
+
 /public/build/
 npm-debug.log
 yarn-error.log
