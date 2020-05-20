@@ -31,17 +31,18 @@ class LigneDuTemps extends Component {
       modal: false,
       activeModal: null,
     };
-    this.clickHandler = this.clickHandler.bind(this);
-    this.hideModal = this.hideModal.bind(this);
   }
+
+  this.clickHandler = this.clickHandler.bind(this);
+this.hideModal = this.hideModal.bind(this)
 
   clickHandler(e, index) {
-    this.setState({ activeModal: index });
-  }
+    this.setState({ activeModal: index })
+}
 
-  hideModal() {
-    this.setState({ activeModal: null });
-  }
+hideModal() {
+    this.setState({ activeModal: null })
+}
 
   componentDidMount() {
     axios.get("url api").then((response) => {
@@ -58,6 +59,8 @@ class LigneDuTemps extends Component {
     });
   }
 
+
+
   render() {
     const ldtList = ldtdata.map(({ periode, nom }) => (
       <tr key={nom}>
@@ -71,8 +74,7 @@ class LigneDuTemps extends Component {
         </td>
         <Modal
           modalClassName="modal-dialog"
-          show={this.state.activeModal === index}
-          onHide={this.hideModal}
+          isOpen={this.state.modal}
           fade={false}
           toggle={this.toggle}
         >

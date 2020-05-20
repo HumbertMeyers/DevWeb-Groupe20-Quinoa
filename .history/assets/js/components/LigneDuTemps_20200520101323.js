@@ -71,8 +71,7 @@ class LigneDuTemps extends Component {
         </td>
         <Modal
           modalClassName="modal-dialog"
-          show={this.state.activeModal === index}
-          onHide={this.hideModal}
+          isOpen={this.state.modal}
           fade={false}
           toggle={this.toggle}
         >
