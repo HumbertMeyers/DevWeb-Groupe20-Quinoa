@@ -121,9 +121,8 @@ class Inscription
             'pseudo' => $this->getPseudo(),
             'mail' => $this->getMail(),
             'age' => $this->getAge(),
-            'sexe' => $this->getSexe(),
             'desobeissant' => $this->getDesobeissant(),
-            'commentaire' => $this->getCommentaire(),
+            'sexe' => $this->getSexe(),
         ];
     }
 }

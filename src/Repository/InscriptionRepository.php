@@ -23,7 +23,7 @@ class InscriptionRepository extends ServiceEntityRepository
         $this->manager = $manager;
     }
 
-    public function saveInscription($pseudo, $mail, $age, $desobeissant, $commentaire)
+    public function saveInscription($pseudo, $mail, $age, $desobeissant, $sexe)
     {
         $newInscription = new Inscription();
 
@@ -31,7 +31,7 @@ class InscriptionRepository extends ServiceEntityRepository
         $newInscription->setMail($mail);
         $newInscription->setAge($age);
         $newInscription->setDesobeissant($desobeissant);
-        $newInscription->setCommentaire($commentaire);
+        $newInscription->setSexe($sexe);
 
         $this->manager->persist($newInscription);
         $this->manager->flush();

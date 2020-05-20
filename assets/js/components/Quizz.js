@@ -1,24 +1,15 @@
 import React from "react";
 import { quizzdata } from "./QuizzData";
-import axios from "axios";
 
 class Quizz extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentQuestion: 0,
-      myAnswer: null,
-      options: [],
-      score: 1,
-      disabled: true,
-      isEnd: false,
-      items: [],
-    };
-    axios.get("https://vps799626.ovh.net:8000/api/quizz/").then((res) => {
-      this.setState({ items: res.data });
-    });
-  }
+  state = {
+    currentQuestion: 0,
+    myAnswer: null,
+    options: [],
+    score: 1,
+    disabled: true,
+    isEnd: false,
+  };
 
   loadquizzdata = () => {
     // console.log(quizzdata[0].question)
@@ -32,7 +23,10 @@ class Quizz extends React.Component {
   };
 
   componentDidMount() {
-    this.loadquizzdata();
+    axios.get('https://vps799626.ovh.net:8000/api/quizz') 
+        .then((response) => { 
+            this.setState({ response: response}); 
+        });
   }
 
   nextQuestionHandler = () => {
@@ -103,9 +97,9 @@ class Quizz extends React.Component {
           {options.map((option) => (
             <p
               key={option.id}
-              className={`ui floating message options ${
-                myAnswer === option ? "selected" : null
-              }`}
+              className={`ui floating message options
+         ${myAnswer === option ? "selected" : null}
+         `}
               onClick={() => this.checkAnswer(option)}
             >
               {option}
