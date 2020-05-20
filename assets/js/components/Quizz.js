@@ -1,15 +1,23 @@
 import React from "react";
 import { quizzdata } from "./QuizzData";
+import axios from 'axios';
+
 
 class Quizz extends React.Component {
-  state = {
-    currentQuestion: 0,
-    myAnswer: null,
-    options: [],
-    score: 1,
-    disabled: true,
-    isEnd: false,
-  };
+
+  constructor (props) {
+    super(props); 
+
+    this.state = {
+      currentQuestion: 0,
+      myAnswer: null,
+      options: [],
+      score: 1,
+      disabled: true,
+      isEnd: false,
+      items: [],
+    }
+  }
 
   loadquizzdata = () => {
     // console.log(quizzdata[0].question)
@@ -22,15 +30,15 @@ class Quizz extends React.Component {
     });
   };
 
-  componentDidMount() {
-    axios.get('https://vps799626.ovh.net:8000/api/quizz') 
-        .then((response) => { 
-            this.setState({ response: response}); 
-        });
-  }
 
+  componentDidMount() {
+    this.loadquizzdata();
+  }
+  
   nextQuestionHandler = () => {
+    // console.log('test')
     const { myAnswer, answer, score } = this.state;
+
 
     if (myAnswer === answer) {
       this.setState({
@@ -38,11 +46,13 @@ class Quizz extends React.Component {
       });
     }
 
+
     this.setState({
       currentQuestion: this.state.currentQuestion + 1,
     });
     console.log(this.state.currentQuestion);
   };
+
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.currentQuestion !== prevState.currentQuestion) {
@@ -61,6 +71,7 @@ class Quizz extends React.Component {
     this.setState({ myAnswer: answer, disabled: false });
   };
 
+
   finishHandler = () => {
     if (this.state.currentQuestion === quizzdata.length - 1) {
       this.setState({
@@ -71,35 +82,32 @@ class Quizz extends React.Component {
   render() {
     const { options, myAnswer, currentQuestion, isEnd } = this.state;
 
+
     if (isEnd) {
       return (
         <div className="result cadreSombre">
           <h3>Game Over your Final score is {this.state.score} points </h3>
-          <br></br>
-          The correct answer's for the questions was
-          <ul>
-            {quizzdata.map((item, index) => (
-              <li className="ui floating message options" key={index}>
-                {item.answer}
-              </li>
-            ))}
-          </ul>
-          <br></br>
+          <p>
+            The correct answer's for the questions was
+            <ul>
+              {quizzdata.map((item, index) => (
+                <li className="ui floating message options" key={index}>
+                  {item.answer}
+                </li>
+              ))}
+            </ul>
+          </p>
         </div>
       );
     } else {
       return (
         <div className="App cadreSombre">
           <h1>{this.state.questions} </h1>
-          <span>{`Questions ${currentQuestion}  out of ${
-            quizzdata.length - 1
-          } remaining `}</span>
+          <span>{`Questions ${currentQuestion}  out of ${ quizzdata.length - 1} remaining `}</span>
           {options.map((option) => (
             <p
               key={option.id}
-              className={`ui floating message options
-         ${myAnswer === option ? "selected" : null}
-         `}
+              className={`ui floating message options ${myAnswer === option ? "selected" : null}`}
               onClick={() => this.checkAnswer(option)}
             >
               {option}
@@ -125,5 +133,6 @@ class Quizz extends React.Component {
     }
   }
 }
+
 
 export default Quizz;
