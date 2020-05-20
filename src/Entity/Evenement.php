@@ -62,7 +62,7 @@ class Evenement
     private $citation;
 
     /**
-    * @ORM\Column(type="string", length=200)
+    * @ORM\Column(type="string", length=255)
     */
     private $question;
 

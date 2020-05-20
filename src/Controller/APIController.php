@@ -198,6 +198,12 @@ class APIController
             'victoire' => $evenement->getVictoire(),
             'anecdote' => $evenement->getAnecdote(),
             'citation' => $evenement->getCitation(),
+            'question' => $evenement->getQuestion(),
+            'reponse1' => $evenement->getReponse1(),
+            'reponse2' => $evenement->getReponse2(),
+            'reponse3' => $evenement->getReponse3(),
+            'video' => $evenement->getVideo(),
+            'article' => $evenement->getArticle(),
         ];
 
         return new JsonResponse($data, Response::HTTP_OK);
@@ -282,5 +288,26 @@ class APIController
         $this->evenementRepository->removeEvenement($evenement);
 
         return new JsonResponse(['status' => 'Evenement deleted'], Response::HTTP_NO_CONTENT);
+    }
+
+    /**
+     * @Route("/api/quizz/", name="quizz", methods={"GET"})
+     */
+    public function getQuizz(): JsonResponse
+    {
+        $evenements = $this->evenementRepository->findAll();
+        $data = [];    
+
+        foreach ($evenements as $evenement) {
+            $data[] = [
+                'id' => $evenement->getId(),
+                'nom' => $evenement->getNom(),
+                'question' => $evenement->getQuestion(),
+                'reponse1' => $evenement->getReponse1(),
+                'reponse2' => $evenement->getReponse2(),
+                'reponse3' => $evenement->getReponse3(),
+            ];
+        }
+        return new JsonResponse($data, Response::HTTP_OK);
     }
 }
