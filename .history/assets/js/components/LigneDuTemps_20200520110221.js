@@ -35,8 +35,8 @@ class LigneDuTemps extends Component {
     this.hideModal = this.hideModal.bind(this);
   }
 
-  clickHandler(e, nom) {
-    this.setState({ activeModal: nom });
+  clickHandler(e, index) {
+    this.setState({ activeModal: index });
   }
 
   hideModal() {
@@ -65,10 +65,9 @@ class LigneDuTemps extends Component {
         <td>{periode}</td>
         <td className="reponseJoueur">{this.reponse()}</td>
         <td>
-          <Button
-            color="secondary"
-            onClick={this.state.activeModal === nom}
-          ></Button>
+          <Button color="secondary" onClick={this.toggle}>
+            Plus d'information
+          </Button>
         </td>
         <Modal modalClassName="modal-dialog" fade={false}>
           <ModalHeader>Modal title</ModalHeader>
@@ -82,7 +81,10 @@ class LigneDuTemps extends Component {
             culpa qui officia deserunt mollit anim id est laborum.
           </ModalBody>
           <ModalFooter>
-            <Button color="secondary" onClick={this.hideModal}>
+            <Button
+              color="secondary"
+              onClick={this.state.activeModal === index}
+            >
               Close
             </Button>
           </ModalFooter>
