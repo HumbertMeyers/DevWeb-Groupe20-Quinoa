@@ -30,7 +30,10 @@ class Quizz extends React.Component {
 
 
   componentDidMount() {
-    this.loadquizzdata();
+    axios.get(`/api/quizz/`)
+            .then(res => {
+                this.loadquizzdata();
+            })
   }
   
   nextQuestionHandler = () => {
