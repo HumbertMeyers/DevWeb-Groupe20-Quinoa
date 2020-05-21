@@ -114,7 +114,7 @@ class Quizz extends React.Component {
       return (
         <div className="App cadreSombre">
           <h1>{this.state.questions} </h1>
-          <span>{`Questions ${currentQuestion}  out of ${ quizzdata.length - 1} remaining `}</span>
+          <span>{`Questions ${currentQuestion}  out of 20 remaining `}</span>
           {options.map((option) => (
             <p
               key={option.id}
@@ -124,7 +124,7 @@ class Quizz extends React.Component {
               {option}
             </p>
           ))}
-          {currentQuestion < quizzdata.length - 1 && (
+          {currentQuestion < 20 && (
             <button
               className="ui inverted button"
               disabled={this.state.disabled}
@@ -134,7 +134,7 @@ class Quizz extends React.Component {
             </button>
           )}
           {/* //adding a finish button */}
-          {currentQuestion === quizzdata.length - 1 && (
+          {currentQuestion === 20 && (
             <button className="ui inverted button" onClick={this.finishHandler}>
               Finish
             </button>
