@@ -13,7 +13,9 @@ class QuizzDB extends React.Component {
             score: 0,
             disabled: true,
             isEnd: false,
-            options: [],
+            reponse1,
+            reponse2,
+            reponse3
         }
     }
     
@@ -25,20 +27,18 @@ class QuizzDB extends React.Component {
             })
         }
 
-    // componentDidUpdate(prevState) {
-    //     if (this.state.currentQuestion !== prevState.currentQuestion) {
-    //         this.setState(() => {
-    //             return {
-    //                 disabled: true,
-    //                 questions: this.state.currentQuestion.question,
-    //                 reponse1: this.state.currentQuestion.reponse1,
-    //                 reponse2: this.state.currentQuestion.reponse2,
-    //                 reponse3: this.state.currentQuestion.reponse3,
-    //                 answer: this.state.currentQuestion.answer,
-    //             };
-    //         });
-    //     }
-    // }
+    loadquizzdata = () => {
+        // console.log(quizzdata[0].question)
+        this.setState(() => {
+            return {
+                questions: data[this.state.currentQuestion].question,
+                answer: data[this.state.currentQuestion].reponse1,
+                options: data[this.state.currentQuestion].reponse1,
+                options: data[this.state.currentQuestion].reponse2,
+                options: data[this.state.currentQuestion].reponse3,
+            };
+        });
+    };
 
     checkAnswer = (answer) => {
         this.setState({ myAnswer: answer, disabled: false });
