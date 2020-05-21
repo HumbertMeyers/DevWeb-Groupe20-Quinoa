@@ -24,9 +24,7 @@ class QuizzDB extends React.Component {
             <div className="container center">
                 <div className="row justify-content-md-center">
                     <div className="App cadreSombre">
-                        { this.state.data.map(({ id, question, reponse1, reponse2, reponse3}) => (
-                            <div key={id}>{question} <br/> {reponse1}<br/>{reponse2}<br/>{reponse3}<br/></div>
-                        ))}
+                        <h1>{this.state.question} </h1>
                     </div>
                 </div>
             </div>
@@ -36,3 +34,8 @@ class QuizzDB extends React.Component {
 
 
 export default QuizzDB;
+
+
+// { this.state.data.map(({ id, question, reponse1, reponse2, reponse3}) => (
+//     <div key={id}>{question} <br/> {reponse1}<br/>{reponse2}<br/>{reponse3}<br/></div>
+// ))}
