@@ -7,13 +7,7 @@ class QuizzDB extends React.Component {
         super(props); 
     
         this.state = {
-            data: [
-                id="",
-                question="",
-                reponse1="",
-                reponse2="",
-                reponse3=""
-            ],
+            data: [],
         }
     }
     
@@ -30,7 +24,7 @@ class QuizzDB extends React.Component {
             <div className="container center">
                 <div className="row justify-content-md-center">
                     <div className="App cadreSombre">
-                        <h1>{this.state.question} </h1>
+                        <h1>{this.state.data.question} </h1>
                     </div>
                 </div>
             </div>
