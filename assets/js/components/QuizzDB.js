@@ -102,9 +102,7 @@ class QuizzDB extends React.Component {
                                     className={`ui floating message options ${myAnswer === reponse1 ? "selected" : null}`}
                                     onClick={() => this.checkAnswer()}
                                     >
-                                    {reponse1}
-                                    {reponse2}
-                                    {reponse3}
+                                    {reponse1,reponse2,reponse3}
                                 </div>
                             ))}
                             {currentQuestion < 20 && (
