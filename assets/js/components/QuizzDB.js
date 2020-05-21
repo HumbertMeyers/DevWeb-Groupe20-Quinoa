@@ -22,7 +22,11 @@ class QuizzDB extends React.Component {
     render() {
         return (
           <div>
+            { this.state.data.map(data => <div>{data.id}</div>)}
             { this.state.data.map(data => <div>{data.question}</div>)}
+            { this.state.data.map(data => <div>{data.reponse1}</div>)}
+            { this.state.data.map(data => <div>{data.reponse2}</div>)}
+            { this.state.data.map(data => <div>{data.reponse3}</div>)}
           </div>
         )
     }
