@@ -32,9 +32,17 @@ class Quizz extends React.Component {
 
 
   componentDidMount() {
-    axios.get(`/api/quizz/`)
+    const quizzdata = [
+      {
+        id: this.state.id,
+        question: this.state.question,
+        options: [this.state.reponse1, this.state.reponse2, this.state.reponse3],
+        answer: this.state.reponse1,
+      },
+    ];
+    axios.get(`/api/quizz/`, quizzdata)
             .then(res => {
-                this.loadquizzdata();
+                this.loadquizzdata(res);
             })
   }
   
@@ -84,14 +92,6 @@ class Quizz extends React.Component {
   };
   render() {
     const { options, myAnswer, currentQuestion, isEnd } = this.state;
-    const quizzdata = [
-      {
-        id: this.state.id,
-        question: this.state.question,
-        options: [this.state.reponse1, this.state.reponse2, this.state.reponse3],
-        answer: this.state.reponse1,
-      },
-    ];
 
 
     if (isEnd) {
