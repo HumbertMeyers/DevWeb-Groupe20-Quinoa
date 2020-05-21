@@ -22,8 +22,8 @@ class QuizzDB extends React.Component {
     render() {
         return (
           <div>
-                { this.state.data.map(({ id, question, reponse1, reponse2, reponse3, }) => (
-                    <div key={id}>{question}, {reponse1}, {reponse2}, {reponse3}</div>
+                { this.state.data.map(({ id, quizz }) => (
+                    <div key={id}>{quizz}</div>
                 ))}
           </div>
         )
