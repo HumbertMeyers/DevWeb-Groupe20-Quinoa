@@ -10,7 +10,7 @@ class QuizzDB extends React.Component {
             data: [],
             currentQuestion: 1,
             myAnswer: null,
-            score: 1,
+            score: 0,
             disabled: true,
             isEnd: false,
             options: [],
@@ -24,6 +24,28 @@ class QuizzDB extends React.Component {
                 this.setState({ data });
             })
         }
+
+    checkAnswer = (answer) => {
+        this.setState({ myAnswer: answer, disabled: false });
+    };
+
+    nextQuestionHandler = () => {
+        // console.log('test')
+        const { myAnswer, answer, score } = this.state;
+    
+    
+        if (myAnswer === answer) {
+          this.setState({
+            score: score + 1,
+          });
+        }
+    
+    
+        this.setState({
+          currentQuestion: this.state.currentQuestion + 1,
+        });
+        console.log(this.state.currentQuestion);
+      };
     
     render() {
         const { options, myAnswer, currentQuestion, isEnd } = this.state;
@@ -44,6 +66,15 @@ class QuizzDB extends React.Component {
                                 <p>{reponse3}</p>
                             </div>
                         ))}
+                        {currentQuestion < 20 && (
+                            <button
+                                className="ui inverted button"
+                                disabled={this.state.disabled}
+                                onClick={this.nextQuestionHandler}
+                            >
+                                Next
+                          </button>
+                        )}
                     </div>
                 </div>
             </div>
