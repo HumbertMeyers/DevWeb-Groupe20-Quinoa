@@ -22,6 +22,7 @@ class QuizzDB extends React.Component {
         }
     
     render() {
+        const { options, myAnswer, currentQuestion, isEnd } = this.state;
         return (
             <div className="container center">
                 <div className="row justify-content-md-center">
