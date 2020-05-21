@@ -17,12 +17,27 @@ class QuizzDB extends React.Component {
         }
     }
     
-      componentDidMount() {
+    componentDidMount() {
         axios.get(`/api/quizz/`)
             .then(res => {
                 const data = res.data;
                 this.setState({ data });
             })
+        }
+
+    componentDidUpdate(prevState) {
+        if (this.state.currentQuestion !== prevState.currentQuestion) {
+            this.setState(() => {
+                return {
+                    disabled: true,
+                    questions: this.state.currentQuestion.question,
+                    options: this.state.currentQuestion.reponse1,
+                    options: this.state.currentQuestion.reponse2,
+                    options: this.state.currentQuestion.reponse3,
+                    answer: qthis.state.currentQuestion.answer,
+                };
+            });
+        }
         }
 
     checkAnswer = (answer) => {
@@ -44,6 +59,14 @@ class QuizzDB extends React.Component {
           currentQuestion: this.state.currentQuestion + 1,
         });
         console.log(this.state.currentQuestion);
+      };
+
+      finishHandler = () => {
+        if (this.state.currentQuestion === 20 ) {
+          this.setState({
+            isEnd: true,
+          });
+        }
       };
     
     render() {
