@@ -3,6 +3,7 @@
   --secondary: #ffc636;
   --third: #a76249;
   --fourth: rgb(194, 191, 191);
+  --five: #811f2c;
 }
 
 * {
@@ -115,7 +116,7 @@ input.radioAge {
   margin-bottom: 20px;
 }
 .erreur {
-  color: #811f2c;
+  color: var(--five);
 }
 
 .wrapper {
@@ -265,6 +266,26 @@ ul {
   display: inline-block;
   font-size: 1em;
   margin-bottom: 20px;
+}
+
+/* Ligne du temps */
+
+.ldtTitre {
+  text-align: center;
+  font-weight: bold;
+  color: var(--secondary);
+}
+
+.checkIcon {
+  color: green;
+}
+
+.falseIcon {
+  color: var(--five);
+}
+
+.reponseJoueur {
+  text-align: center;
 }
 
 /* Responsive */

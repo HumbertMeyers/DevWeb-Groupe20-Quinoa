@@ -18,7 +18,9 @@ class Home extends Component {
       <div className="container">
         <div className="row justify-content-md-center">
           <Nav className="navbar">
-            <img className="logo" src={logo} alt="logo Quinoa" />
+            <a href="http://www.quinoa.be">
+              <img className="logo" src={logo} alt="logo Quinoa" />
+            </a>
             <NavItem>
               <NavLink className="nav-link" href="/accueil">
                 Accueil
