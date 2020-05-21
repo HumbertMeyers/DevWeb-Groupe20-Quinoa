@@ -8,11 +8,11 @@ class QuizzDB extends React.Component {
     
         this.state = {
             data: [
-                id,
-                question,
-                reponse1,
-                reponse2,
-                reponse3
+                id="",
+                question="",
+                reponse1="",
+                reponse2="",
+                reponse3=""
             ],
         }
     }
