@@ -28,7 +28,7 @@ class QuizzDB extends React.Component {
                 <div className="row justify-content-md-center">
                     <div className="App cadreSombre">
                         <h1>{this.state.data.question} </h1>
-                        <span>{`Questions ${currentQuestion}  out of ${ data.length - 1} remaining `}</span>
+                        <span>{`Questions ${currentQuestion}  out of 20 remaining `}</span>
 
                     </div>
                 </div>
