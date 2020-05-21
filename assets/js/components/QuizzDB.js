@@ -32,8 +32,8 @@ class QuizzDB extends React.Component {
 
 
 export default QuizzDB;
-<div className="userList">
+{/* <div className="userList">
       {this.props.users.map(({ id, name }) => (
         <a href={`/users/${id}`} key={id}>{name}</a>
       ))}
-    </div>
+    </div> */}
