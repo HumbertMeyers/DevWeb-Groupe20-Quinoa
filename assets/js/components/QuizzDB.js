@@ -23,7 +23,7 @@ class QuizzDB extends React.Component {
         return (
           <div>
                 { this.state.data.map(({ id, question,reponse1}) => (
-                    <div key={id}>{question} <br/> {reponse1}<br/></div>
+                    <div key={id}>{question} <br/> {reponse1}<br/>{reponse2}<br/>{reponse3}<br/></div>
                 ))}
           </div>
         )
@@ -32,8 +32,3 @@ class QuizzDB extends React.Component {
 
 
 export default QuizzDB;
-{/* <div className="userList">
-      {this.props.users.map(({ id, name }) => (
-        <a href={`/users/${id}`} key={id}>{name}</a>
-      ))}
-    </div> */}
