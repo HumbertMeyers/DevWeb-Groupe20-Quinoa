@@ -22,8 +22,7 @@ class QuizzDB extends React.Component {
     componentDidMount() {
         axios.get(`/api/quizz/`)
             .then(res => {
-                const data = res.data;
-                this.setState({ data });
+                this.loadquizzdata();
             })
         }
 
