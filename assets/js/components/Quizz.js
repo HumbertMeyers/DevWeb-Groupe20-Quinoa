@@ -91,7 +91,7 @@ class Quizz extends React.Component {
     }
   };
   render() {
-    const { options, myAnswer, currentQuestion, isEnd } = this.state;
+    const { options, myAnswer, currentQuestion, isEnd , quizzdata} = this.state;
 
 
     if (isEnd) {
