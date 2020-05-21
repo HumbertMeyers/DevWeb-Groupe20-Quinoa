@@ -11,6 +11,7 @@ import Resultat from "./Resultat";
 import logo from "../../img/logo.png";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
+import QuizzDB from "./QuizzDB";
 
 class Home extends Component {
   render() {
@@ -47,7 +48,7 @@ class Home extends Component {
             <Route path="/posts" component={Posts} />
             <Route path="/seconnecter" component={SeConnecter} />
             <Route path="/inscription" component={Inscription} />
-            <Route path="/quizz" component={Quizz} />
+            <Route path="/quizz" component={QuizzDB} />
             <Route path="/accueil" component={Accueil} />
             <Route path="/lignedutemps" component={LigneDuTemps} />
             <Route path="/resultat" component={Resultat} />
