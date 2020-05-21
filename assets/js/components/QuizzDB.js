@@ -7,7 +7,13 @@ class QuizzDB extends React.Component {
         super(props); 
     
         this.state = {
-            data: [],
+            data: [
+                id,
+                question,
+                reponse1,
+                reponse2,
+                reponse3
+            ],
         }
     }
     
