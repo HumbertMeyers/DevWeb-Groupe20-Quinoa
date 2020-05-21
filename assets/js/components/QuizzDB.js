@@ -8,6 +8,8 @@ class QuizzDB extends React.Component {
     
         this.state = {
             data: [],
+            currentQuestion: 0,
+
         }
     }
     
@@ -24,7 +26,9 @@ class QuizzDB extends React.Component {
             <div className="container center">
                 <div className="row justify-content-md-center">
                     <div className="App cadreSombre">
-                        <h1>{this.state.data.map(question)} </h1>
+                        <h1>{this.state.data.question} </h1>
+                        <span>{`Questions ${currentQuestion}  out of ${ data.length - 1} remaining `}</span>
+
                     </div>
                 </div>
             </div>
