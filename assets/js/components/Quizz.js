@@ -16,13 +16,19 @@ class Quizz extends React.Component {
       disabled: true,
       isEnd: false,
       items: [],
-      quizzdata:[]
     }
   }
 
   loadquizzdata = () => {
-    // console.log(quizzdata[0].question)
-    this.setState((quizzdata) => {
+    const quizzdata = [
+      {
+        id: this.state.id,
+        question: this.state.question,
+        options: [this.state.reponse1, this.state.reponse2, this.state.reponse3],
+        answer: this.state.reponse1,
+      },
+    ];
+      this.setState(() => {
       return {
         questions: quizzdata[this.state.currentQuestion].question,
         answer: quizzdata[this.state.currentQuestion].answer,
@@ -33,14 +39,6 @@ class Quizz extends React.Component {
 
 
   componentDidMount() {
-    const quizzdata = [
-      {
-        id: this.state.id,
-        question: this.state.question,
-        options: [this.state.reponse1, this.state.reponse2, this.state.reponse3],
-        answer: this.state.reponse1,
-      },
-    ];
     axios.get(`/api/quizz/`, quizzdata)
             .then(res => {
                 this.loadquizzdata(res);
