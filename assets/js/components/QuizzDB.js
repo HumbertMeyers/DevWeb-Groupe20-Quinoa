@@ -34,7 +34,7 @@ class QuizzDB extends React.Component {
                     options: this.state.currentQuestion.reponse1,
                     options: this.state.currentQuestion.reponse2,
                     options: this.state.currentQuestion.reponse3,
-                    answer: qthis.state.currentQuestion.answer,
+                    answer: this.state.currentQuestion.answer,
                 };
             });
         }
