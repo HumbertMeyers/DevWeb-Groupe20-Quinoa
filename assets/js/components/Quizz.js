@@ -16,6 +16,7 @@ class Quizz extends React.Component {
       disabled: true,
       isEnd: false,
       items: [],
+      quizzdata: []
     }
   }
 
