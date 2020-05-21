@@ -22,7 +22,7 @@ class Quizz extends React.Component {
 
   loadquizzdata = () => {
     // console.log(quizzdata[0].question)
-    this.setState(() => {
+    this.setState((quizzdata) => {
       return {
         questions: quizzdata[this.state.currentQuestion].question,
         answer: quizzdata[this.state.currentQuestion].answer,
