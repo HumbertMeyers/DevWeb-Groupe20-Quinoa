@@ -1,5 +1,7 @@
 import React from "react";
-import { quizzdata } from "./QuizzData";
+//import { quizzdata } from "./QuizzData";
+import axios from "axios";
+
 
 class Quizz extends React.Component {
 
@@ -14,12 +16,6 @@ class Quizz extends React.Component {
       disabled: true,
       isEnd: false,
       items: [],
-      
-      id: "",
-      question: "",
-      reponse1:"",
-      reponse2:"",
-      reponse3:"",
     }
   }
 
@@ -88,6 +84,14 @@ class Quizz extends React.Component {
   };
   render() {
     const { options, myAnswer, currentQuestion, isEnd } = this.state;
+    const quizzdata = [
+      {
+        id: this.state.id,
+        question: this.state.question,
+        options: [this.state.reponse1, this.state.reponse2, this.state.reponse3],
+        answer: this.state.reponse1,
+      },
+    ];
 
 
     if (isEnd) {
