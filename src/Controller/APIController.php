@@ -310,4 +310,26 @@ class APIController
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
+
+/**
+     * @Route("/api/quizz/", name="get_tous_evenements", methods={"GET"})
+     */
+    public function getAllQuizz(): JsonResponse
+    {
+        $evenements = $this->evenementRepository->findAll();
+        $data = [];
+
+        foreach ($evenements as $evenement) {
+            $data[] = [
+                'question' => $evenement->getQuestion(),
+                'reponse1' => $evenement->getReponse1(),
+                'reponse2' => $evenement->getReponse2(),
+                'reponse3' => $evenement->getReponse3(),
+            ];
+        }
+
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
+
+
 }

@@ -12,7 +12,7 @@ class QuizzDB extends React.Component {
       }
     
       componentDidMount() {
-        axios.get(`/api/quizz/{id}/`)
+        axios.get(`/api/quizz/`)
           .then(res => {
             const quizz = res.quizz;
             this.setState({ quizz });
