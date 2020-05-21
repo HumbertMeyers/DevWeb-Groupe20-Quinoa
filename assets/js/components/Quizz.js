@@ -40,7 +40,7 @@ class Quizz extends React.Component {
 
 
   componentDidMount() {
-    axios.get(`/api/quizz/`, quizzdata)
+    axios.get(`/api/quizz/`)
             .then(res => {
                 this.loadquizzdata(res);
             })
