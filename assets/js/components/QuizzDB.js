@@ -25,20 +25,20 @@ class QuizzDB extends React.Component {
             })
         }
 
-    componentDidUpdate(prevState) {
-        if (this.state.currentQuestion !== prevState.currentQuestion) {
-            this.setState(() => {
-                return {
-                    disabled: true,
-                    questions: this.state.currentQuestion.question,
-                    reponse1: this.state.currentQuestion.reponse1,
-                    reponse2: this.state.currentQuestion.reponse2,
-                    reponse3: this.state.currentQuestion.reponse3,
-                    answer: this.state.currentQuestion.answer,
-                };
-            });
-        }
-        }
+    // componentDidUpdate(prevState) {
+    //     if (this.state.currentQuestion !== prevState.currentQuestion) {
+    //         this.setState(() => {
+    //             return {
+    //                 disabled: true,
+    //                 questions: this.state.currentQuestion.question,
+    //                 reponse1: this.state.currentQuestion.reponse1,
+    //                 reponse2: this.state.currentQuestion.reponse2,
+    //                 reponse3: this.state.currentQuestion.reponse3,
+    //                 answer: this.state.currentQuestion.answer,
+    //             };
+    //         });
+    //     }
+    // }
 
     checkAnswer = (answer) => {
         this.setState({ myAnswer: answer, disabled: false });
