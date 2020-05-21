@@ -24,7 +24,7 @@ class QuizzDB extends React.Component {
             <div className="container center">
                 <div className="row justify-content-md-center">
                     <div className="App cadreSombre">
-                        <h1>{this.state.data.question} </h1>
+                        <h1>{this.state.data.map(question)} </h1>
                     </div>
                 </div>
             </div>
