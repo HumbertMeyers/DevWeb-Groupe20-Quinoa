@@ -40,7 +40,6 @@ class QuizzDB extends React.Component {
           });
         }
     
-    
         this.setState({
           currentQuestion: this.state.currentQuestion + 1,
         });
@@ -48,37 +47,58 @@ class QuizzDB extends React.Component {
       };
     
     render() {
+
         const { options, myAnswer, currentQuestion, isEnd } = this.state;
-        return (
-            <div className="container center">
-                <div className="row justify-content-md-center">
-                    <div className="App cadreSombre">
-                        <h1>{this.state.data.question} </h1>
-                        <span>{`Question ${currentQuestion}  sur les 20 restantes `}</span>
-                        {options.map(({reponse1, reponse2, reponse3}) => (
-                            <div
-                                key={id}
-                                className={`ui floating message options ${myAnswer === reponse1 ? "selected" : null}`}
-                                onClick={() => this.checkAnswer()}
+
+        if (isEnd) {
+            return (
+                <div className="result cadreSombre">
+                    <h3>Votre score final est de  {this.state.score} points </h3>
+                    <p>
+                        Les réponses correct étaient :
+                        <ul>
+                            {data.map((item, index) => (
+                            <li className="ui floating message options" key={index}>
+                                {item.answer}
+                            </li>
+                            ))}
+                        </ul>
+                    </p>
+                </div>
+            );
+        } 
+        else {
+            return (
+                <div className="container center">
+                    <div className="row justify-content-md-center">
+                        <div className="App cadreSombre">
+                            <h1>{this.state.data.question} </h1>
+                            <span>{`Question ${currentQuestion}  sur les 20 restantes `}</span>
+                            {options.map(({reponse1, reponse2, reponse3}) => (
+                                <div
+                                    key={id}
+                                    className={`ui floating message options ${myAnswer === reponse1 ? "selected" : null}`}
+                                    onClick={() => this.checkAnswer()}
+                                    >
+                                    <p>{reponse1}</p>
+                                    <p>{reponse2}</p>
+                                    <p>{reponse3}</p>
+                                </div>
+                            ))}
+                            {currentQuestion < 20 && (
+                                <button
+                                    className="ui inverted button"
+                                    disabled={this.state.disabled}
+                                    onClick={this.nextQuestionHandler}
                                 >
-                                <p>{reponse1}</p>
-                                <p>{reponse2}</p>
-                                <p>{reponse3}</p>
-                            </div>
-                        ))}
-                        {currentQuestion < 20 && (
-                            <button
-                                className="ui inverted button"
-                                disabled={this.state.disabled}
-                                onClick={this.nextQuestionHandler}
-                            >
-                                Next
-                          </button>
-                        )}
+                                    Next
+                            </button>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
-        )
+            )
+        }
     }
 }
 
