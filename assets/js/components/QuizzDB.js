@@ -7,22 +7,22 @@ class QuizzDB extends React.Component {
         super(props); 
     
         this.state = {
-          quizz: [],
+          data: [],
         }
       }
     
       componentDidMount() {
         axios.get(`/api/quizz/`)
           .then(res => {
-            const quizz = res.quizz;
-            this.setState({ quizz });
+            const data = res.data;
+            this.setState({ data });
           })
       }
     
     render() {
         return (
           <div>
-            { this.state.quizz.map(quizz => <div>{quizz.question}</div>)}
+            { this.state.data.map(data => <div>{data.question}</div>)}
           </div>
         )
     }
