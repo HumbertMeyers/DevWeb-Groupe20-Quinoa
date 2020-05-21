@@ -97,7 +97,7 @@ class QuizzDB extends React.Component {
                         <div className="App cadreSombre">
                             <h1>{this.state.data.question} </h1>
                             <span>{`Question ${currentQuestion}  sur les 20 restantes `}</span>
-                            {options.map(({reponse1, reponse2, reponse3}) => (
+                            {options.map(({id, reponse1, reponse2, reponse3}) => (
                                 <div
                                     key={id}
                                     className={`ui floating message options ${myAnswer === reponse1 ? "selected" : null}`}
