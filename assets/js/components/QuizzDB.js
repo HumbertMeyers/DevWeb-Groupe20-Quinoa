@@ -13,9 +13,9 @@ class QuizzDB extends React.Component {
             score: 0,
             disabled: true,
             isEnd: false,
-            reponse1,
-            reponse2,
-            reponse3
+            reponse1:"",
+            reponse2:"",
+            reponse3:""
         }
     }
     
