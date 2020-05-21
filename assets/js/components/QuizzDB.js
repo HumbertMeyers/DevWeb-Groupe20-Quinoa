@@ -13,7 +13,7 @@ class QuizzDB extends React.Component {
             score: 1,
             disabled: true,
             isEnd: false,
-            items: [],
+            options: [],
         }
     }
     
@@ -26,21 +26,23 @@ class QuizzDB extends React.Component {
         }
     
     render() {
-        const { data, myAnswer, currentQuestion, isEnd } = this.state;
+        const { options, myAnswer, currentQuestion, isEnd } = this.state;
         return (
             <div className="container center">
                 <div className="row justify-content-md-center">
                     <div className="App cadreSombre">
                         <h1>{this.state.data.question} </h1>
                         <span>{`Question ${currentQuestion}  sur les 20 restantes `}</span>
-                        {data.map((option) => (
-                            <p
-                            key={option.id}
-                            className={`ui floating message options ${myAnswer === option ? "selected" : null}`}
-                            onClick={() => this.checkAnswer(option)}
-                            >
-                            {option}
-                            </p>
+                        {options.map(({reponse1, reponse2, reponse3}) => (
+                            <div
+                                key={id}
+                                className={`ui floating message options ${myAnswer === reponse1 ? "selected" : null}`}
+                                onClick={() => this.checkAnswer()}
+                                >
+                                <p>{reponse1}</p>
+                                <p>{reponse2}</p>
+                                <p>{reponse3}</p>
+                            </div>
                         ))}
                     </div>
                 </div>
