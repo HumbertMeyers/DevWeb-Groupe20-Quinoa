@@ -9,30 +9,31 @@ class QuizzDB extends React.Component {
         this.state = {
           data: [],
         }
-      }
+    }
     
-      componentDidMount() {
+    componentDidMount() {
         axios.get(`/api/quizz/`)
-          .then(res => {
-            const data = res.data;
-            this.setState({ data });
-          })
-      }
+            .then(res => {
+                const data = res.data;
+                this.setState({ data });
+        })
+    }
     
     render() {
         return (
-            <div className="container center">
-                <div className="row justify-content-md-center">
-                    <div className="App cadreSombre">
-                        { this.state.data.map(({ id, question, reponse1, reponse2, reponse3}) => (
-                            <div key={id}>{question} <br/> {reponse1}<br/>{reponse2}<br/>{reponse3}<br/></div>
-                        ))}
-                    </div>
+            <div className="row justify-content-md-center">
+                <div className="App cadreSombre">
+                    { this.state.data.map(({ id, question, reponse1, reponse2, reponse3}) => (
+                        <div key={getRandom(id)}>{question} <br/> {reponse1}<br/>{reponse2}<br/>{reponse3}<br/></div>
+                    ))}
                 </div>
             </div>
         )
     }
 }
 
+function getRandom(id) {
+    return Math.random(id);
+}
 
 export default QuizzDB;
