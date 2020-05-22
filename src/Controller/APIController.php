@@ -291,7 +291,7 @@ class APIController
     }
 
     /**
-     * @Route("/api/quizz/{id}", name="quizz", methods={"GET"})
+     * @Route("/api/quizz/{id}", name="get_quizz", methods={"GET"})
      */
     public function getQuizz($id): JsonResponse
     {
@@ -312,8 +312,8 @@ class APIController
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
-/**
-     * @Route("/api/quizz/", name="get_tous_evenements", methods={"GET"})
+    /**
+     * @Route("/api/quizz/", name="get_tous_quizz", methods={"GET"})
      */
     public function getAllQuizz(): JsonResponse
     {
@@ -333,5 +333,16 @@ class APIController
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/api/startQuizz/", name="get_ordre_quizz", methods={"GET"})
+     */
+    public function getOrdreQuizz(): JsonResponse
+    {
+        $number = range(1,40);
+        shuffle($number);
+        $data = array_slice($number,0,20, false);
+
+        return new JsonResponse($data, Response::HTTP_OK);
+    }
 
 }
