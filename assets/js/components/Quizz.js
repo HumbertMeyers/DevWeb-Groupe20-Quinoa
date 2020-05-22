@@ -1,12 +1,9 @@
 import React from "react";
-import { quizzdata } from "./QuizzData";
 import axios from "axios";
 
-
 class Quizz extends React.Component {
-
-  constructor (props) {
-    super(props); 
+  constructor(props) {
+    super(props);
 
     this.state = {
       currentQuestion: 0,
@@ -17,12 +14,12 @@ class Quizz extends React.Component {
       isEnd: false,
       items: [],
       quizzdata: [],
-      id:"",
-      question:"",
-      reponse1:"",
-      reponse2:"",      
-      reponse3:"",
-    }
+      id: "",
+      question: "",
+      reponse1: "",
+      reponse2: "",
+      reponse3: "",
+    };
   }
 
   loadquizzdata = () => {
@@ -30,11 +27,15 @@ class Quizz extends React.Component {
       {
         id: this.state.id,
         question: this.state.question,
-        options: [this.state.reponse1, this.state.reponse2, this.state.reponse3],
+        options: [
+          this.state.reponse1,
+          this.state.reponse2,
+          this.state.reponse3,
+        ],
         answer: this.state.reponse1,
       },
     ];
-      this.setState(() => {
+    this.setState(() => {
       return {
         questions: quizzdata[this.state.currentQuestion].question,
         answer: quizzdata[this.state.currentQuestion].answer,
@@ -43,18 +44,15 @@ class Quizz extends React.Component {
     });
   };
 
-
   componentDidMount() {
-    axios.get(`/api/quizz/`)
-            .then(res => {
-                this.loadquizzdata(res);
-            })
+    axios.get(`/api/quizz/`).then((res) => {
+      this.loadquizzdata(res);
+    });
   }
-  
+
   nextQuestionHandler = () => {
     // console.log('test')
     const { myAnswer, answer, score } = this.state;
-
 
     if (myAnswer === answer) {
       this.setState({
@@ -62,13 +60,11 @@ class Quizz extends React.Component {
       });
     }
 
-
     this.setState({
       currentQuestion: this.state.currentQuestion + 1,
     });
     console.log(this.state.currentQuestion);
   };
-
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.currentQuestion !== prevState.currentQuestion) {
@@ -87,7 +83,6 @@ class Quizz extends React.Component {
     this.setState({ myAnswer: answer, disabled: false });
   };
 
-
   finishHandler = () => {
     if (this.state.currentQuestion === quizzdata.length - 1) {
       this.setState({
@@ -96,8 +91,7 @@ class Quizz extends React.Component {
     }
   };
   render() {
-    const { options, myAnswer, currentQuestion, isEnd , quizzdata} = this.state;
-
+    const { options, myAnswer, currentQuestion, isEnd, quizzdata } = this.state;
 
     if (isEnd) {
       return (
@@ -123,7 +117,9 @@ class Quizz extends React.Component {
           {options.map((option) => (
             <p
               key={option.id}
-              className={`ui floating message options ${myAnswer === option ? "selected" : null}`}
+              className={`ui floating message options ${
+                myAnswer === option ? "selected" : null
+              }`}
               onClick={() => this.checkAnswer(option)}
             >
               {option}
@@ -149,6 +145,5 @@ class Quizz extends React.Component {
     }
   }
 }
-
 
 export default Quizz;
