@@ -1,5 +1,5 @@
 import React from "react";
-//import { quizzdata } from "./QuizzData";
+import { quizzdata } from "./QuizzData";
 import axios from "axios";
 
 
