@@ -3,7 +3,6 @@
 bin
 /src/Migrations/
 phpunit.xml.dist
-.history
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -24,13 +23,10 @@ phpunit.xml.dist
 .env.test
 
 ###> symfony/webpack-encore-bundle ###
-/node_modules/
-
-/public/build/
+/node_modules
+/public
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 /assets/fichier Quinoa
 *.lock
-/public/
-/node_modules/
