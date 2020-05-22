@@ -1,8 +1,8 @@
 export const quizzdata = [
   {
-    id: this.state.id,
-    question: this.state.question,
-    options: [this.state.reponse1, this.state.reponse2, this.state.reponse3],
-    answer: this.state.reponse1,
+    id: '1',
+    question: 'question 1',
+    options: ['réponse 1', 'réponse2', 'réponse3'],
+    answer: 'réponse 1',
   },
 ];
