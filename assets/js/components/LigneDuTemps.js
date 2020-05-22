@@ -47,13 +47,13 @@ class LigneDuTemps extends Component {
     return <FontAwesomeIcon className="falseIcon" icon={faTimes} />;
   }
 
-  changeVariable(periodes, noms, reponseJoueurs) {
-    this.setState({
-      periode: periodes.value,
-      nom: noms.value,
-      reponseJoueur: reponseJoueurs.value,
-    });
-  }
+  // changeVariable(periodes, noms, reponseJoueurs) {
+  //   this.setState({
+  //     periode: periodes.value,
+  //     nom: noms.value,
+  //     reponseJoueur: reponseJoueurs.value,
+  //   });
+  // }
 
   ligneDuTemps() {
     return ldtdata.map(({ id, periode, nom, reponseJoueur }) => (
