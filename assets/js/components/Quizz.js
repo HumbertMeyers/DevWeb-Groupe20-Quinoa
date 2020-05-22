@@ -51,27 +51,30 @@ class Quizz extends React.Component {
       .then((res) =>{
         this.setState({listQuestion: res.data});
       });
-    this.getQuestion();
+    setTimeout(() => {
+      this.getQuestion();
+    }, 1500);
+
   }
 
   getQuestion = () => {
     let event = this.state.listQuestion[this.state.currentQuestion];
-    console.log(event);
-    axios.get(`/api/quizz/${event}`)
+    axios.get(`https://vps799626.ovh.net:8000/api/quizz/${event}`)
       .then((res) => {
-        const data = [
+        console.log(res);
+        let data = [
           {
-            id: event.id,
-            question: event.question,
+            id: res.data.id,
+            question: res.data.question,
             options: [
-              event.reponse1,
-              event.reponse2,
-              event.reponse3,
+              res.data.reponse1,
+              res.data.reponse2,
+              res.data.reponse3,
             ],
-            answer: event.reponse1,
+            answer: res.data.reponse1,
           },
         ];
-        console.log(quizzdata);
+        console.log(data);
         this.setState({quizzdata: data});
       });
   }
