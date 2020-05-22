@@ -31,79 +31,77 @@ class LigneDuTemps extends Component {
       modal: false,
       activeModal: null,
     };
-    this.clickHandler = this.clickHandler.bind(this);
-    this.hideModal = this.hideModal.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
-  clickHandler(e, nom) {
-    this.setState({ activeModal: nom });
+  toggle() {
+    this.setState((prevState) => ({
+      modal: !prevState.modal,
+    }));
   }
 
-  hideModal() {
-    this.setState({ activeModal: null });
+  reponse(reponse) {
+    if (reponse === 1) {
+      return <FontAwesomeIcon className="checkIcon" icon={faCheck} />;
+    }
+    return <FontAwesomeIcon className="falseIcon" icon={faTimes} />;
   }
 
-  componentDidMount() {
-    axios.get("url api").then((response) => {
-      this.setState({ response: response });
+  changeVariable(periodes, noms, reponseJoueurs) {
+    this.setState({
+      periode: periodes.value,
+      nom: noms.value,
+      reponseJoueur: reponseJoueurs.value,
     });
   }
 
-  reponse() {
-    ldtdata.map((reponseJoueur) => {
-      if (this.state.reponseJoueur === "1") {
-        return <FontAwesomeIcon icon={faCheck} />;
-      }
-      return <FontAwesomeIcon icon={faTimes} />;
-    });
+  ligneDuTemps() {
+    return ldtdata.map(({ id, periode, nom, reponseJoueur }) => (
+      <tr key={id}>
+        <td>{nom}</td>
+        <td>{periode}</td>
+        <td className="reponseJoueur">{this.reponse(reponseJoueur)}</td>
+        <td>
+          <Button color="secondary" onClick={this.toggle}>
+            Plus d'information
+          </Button>
+        </td>
+      </tr>
+    ));
   }
 
   render() {
-    const ldtList = ldtdata.map(({ periode, nom }) => (
-      <tr key={nom}>
-        <td>{nom}</td>
-        <td>{periode}</td>
-        <td className="reponseJoueur">{this.reponse()}</td>
-        <td>
-          <Button
-            color="secondary"
-            onClick={this.state.activeModal === nom}
-          ></Button>
-        </td>
-        <Modal modalClassName="modal-dialog" fade={false}>
-          <ModalHeader>Modal title</ModalHeader>
-          <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </ModalBody>
-          <ModalFooter>
-            <Button color="secondary" onClick={this.hideModal}>
-              Close
-            </Button>
-          </ModalFooter>
-        </Modal>
-      </tr>
-    ));
-
     return (
       <div className="container center">
         <div className="row justify-content-md-center">
           <div className="cadreSombre">
+            <Modal
+              modalClassName="modal-dialog"
+              isOpen={this.state.modal}
+              fade={false}
+              toggle={this.toggle}
+            >
+              <ModalHeader toggle={this.toggle}>{this.state.nom}</ModalHeader>
+              <ModalBody>Texte</ModalBody>
+              <ModalFooter>
+                <Button color="secondary" onClick={this.toggle}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </Modal>
+            <h2 className="ldtTitre">
+              Vos résultats aux questions des désobéissants
+            </h2>
             <table id="tabDesobei">
               <thead>
                 <tr>
                   <th className="thead">Nom</th>
                   <th className="thead">Date</th>
-                  <th className="thead">votre réponse</th>
-                  <th className="thead">infos</th>
+                  <th className="thead">Résultat</th>
+                  <th className="thead">Infos</th>
                 </tr>
               </thead>
-              <tbody>{ldtList}</tbody>
+              <tbody>{this.ligneDuTemps()}</tbody>
             </table>
           </div>
         </div>
