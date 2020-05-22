@@ -82,7 +82,7 @@ class LigneDuTemps extends Component {
               toggle={this.toggle}
             >
               <ModalHeader toggle={this.toggle}>{this.state.nom}</ModalHeader>
-              <ModalBody>Texte</ModalBody>
+              <ModalBody>{this.ligneDuTemps()}</ModalBody>
               <ModalFooter>
                 <Button color="secondary" onClick={this.toggle}>
                   Close
