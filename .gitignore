@@ -33,3 +33,5 @@ yarn-error.log
 /assets/fichier Quinoa
 
 *.lock
+/public/
+/node_modules/
