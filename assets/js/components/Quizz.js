@@ -23,8 +23,8 @@ class Quizz extends React.Component {
     };
   }
 
-  loadquizzdata = () => {
-    const event = this.state.listQuestion[this.state.currentQuestion];
+  /*loadquizzdata = () => {
+    let event = this.state.listQuestion[this.state.currentQuestion];
     const quizzdata = [
       {
         id: event.id,
@@ -44,7 +44,7 @@ class Quizz extends React.Component {
         options: quizzdata[this.state.currentQuestion].options,
       };
     });
-  };
+  };*/
 
   componentDidMount() {
     axios.get(`/api/startQuizz/`)
@@ -55,10 +55,24 @@ class Quizz extends React.Component {
   }
 
   getQuestion = () => {
-    const event = this.state.listQuestion[this.state.currentQuestion];
+    let event = this.state.listQuestion[this.state.currentQuestion];
+    console.log(event);
     axios.get(`/api/quizz/${event}`)
       .then((res) => {
-        this.loadquizzdata(res);
+        const data = [
+          {
+            id: event.id,
+            question: event.question,
+            options: [
+              event.reponse1,
+              event.reponse2,
+              event.reponse3,
+            ],
+            answer: event.reponse1,
+          },
+        ];
+        console.log(quizzdata);
+        this.setState({quizzdata: data});
       });
   }
 
