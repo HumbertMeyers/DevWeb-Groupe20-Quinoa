@@ -6,6 +6,7 @@ class Quizz extends React.Component {
     super(props);
 
     this.state = {
+      listQuestion: [],
       currentQuestion: 0,
       myAnswer: null,
       options: [],
@@ -23,16 +24,17 @@ class Quizz extends React.Component {
   }
 
   loadquizzdata = () => {
+    const event = this.state.listQuestion[this.state.currentQuestion];
     const quizzdata = [
       {
-        id: this.state.id,
-        question: this.state.question,
+        id: event.id,
+        question: event.question,
         options: [
-          this.state.reponse1,
-          this.state.reponse2,
-          this.state.reponse3,
+          event.reponse1,
+          event.reponse2,
+          event.reponse3,
         ],
-        answer: this.state.reponse1,
+        answer: event.reponse1,
       },
     ];
     this.setState(() => {
@@ -45,9 +47,19 @@ class Quizz extends React.Component {
   };
 
   componentDidMount() {
-    axios.get(`/api/quizz/`).then((res) => {
-      this.loadquizzdata(res);
-    });
+    axios.get(`/api/startQuizz/`)
+      .then((res) =>{
+        this.setState({listQuestion: res.data});
+      });
+    this.getQuestion();
+  }
+
+  getQuestion = () => {
+    const event = this.state.listQuestion[this.state.currentQuestion];
+    axios.get(`/api/quizz/${event}`)
+      .then((res) => {
+        this.loadquizzdata(res);
+      });
   }
 
   nextQuestionHandler = () => {
@@ -64,6 +76,7 @@ class Quizz extends React.Component {
       currentQuestion: this.state.currentQuestion + 1,
     });
     console.log(this.state.currentQuestion);
+    this.getQuestion();
   };
 
   componentDidUpdate(prevProps, prevState) {
