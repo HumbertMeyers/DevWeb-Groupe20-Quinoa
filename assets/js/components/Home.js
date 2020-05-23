@@ -11,6 +11,7 @@ import Resultat from "./Resultat";
 import logo from "../../img/logo.png";
 import { Nav, NavItem, NavLink } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
+import LogOut from "./LogOut";
 
 class Home extends Component {
   render() {
@@ -41,6 +42,7 @@ class Home extends Component {
                 Inscription
               </NavLink>
             </NavItem>
+            <LogOut />
           </Nav>
 
           <Switch>

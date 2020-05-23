@@ -142,6 +142,7 @@ class Inscription extends Component {
                 id="pseudo"
                 placeholder=""
                 onChange={(item) => this.handleChange(item, "pseudo")}
+                required
               />
               <div className="erreur">{this.state.pseudoErreur}</div>
             </FormGroup>
@@ -154,6 +155,7 @@ class Inscription extends Component {
                 id="email"
                 placeholder=""
                 onChange={(item) => this.handleChange(item, "mail")}
+                required
               />
               <div className="erreur">{this.state.mailErreur}</div>
             </FormGroup>
