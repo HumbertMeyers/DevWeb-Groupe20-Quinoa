@@ -15,6 +15,7 @@ class Quizz extends React.Component {
 			isEnd: false,
 			items: [],
 			quizzdata: [],
+			bonnesReponses: [],
 		};
 	}
 
@@ -25,12 +26,20 @@ class Quizz extends React.Component {
 			});
 		setTimeout(() => {
 			this.getQuestion();
-		}, 1500);
+		}, 2000);
 
 	}
 
 	getQuestion = () => {
 		let event = this.state.listQuestion[this.state.currentQuestion];
+		for(var i =0; i < 20; i++){
+			var listeEvent = this.state.listQuestion[i];
+			axios.get(`/api/quizz/${listeEvent}`)
+				.then((res) => {
+					let data = res.data.reponse1;
+					this.setState({bonneReponses: this.state.bonnesReponses.push(data)});
+				})
+		}
 		axios.get(`/api/quizz/${event}`)
 			.then((res) => {
 				let data = [
@@ -77,24 +86,24 @@ class Quizz extends React.Component {
 	};
 
 	finishHandler = () => {
-		if (this.state.currentQuestion === this.state.quizzdata.length) {
+		if (this.state.currentQuestion == 19) {
 			this.setState({isEnd: true,});
 		}
 	};
 
 	render() {
-		const { myAnswer, currentQuestion, isEnd, quizzdata } = this.state;
+		const { myAnswer, currentQuestion, isEnd, quizzdata, bonnesReponses } = this.state;
 
 		if (isEnd) {
 			return (
 				<div className="result cadreSombre">
-					<h3>Game Over your Final score is {this.state.score} points </h3>
+					<h3>Votre score final est : {this.state.score} points sur 20</h3>
 					<p>
-						The correct answer's for the questions was
+						Les réponses correctes aux questions étaient :
 						<ul>
-							 {quizzdata.map((item, index) => (
+							 {bonnesReponses.map((item, index) => (
 								<li className="ui floating message options" key={index}>
-									{item.answer}
+									{item}
 								</li>
 							))}
 						</ul>
