@@ -9,42 +9,21 @@ class Quizz extends React.Component {
       listQuestion: [],
       currentQuestion: 0,
       myAnswer: null,
-      options: [],
+      mesReponses: [],
       score: 1,
       disabled: true,
       isEnd: false,
       items: [],
       quizzdata: [],
-      id: "",
+      id:"",
       question: "",
+      options: [],
+      answer: "",
       reponse1: "",
       reponse2: "",
       reponse3: "",
     };
   }
-
-  /*loadquizzdata = () => {
-    let event = this.state.listQuestion[this.state.currentQuestion];
-    const quizzdata = [
-      {
-        id: event.id,
-        question: event.question,
-        options: [
-          event.reponse1,
-          event.reponse2,
-          event.reponse3,
-        ],
-        answer: event.reponse1,
-      },
-    ];
-    this.setState(() => {
-      return {
-        questions: quizzdata[this.state.currentQuestion].question,
-        answer: quizzdata[this.state.currentQuestion].answer,
-        options: quizzdata[this.state.currentQuestion].options,
-      };
-    });
-  };*/
 
   componentDidMount() {
     axios.get(`/api/startQuizz/`)
@@ -59,7 +38,7 @@ class Quizz extends React.Component {
 
   getQuestion = () => {
     let event = this.state.listQuestion[this.state.currentQuestion];
-    axios.get(`https://vps799626.ovh.net:8000/api/quizz/${event}`)
+    axios.get(`/api/quizz/${event}`)
       .then((res) => {
         console.log(res);
         let data = [
@@ -98,30 +77,24 @@ class Quizz extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.currentQuestion !== prevState.currentQuestion) {
-      this.setState(() => {
-        return {
-          disabled: true,
-          questions: quizzdata[this.state.currentQuestion].question,
-          options: quizzdata[this.state.currentQuestion].options,
-          answer: quizzdata[this.state.currentQuestion].answer,
-        };
-      });
+      this.getQuestion();
     }
   }
   //check answer
   checkAnswer = (answer) => {
-    this.setState({ myAnswer: answer, disabled: false });
+    this.state.mesReponses.push(answer);
+    this.setState({disabled: false});
   };
 
   finishHandler = () => {
-    if (this.state.currentQuestion === quizzdata.length - 1) {
+    if (this.state.currentQuestion === this.state.quizzdata.length - 1) {
       this.setState({
         isEnd: true,
       });
     }
   };
   render() {
-    const { options, myAnswer, currentQuestion, isEnd, quizzdata } = this.state;
+    const { myAnswer, currentQuestion, isEnd, quizzdata, question, options} = this.state;
 
     if (isEnd) {
       return (
@@ -130,7 +103,7 @@ class Quizz extends React.Component {
           <p>
             The correct answer's for the questions was
             <ul>
-              {quizzdata.map((item, index) => (
+              {quizzdata[0].map((item, index) => (
                 <li className="ui floating message options" key={index}>
                   {item.answer}
                 </li>
@@ -142,19 +115,26 @@ class Quizz extends React.Component {
     } else {
       return (
         <div className="App cadreSombre">
-          <h1>{this.state.questions} </h1>
-          <span>{`Questions ${currentQuestion}  out of 20 remaining `}</span>
-          {options.map((option) => (
-            <p
-              key={option.id}
-              className={`ui floating message options ${
-                myAnswer === option ? "selected" : null
-              }`}
-              onClick={() => this.checkAnswer(option)}
-            >
-              {option}
-            </p>
+          {quizzdata.map((item, index) => (
+            <div key={index}>
+              <h2>{item.question}</h2>
+              <span>Questions {20 - currentQuestion} sur 20 restantes </span>
+              <div>
+                {item.options.map((option) => (
+                  <p
+                    key={item.id}
+                    className={`ui floating message options ${
+                      myAnswer === option ? "selected" : null
+                    }`}
+                    onClick={() => this.checkAnswer(option)}
+                  >
+                    {option}
+                  </p>
+                ))}
+              </div>
+            </div>
           ))}
+          <br/>
           {currentQuestion < 20 && (
             <button
               className="ui inverted button"

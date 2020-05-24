@@ -116,7 +116,7 @@ class APIController
     }
 
     /**
-     * @Route("/api/users/mails/", name="get_liste_mails", methods={"GET"})
+     * @Route("/api/users/listes/", name="get_liste_mails", methods={"POST"})
      */
     public function getListeMails(): JsonResponse
     {
@@ -126,23 +126,6 @@ class APIController
         foreach ($inscriptions as $inscription) {
             $data[] = [
                 'mail' => $inscription->getMail(),
-            ];
-        }
-
-        return new JsonResponse($data, Response::HTTP_OK);
-    }
-
-    /**
-     * @Route("/api/users/comments/", name="get_liste_commentaires", methods={"GET"})
-     */
-    public function getListeCommentaires(): JsonResponse
-    {
-        $inscriptions = $this->inscriptionRepository->findAll();
-        $data = [];
-
-        foreach ($inscriptions as $inscription) {
-            $data[] = [
-                'commentaire' => $inscription->getCommentaire(),
             ];
         }
 
