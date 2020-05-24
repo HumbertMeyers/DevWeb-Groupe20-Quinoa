@@ -98,7 +98,7 @@ class Quizz extends React.Component {
 
     if (isEnd) {
       return (
-        <div className="result cadreSombre">
+          <div className="result cadreSombre">
           <h3>Game Over your Final score is {this.state.score} points </h3>
           <p>
             The correct answer's for the questions was
@@ -141,17 +141,17 @@ class Quizz extends React.Component {
               disabled={this.state.disabled}
               onClick={this.nextQuestionHandler}
             >
-              Next
+            Next
             </button>
-          )}
-          {/* //adding a finish button */}
-          {currentQuestion === 20 && (
-            <button className="ui inverted button" onClick={this.finishHandler}>
-              Finish
-            </button>
-          )}
-        </div>
-      );
+      )}
+      {/* //adding a finish button */}
+      {currentQuestion === 20 && (
+      <button className="ui inverted button" onClick={this.finishHandler}>
+          Finish
+          </button>
+      )}
+    </div>
+    );
     }
   }
 }
