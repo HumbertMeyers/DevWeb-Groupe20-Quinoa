@@ -1,7 +1,7 @@
 .idea
 .history
 bin
-/src/Migrations/
+src/Migrations/
 phpunit.xml.dist
 
 ###> symfony/framework-bundle ###
@@ -9,9 +9,9 @@ phpunit.xml.dist
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
-/public/bundles/
-/var/
-/vendor/
+public/bundles
+var
+vendor
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -26,7 +26,7 @@ phpunit.xml.dist
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
-/assets/fichier Quinoa
+assets/fichier Quinoa
 *.lock
-/public/
-/node_modules/
+node_modules
+public/build/
