@@ -10,7 +10,7 @@ class Quizz extends React.Component {
 			currentQuestion: 0,
 			myAnswer: null,
 			mesReponses: [],
-			score: 1,
+			score: 0,
 			disabled: true,
 			isEnd: false,
 			items: [],
@@ -33,7 +33,6 @@ class Quizz extends React.Component {
 		let event = this.state.listQuestion[this.state.currentQuestion];
 		axios.get(`/api/quizz/${event}`)
 			.then((res) => {
-				console.log(res);
 				let data = [
 					{
 						id: res.data.id,
@@ -46,16 +45,15 @@ class Quizz extends React.Component {
 						answer: res.data.reponse1,
 					},
 				];
-				console.log(data);
 				this.setState({quizzdata: data});
 			});
 	}
 
 	nextQuestionHandler = () => {
 		// console.log('test')
-		const { myAnswer, answer, score } = this.state;
-
-		if (myAnswer === answer) {
+		const { myAnswer, quizzdata, score } = this.state;
+		this.state.mesReponses.push(myAnswer);
+		if (myAnswer === quizzdata[0].answer) {
 			this.setState({
 				score: score + 1,
 			});
@@ -65,7 +63,6 @@ class Quizz extends React.Component {
 			currentQuestion: this.state.currentQuestion + 1,
 		});
 		console.log(this.state.currentQuestion);
-		this.getQuestion();
 	};
 
 	componentDidUpdate(prevProps, prevState) {
@@ -76,19 +73,17 @@ class Quizz extends React.Component {
 
 	//check answer
 	checkAnswer = (answer) => {
-		this.state.mesReponses.push(answer);
-		this.setState({disabled: false});
+		this.setState({myAnswer: answer, disabled: false});
 	};
 
 	finishHandler = () => {
-		if (this.state.currentQuestion === this.state.quizzdata.length - 1) {
-			this.setState({
-				isEnd: true,
-			});
+		if (this.state.currentQuestion === this.state.quizzdata.length) {
+			this.setState({isEnd: true,});
 		}
 	};
+
 	render() {
-		const { myAnswer, currentQuestion, isEnd, quizzdata, question, options} = this.state;
+		const { myAnswer, currentQuestion, isEnd, quizzdata } = this.state;
 
 		if (isEnd) {
 			return (
@@ -97,7 +92,7 @@ class Quizz extends React.Component {
 					<p>
 						The correct answer's for the questions was
 						<ul>
-							{quizzdata.map((item, index) => (
+							 {quizzdata.map((item, index) => (
 								<li className="ui floating message options" key={index}>
 									{item.answer}
 								</li>
@@ -116,7 +111,6 @@ class Quizz extends React.Component {
 							<div>
 								{item.options.map((option) => (
 									<p
-										key={item.id}
 										className={`ui floating message options ${
 											myAnswer === option ? "selected" : null
 										}`}
