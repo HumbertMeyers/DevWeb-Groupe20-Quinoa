@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { ldtdata } from "./LDTData";
+//import { ldtdata } from "./LDTData";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -34,6 +34,17 @@ class LigneDuTemps extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  componentDidMount() {
+		axios.get(`/api/evenements/`)
+			.then((res) =>{
+				this.setState({listQuestion: res.data});
+			});
+		setTimeout(() => {
+			this.getQuestion();
+		}, 1500);
+
+	}
+
   toggle() {
     this.setState((prevState) => ({
       modal: !prevState.modal,
@@ -56,7 +67,7 @@ class LigneDuTemps extends Component {
   // }
 
   ligneDuTemps() {
-    return ldtdata.map(({ id, periode, nom, reponseJoueur }) => (
+    return fiche.map(({ id, periode, nom, reponseJoueur }) => (
       <tr key={id}>
         <td>{nom}</td>
         <td>{periode}</td>
