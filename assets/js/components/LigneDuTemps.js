@@ -10,6 +10,11 @@ class LigneDuTemps extends Component {
     super(props);
 
     this.state = {
+      data:[],
+      nom:"",
+      id:"",
+      periode:"", 
+      reponseJoueur:"",
       fiche: [
         { nom: "" },
         { periode: "" },
