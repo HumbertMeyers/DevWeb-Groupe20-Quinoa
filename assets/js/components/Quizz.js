@@ -17,6 +17,8 @@ class Quizz extends React.Component {
 			quizzdata: [],
 			bonnesReponses: [],
 		};
+
+		this.element = React.createRef();
 	}
 
 	componentDidMount() {
@@ -26,25 +28,19 @@ class Quizz extends React.Component {
 			});
 		setTimeout(() => {
 			this.getQuestion();
-		}, 2000);
+		}, 1500);
 
 	}
 
 	getQuestion = () => {
 		let event = this.state.listQuestion[this.state.currentQuestion];
-		for(var i =0; i < 20; i++){
-			var listeEvent = this.state.listQuestion[i];
-			axios.get(`/api/quizz/${listeEvent}`)
-				.then((res) => {
-					let data = res.data.reponse1;
-					this.setState({bonneReponses: this.state.bonnesReponses.push(data)});
-				})
-		}
 		axios.get(`/api/quizz/${event}`)
 			.then((res) => {
+				console.log(res.data);
 				let data = [
 					{
 						id: res.data.id,
+						nom: res.data.nom,
 						question: res.data.question,
 						options: [
 							res.data.reponse1,
@@ -89,6 +85,14 @@ class Quizz extends React.Component {
 		if (this.state.currentQuestion == 19) {
 			this.setState({isEnd: true,});
 		}
+		for(var i =0; i < 20; i++){
+			var listeEvent = this.state.listQuestion[i];
+			axios.get(`/api/quizz/${listeEvent}`)
+				.then((res) => {
+					let data = res.data.reponse1;
+					this.setState({bonneReponses: this.state.bonnesReponses.push(data)});
+				})
+		}
 	};
 
 	render() {
@@ -115,10 +119,14 @@ class Quizz extends React.Component {
 				<div className="App cadreSombre">
 					{quizzdata.map((item, index) => (
 						<div key={index}>
-							<h2>{item.question}</h2>
+							<h2>Sujet de la question : {item.nom}</h2>
+							<br/>
+							<h3>{item.question}</h3>
 							<span>Questions {20 - currentQuestion} sur 20 restantes </span>
 							<div>
-								{item.options.map((option) => (
+								{item.options.sort(function() {
+									return .5 - Math.random();
+								}).map(option => (
 									<p
 										className={`ui floating message options ${
 											myAnswer === option ? "selected" : null
@@ -128,11 +136,12 @@ class Quizz extends React.Component {
 										{option}
 									</p>
 								))}
+
 							</div>
 						</div>
 					))}
 					<br/>
-					{currentQuestion < 20 && (
+					{currentQuestion < 19 && (
 						<button
 							className="ui inverted button"
 							disabled={this.state.disabled}
@@ -142,7 +151,7 @@ class Quizz extends React.Component {
 						</button>
 					)}
 					{/* //adding a finish button */}
-					{currentQuestion === 20 && (
+					{currentQuestion === 19 && (
 						<button className="ui inverted button" onClick={this.finishHandler}>
 							Finish
 						</button>

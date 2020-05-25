@@ -286,6 +286,7 @@ class APIController
 
         $data = [
             'id' => $evenement->getId(),
+            'nom' => $evenement->getNom(),
             'question' => $evenement->getQuestion(),
             'reponse1' => $evenement->getReponse1(),
             'reponse2' => $evenement->getReponse2(),
@@ -306,6 +307,7 @@ class APIController
         foreach ($evenements as $evenement) {
             $data[] = [
                 'id' => $evenement->getId(),
+                'nom' => $evenement->getNom(),
                 'question' => $evenement->getQuestion(),
                 'reponse1' => $evenement->getReponse1(),
                 'reponse2' => $evenement->getReponse2(),
