@@ -41,7 +41,15 @@ class LigneDuTemps extends Component {
   componentDidMount() {
     axios.get('/api/evenements/')
     .then(response => {
-      console.log(response.fiche);
+      console.log(response.data);
+      let data = [
+        {
+          id: res.data.id,
+          nom: res.data.nom,
+          reponseJoueur: res.data.reponseJoueur,
+        },
+      ];
+      this.setState({fiche: data});
     })
     .catch(error => {
       console.log(error);
