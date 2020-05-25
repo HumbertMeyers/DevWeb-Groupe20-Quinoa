@@ -34,6 +34,16 @@ class LigneDuTemps extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  componentDidMount() {
+    axios.get('/api/evenements/')
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
   toggle() {
     this.setState((prevState) => ({
       modal: !prevState.modal,
@@ -71,6 +81,7 @@ class LigneDuTemps extends Component {
   }
 
   render() {
+    const { fiche } = this.state;
     return (
       <div className="container center">
         <div className="row justify-content-md-center">
@@ -81,8 +92,8 @@ class LigneDuTemps extends Component {
               fade={false}
               toggle={this.toggle}
             >
-              <ModalHeader toggle={this.toggle}>{this.state.nom}</ModalHeader>
-              <ModalBody>le texte</ModalBody>
+              <ModalHeader toggle={this.toggle}>{ fiche.nom}</ModalHeader>
+              <ModalBody>{ fiche }</ModalBody>
               <ModalFooter>
                 <Button color="secondary" onClick={this.toggle}>
                   Close
