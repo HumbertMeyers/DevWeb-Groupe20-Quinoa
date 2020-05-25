@@ -57,9 +57,9 @@ class LigneDuTemps extends Component {
 
   ligneDuTemps() {
     return fiche.map(({ id, periode, nom, reponseJoueur }) => (
-      <tr key={evenement.id}>
-        <td>{evenement.nom}</td>
-        <td>{evenement.periode}</td>
+      <tr key={id}>
+        <td>{nom}</td>
+        <td>{periode}</td>
         <td className="reponseJoueur">{this.reponse(reponseJoueur)}</td>
         <td>
           <Button color="secondary" onClick={this.toggle}>
