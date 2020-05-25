@@ -72,7 +72,7 @@ class LigneDuTemps extends Component {
   ligneDuTemps() {
     const { fiche } = this.state;
     return fiche.map(({ fiche }) => (
-      <tr key={id}>
+      <tr key={fiche.id}>
         <td>{fiche.nom}</td>
         <td>{fiche.periode}</td>
         <td className="reponseJoueur">{this.reponse(fiche.reponseJoueur)}</td>
