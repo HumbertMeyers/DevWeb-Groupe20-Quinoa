@@ -34,6 +34,7 @@ class LigneDuTemps extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
+
   toggle() {
     this.setState((prevState) => ({
       modal: !prevState.modal,
@@ -71,6 +72,19 @@ class LigneDuTemps extends Component {
   }
 
   render() {
+
+    const Modal = ({ showModal, children }) => {
+    return (
+        showModal && (
+            <div className="modalBackground">
+                <div className="modalContainer">
+                    { children }
+                </div>
+            </div>
+        )
+    )
+}
+
     return (
       <div className="container center">
         <div className="row justify-content-md-center">
@@ -81,7 +95,7 @@ class LigneDuTemps extends Component {
               fade={false}
               toggle={this.toggle}
             >
-              <ModalHeader toggle={this.toggle}>{this.state.nom}</ModalHeader>
+              <ModalHeader toggle={this.toggle}>{this.state.nom}ok</ModalHeader>
               <ModalBody>le texte</ModalBody>
               <ModalFooter>
                 <Button color="secondary" onClick={this.toggle}>
