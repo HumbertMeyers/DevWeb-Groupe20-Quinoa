@@ -66,7 +66,8 @@ class LigneDuTemps extends Component {
   // }
 
   ligneDuTemps() {
-    return ldtdata.map(({ id, periode, nom, reponseJoueur }) => (
+    const { fiche } = this.state;
+    return fiche.map(({ id, periode, nom, reponseJoueur }) => (
       <tr key={id}>
         <td>{nom}</td>
         <td>{periode}</td>
