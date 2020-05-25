@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class APIController
 {
+
     private $inscriptionRepository;
     private $evenementRepository;
 
@@ -21,6 +22,42 @@ class APIController
         $this->inscriptionRepository = $inscriptionRepository;
         $this->evenementRepository = $evenementRepository;
     }
+
+    // /**
+    //  * @Route(name="api_login", path="/api/login_check")
+    //  * @return JsonResponse
+    //  */
+    // public function api_login(): JsonResponse
+    // {
+    //     $user = $this->getUser();
+
+    //     return new Response([
+    //         'email' => $user->getEmail(),
+    //         'roles' => $user->getRoles(),
+    //     ]);
+    // }
+
+    // /**
+    //  * @Route("/login", name="app_login")
+    //  */
+    // public function login(AuthenticationUtils $authenticationUtils): Response
+    // {
+    //     // get the login error if there is one
+    //     $error = $authenticationUtils->getLastAuthenticationError();
+    //     // last username entered by the user
+    //     $lastUsername = $authenticationUtils->getLastUsername();
+
+    //     return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+    // }
+
+    // /**
+    //  * @Route("/logout", name="app_logout", methods={"GET"})
+    //  */
+    // public function logout()
+    // {
+    //     // controller can be blank: it will never be executed!
+    //     throw new \Exception('Don\'t forget to activate logout in security.yaml');
+    // }
 
     /**
      * @Route("/api/users/add/", name="add_utilisateur", methods={"POST"})
@@ -282,7 +319,7 @@ class APIController
             $evenement = $this->evenementRepository->findOneBy(['id' => $id]);
         } else {
             $evenement = $this->evenementRepository->findOneBy(['nom' => $id]);
-        }       
+        }
 
         $data = [
             'id' => $evenement->getId(),
@@ -323,9 +360,9 @@ class APIController
      */
     public function getOrdreQuizz(): JsonResponse
     {
-        $number = range(1,40);
+        $number = range(1, 40);
         shuffle($number);
-        $data = array_slice($number,0,20, false);
+        $data = array_slice($number, 0, 20, false);
 
         return new JsonResponse($data, Response::HTTP_OK);
     }
