@@ -82,8 +82,8 @@ class LigneDuTemps extends Component {
   }
 
   render() {
-    const { fiche } = this.state;
-    return fiche.map(({ data }) =>(
+    //const { fiche } = this.state;
+    return (
       <div className="container center">
         <div className="row justify-content-md-center">
           <div className="cadreSombre">
