@@ -10,10 +10,6 @@ class LigneDuTemps extends Component {
     super(props);
 
     this.state = {
-      nom:"",
-      id:"",
-      periode:"", 
-      reponseJoueur:"",
       fiche: [
         { nom: "" },
         { periode: "" },
@@ -79,11 +75,11 @@ class LigneDuTemps extends Component {
 
   ligneDuTemps() {
     const { fiche } = this.state;
-    return fiche.map(({ fiche, id }) => (
+    return fiche.map(({ nom, id, periode,reponseJoueur }) => (
       <tr key={id}>
-        <td>{fiche.nom}</td>
-        <td>{fiche.periode}</td>
-        <td className="reponseJoueur">{this.reponse(fiche.reponseJoueur)}</td>
+        <td>{nom}</td>
+        <td>{periode}</td>
+        <td className="reponseJoueur">{this.reponse(reponseJoueur)}</td>
         <td>
           <Button color="secondary" onClick={this.toggle}>
             Plus d'information
