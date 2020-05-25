@@ -82,7 +82,7 @@ class LigneDuTemps extends Component {
   }
 
   render() {
-    //const { fiche } = this.state;
+    const { fiche } = this.state;
     return (
       <div className="container center">
         <div className="row justify-content-md-center">
@@ -93,8 +93,8 @@ class LigneDuTemps extends Component {
               fade={false}
               toggle={this.toggle}
             >
-              <ModalHeader toggle={this.toggle}>{ this.state.fiche.nom}</ModalHeader>
-              <ModalBody>{ this.state.fiche }</ModalBody>
+              <ModalHeader toggle={this.toggle}>{ fiche.nom}</ModalHeader>
+              <ModalBody>{ fiche }</ModalBody>
               <ModalFooter>
                 <Button color="secondary" onClick={this.toggle}>
                   Close
