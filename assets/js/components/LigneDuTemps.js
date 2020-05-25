@@ -34,17 +34,6 @@ class LigneDuTemps extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  componentDidMount() {
-		axios.get(`/api/evenements/`)
-			.then((res) =>{
-				this.setState({listQuestion: res.data});
-			});
-		setTimeout(() => {
-			this.getQuestion();
-		}, 1500);
-
-	}
-
   toggle() {
     this.setState((prevState) => ({
       modal: !prevState.modal,
@@ -68,9 +57,9 @@ class LigneDuTemps extends Component {
 
   ligneDuTemps() {
     return fiche.map(({ id, periode, nom, reponseJoueur }) => (
-      <tr key={id}>
-        <td>{nom}</td>
-        <td>{periode}</td>
+      <tr key={evenement.id}>
+        <td>{evenement.nom}</td>
+        <td>{evenement.periode}</td>
         <td className="reponseJoueur">{this.reponse(reponseJoueur)}</td>
         <td>
           <Button color="secondary" onClick={this.toggle}>
