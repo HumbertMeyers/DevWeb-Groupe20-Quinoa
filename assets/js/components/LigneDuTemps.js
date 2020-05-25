@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-//import { ldtdata } from "./LDTData";
+import { ldtdata } from "./LDTData";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -56,7 +56,7 @@ class LigneDuTemps extends Component {
   // }
 
   ligneDuTemps() {
-    return fiche.map(({ id, periode, nom, reponseJoueur }) => (
+    return ldtdata.map(({ id, periode, nom, reponseJoueur }) => (
       <tr key={id}>
         <td>{nom}</td>
         <td>{periode}</td>
