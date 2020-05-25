@@ -10,7 +10,6 @@ class LigneDuTemps extends Component {
     super(props);
 
     this.state = {
-      data:[],
       nom:"",
       id:"",
       periode:"", 
@@ -42,7 +41,7 @@ class LigneDuTemps extends Component {
   componentDidMount() {
     axios.get('/api/evenements/')
     .then(response => {
-      console.log(response.data);
+      console.log(response.fiche);
     })
     .catch(error => {
       console.log(error);
@@ -71,19 +70,19 @@ class LigneDuTemps extends Component {
   // }
 
   ligneDuTemps() {
-    const { data } = this.state;
-    return data.map(({ id, periode, nom, reponseJoueur }) => (
-      <tr key={id}>
-        <td>{nom}</td>
-        <td>{periode}</td>
-        <td className="reponseJoueur">{this.reponse(reponseJoueur)}</td>
+    const { fiche } = this.state;
+    return (
+      <tr>
+        <td>{fiche.nom}</td>
+        <td>{fiche.periode}</td>
+        <td className="reponseJoueur">{this.reponse(fiche.reponseJoueur)}</td>
         <td>
           <Button color="secondary" onClick={this.toggle}>
             Plus d'information
           </Button>
         </td>
       </tr>
-    ));
+    );
   }
 
   render() {
