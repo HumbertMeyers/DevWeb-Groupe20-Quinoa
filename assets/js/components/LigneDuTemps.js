@@ -38,14 +38,6 @@ class LigneDuTemps extends Component {
     axios.get('/api/evenements/')
     .then(response => {
       console.log(response.data);
-      let data = [
-        {
-          id: res.data.id,
-          nom: res.data.nom,
-          reponseJoueur: res.data.reponseJoueur,
-        },
-      ];
-      this.setState({fiche: data});
     })
     .catch(error => {
       console.log(error);
@@ -91,7 +83,7 @@ class LigneDuTemps extends Component {
 
   render() {
     const { fiche } = this.state;
-    return (
+    return fiche.map(({ data }) =>(
       <div className="container center">
         <div className="row justify-content-md-center">
           <div className="cadreSombre">
@@ -101,8 +93,8 @@ class LigneDuTemps extends Component {
               fade={false}
               toggle={this.toggle}
             >
-              <ModalHeader toggle={this.toggle}>{ fiche.nom}</ModalHeader>
-              <ModalBody>{ fiche }</ModalBody>
+              <ModalHeader toggle={this.toggle}>{ data.nom}</ModalHeader>
+              <ModalBody>{ data }</ModalBody>
               <ModalFooter>
                 <Button color="secondary" onClick={this.toggle}>
                   Close
