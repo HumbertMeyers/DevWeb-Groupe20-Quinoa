@@ -18,6 +18,7 @@ class Home extends Component {
     return (
       <div className="container">
         <div className="row justify-content-md-center">
+          <div className='navCadre'>
           <Nav className="navbar">
             <a href="http://www.quinoa.be">
               <img className="logo" src={logo} alt="logo Quinoa" />
@@ -44,7 +45,7 @@ class Home extends Component {
             </NavItem>
             <LogOut />
           </Nav>
-
+          </div>
           <Switch>
             <Redirect exact from="/" to="/accueil" />
             <Route path="/users" component={Users} />
