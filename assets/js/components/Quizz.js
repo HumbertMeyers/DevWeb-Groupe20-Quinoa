@@ -9,18 +9,18 @@ class Quizz extends React.Component {
 			listQuestion: [],
 			currentQuestion: 0,
 			myAnswer: null,
-			mesReponses: [],
 			score: 0,
 			disabled: true,
 			isEnd: false,
 			items: [],
 			quizzdata: [],
-			bonnesReponses: [],
 		};
-
-		this.element = React.createRef();
 	}
 
+
+	/**
+	 * Cette fonction initialise la page avec un array de question aléatoire
+	 */
 	componentDidMount() {
 		axios.get(`/api/startQuizz/`)
 			.then((res) =>{
@@ -32,11 +32,14 @@ class Quizz extends React.Component {
 
 	}
 
+	/**
+	 * cette fonction récupère les informations de la question en cours
+	 */
 	getQuestion = () => {
 		let event = this.state.listQuestion[this.state.currentQuestion];
 		axios.get(`/api/quizz/${event}`)
 			.then((res) => {
-				console.log(res.data);
+				//console.log(res.data);
 				let data = [
 					{
 						id: res.data.id,
@@ -46,18 +49,29 @@ class Quizz extends React.Component {
 							res.data.reponse1,
 							res.data.reponse2,
 							res.data.reponse3,
-						],
+						].sort(function() {
+							return .5 - Math.random()
+						}),
 						answer: res.data.reponse1,
 					},
 				];
+				console.log(data);
 				this.setState({quizzdata: data});
+				!(this.state.bonnesReponses) ?
+							this.setState({bonnesReponses: [data[0].answer]})
+						: this.setState({bonnesReponses: [this.state.bonnesReponses, data[0].answer]});
 			});
 	}
 
+	/**
+	 * Cette fonction permet de passer à la question suivante
+	 */
 	nextQuestionHandler = () => {
 		// console.log('test')
 		const { myAnswer, quizzdata, score } = this.state;
-		this.state.mesReponses.push(myAnswer);
+		!(this.state.mesReponses) ?
+			this.setState({mesReponses: [myAnswer]})
+			: this.setState({bonnesReponses: [this.state.mesReponses, myAnswer]});
 		if (myAnswer === quizzdata[0].answer) {
 			this.setState({
 				score: score + 1,
@@ -70,16 +84,26 @@ class Quizz extends React.Component {
 		console.log(this.state.currentQuestion);
 	};
 
+	/**
+	 * Cette fonction vérifie si la question actuelle à bien changer.
+	 */
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.currentQuestion !== prevState.currentQuestion) {
 			this.getQuestion();
 		}
 	}
 
+	/**
+	 * Cette fonction réagit à la selection d'une réponse dans le quizz
+	 */
 	//check answer
 	checkAnswer = (answer) => {
 		this.setState({myAnswer: answer, disabled: false});
 	};
+
+	/**
+	 * Cette fonction permet la fin du quizz
+	 */
 
 	finishHandler = () => {
 		if (this.state.currentQuestion == 19) {
@@ -123,21 +147,20 @@ class Quizz extends React.Component {
 							<br/>
 							<h3>{item.question}</h3>
 							<span>Questions {20 - currentQuestion} sur 20 restantes </span>
-							<div>
-								{item.options.sort(function() {
-									return .5 - Math.random();
-								}).map(option => (
-									<p
-										className={`ui floating message options ${
-											myAnswer === option ? "selected" : null
-										}`}
-										onClick={() => this.checkAnswer(option)}
-									>
-										{option}
-									</p>
-								))}
-
-							</div>
+						</div>
+					))}
+					{quizzdata.map((item, index) => (
+						<div key={index}>
+							{item.options.map((option, index) => (
+								<p key={index}
+									className={`ui floating message options ${
+										myAnswer === option ? "selected" : null
+									}`}
+									onClick={() => this.checkAnswer(option)}
+								>
+									{option}
+								</p>
+							))}
 						</div>
 					))}
 					<br/>

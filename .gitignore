@@ -29,7 +29,7 @@ yarn-error.log
 assets/fichier Quinoa
 *.lock
 node_modules
-public/build/
+public/build
 
 ###> lexik/jwt-authentication-bundle ###
 /config/jwt/*.pem
