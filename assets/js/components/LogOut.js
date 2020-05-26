@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 
 const LogOut = () => {
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true); //si false disparait
 
-  console.log(checked); //true = déconnexion
+  console.log(checked);
 
-  useEffect(() => {
-    if (checked) {
-      console.log("Déconnexion");
-      //fonction déconnexion
-    }
-  }, [checked]);
+  // useEffect(() => {
+  //   if (checked === true) {
+  //     console.log("Déconnexion");
+  //     //fonction déconnexion
+  //   }
+  // }, [checked]);
 
   const handleChange = (event) => {
-    //vérification du check
+    //change l'état de checked
     setChecked(event.target.checked);
   };
 
   return (
-    <div className="LogOutContainer">
+    <div className="LogOutContainer" style={checked ? {} : { display: "none" }}>
       <label className="switch">
         <input type="checkbox" checked={checked} onChange={handleChange} />
         <span className="slider round"></span>
