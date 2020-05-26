@@ -348,10 +348,6 @@ class Evenement
         $this->article = $article;
     }
 
-
-
-
-
     public function toArray()
     {
         return [
