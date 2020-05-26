@@ -289,6 +289,12 @@ class Inscription extends Component {
               </FormGroup>
               <div className="erreur">{this.state.desobeissantErreur}</div>
             </FormGroup>
+            <br></br>
+            <FormGroup className="wrapper">
+              <Button className="btnLogin" onClick={() => this.handleSubmit()}>
+                <label>S'inscrire</label>
+              </Button>
+            </FormGroup>
           </Form>
         </div>
       </div>
