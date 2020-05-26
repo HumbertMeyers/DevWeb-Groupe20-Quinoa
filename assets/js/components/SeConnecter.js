@@ -16,13 +16,25 @@ const SeConnecter = () => {
         <form className="cadreSombre">
           <h1 className="formTitle text-center">Se Connecter</h1>
           <FormGroup>
-            <h3>Adresse Mail</h3>
-            <Input type="email" name="email" id="email" placeholder="" />
+            <h3>Adresse mail</h3>
+            <Input
+              type="email"
+              name="email"
+              id="Email"
+              placeholder=""
+              required
+            />
           </FormGroup>
-          {/* <FormGroup>
-              <h3>Adresse mail</h3>
-              <Input type="email" name="email" id="Email" placeholder="" />
-            </FormGroup> */}
+          <FormGroup>
+            <h3>Mot de passe</h3>
+            <Input
+              type="password"
+              name="mdp"
+              id="mdp"
+              placeholder=""
+              required
+            />
+          </FormGroup>
           <FormGroup className="wrapper">
             <Button className="btnLogin" onClick={login}>
               Se Connect
@@ -30,7 +42,7 @@ const SeConnecter = () => {
           </FormGroup>
         </form>
         <Alert color="warning" style={erreur ? { display: "none" } : {}}>
-          Nous ne connaissons pas ce mail !
+          Votre adresse mail ou votre mot passe est incorrect
         </Alert>
       </div>
     </div>
