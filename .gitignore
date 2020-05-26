@@ -27,10 +27,10 @@ npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 assets/fichier Quinoa
-*.lock
+.lock
 node_modules
 /public/
 
 ###> lexik/jwt-authentication-bundle ###
-/config/jwt/*.pem
+/config/jwt/.pem
 ###< lexik/jwt-authentication-bundle ###
