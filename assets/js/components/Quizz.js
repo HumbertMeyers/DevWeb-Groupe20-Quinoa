@@ -17,6 +17,10 @@ class Quizz extends React.Component {
 		};
 	}
 
+
+	/**
+	 * Cette fonction initialise la page avec un array de question aléatoire
+	 */
 	componentDidMount() {
 		axios.get(`/api/startQuizz/`)
 			.then((res) =>{
@@ -51,9 +55,6 @@ class Quizz extends React.Component {
 						answer: res.data.reponse1,
 					},
 				];
-				/*this.data[0].options.sort(function() {
-					return .5 - Math.random()
-				});*/
 				console.log(data);
 				this.setState({quizzdata: data});
 				!(this.state.bonnesReponses) ?
@@ -62,6 +63,9 @@ class Quizz extends React.Component {
 			});
 	}
 
+	/**
+	 * Cette fonction permet de passer à la question suivante
+	 */
 	nextQuestionHandler = () => {
 		// console.log('test')
 		const { myAnswer, quizzdata, score } = this.state;
@@ -80,16 +84,26 @@ class Quizz extends React.Component {
 		console.log(this.state.currentQuestion);
 	};
 
+	/**
+	 * Cette fonction vérifie si la question actuelle à bien changer.
+	 */
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.currentQuestion !== prevState.currentQuestion) {
 			this.getQuestion();
 		}
 	}
 
+	/**
+	 * Cette fonction réagit à la selection d'une réponse dans le quizz
+	 */
 	//check answer
 	checkAnswer = (answer) => {
 		this.setState({myAnswer: answer, disabled: false});
 	};
+
+	/**
+	 * Cette fonction permet la fin du quizz
+	 */
 
 	finishHandler = () => {
 		if (this.state.currentQuestion == 19) {
