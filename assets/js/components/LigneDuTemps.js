@@ -4,12 +4,17 @@ import { ldtdata } from "./LDTData";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Simplert from 'react-simplert'
 
 class LigneDuTemps extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      showAlert: false,
+      typeAlert: 'success',
+      titleAlert: 'This is Title',
+      messageAlert: 'I am message alert',
       fiche: [
         { nom: "" },
         { periode: "" },
@@ -34,6 +39,16 @@ class LigneDuTemps extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
+  componentDidMount() {
+    axios.get('/api/evenements/')
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
   toggle() {
     this.setState((prevState) => ({
       modal: !prevState.modal,
@@ -56,7 +71,8 @@ class LigneDuTemps extends Component {
   // }
 
   ligneDuTemps() {
-    return ldtdata.map(({ id, periode, nom, reponseJoueur }) => (
+    const { fiche } = this.state;
+    return fiche.map(({ nom, id, periode,reponseJoueur }) => (
       <tr key={id}>
         <td>{nom}</td>
         <td>{periode}</td>
@@ -71,24 +87,17 @@ class LigneDuTemps extends Component {
   }
 
   render() {
+    const { fiche } = this.state;
     return (
       <div className="container center">
         <div className="row justify-content-md-center">
           <div className="cadreSombre">
-            <Modal
-              modalClassName="modal-dialog"
-              isOpen={this.state.modal}
-              fade={false}
-              toggle={this.toggle}
-            >
-              <ModalHeader toggle={this.toggle}>{this.state.nom}</ModalHeader>
-              <ModalBody>le texte</ModalBody>
-              <ModalFooter>
-                <Button color="secondary" onClick={this.toggle}>
-                  Close
-                </Button>
-              </ModalFooter>
-            </Modal>
+          <Simplert 
+            showSimplert={ this.state.showAlert }
+            type={ this.state.typeAlert }
+             title={ this.state.titleAlert }
+             message={ this.state.messageAlert }
+          />
             <h2 className="ldtTitre">
               Vos résultats aux questions des désobéissants
             </h2>
