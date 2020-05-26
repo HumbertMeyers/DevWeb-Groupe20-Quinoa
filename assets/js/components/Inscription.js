@@ -7,12 +7,12 @@ class Inscription extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pseudo: "",
       mail: "",
+      mdp: "",
       age: "",
       sexe: "",
       desobeissant: "",
-      pseudoErreur: "",
+      mdpErreur: "",
       mailErreur: "",
       ageErreur: "",
       sexeErreur: "",
@@ -22,7 +22,7 @@ class Inscription extends Component {
 
   createUser() {
     const userObject = {
-      pseudo: this.state.pseudo,
+      mdp: this.state.mdp,
       mail: this.state.mail,
       age: this.state.age,
       sexe: this.state.sexe,
@@ -41,8 +41,8 @@ class Inscription extends Component {
   handleChange(item, champ) {
     let itemValue = item.target.value;
     switch (champ) {
-      case "pseudo": {
-        this.setState({ pseudo: itemValue });
+      case "mdp": {
+        this.setState({ mdp: itemValue });
         break;
       }
       case "mail": {
@@ -65,13 +65,13 @@ class Inscription extends Component {
   }
 
   validate() {
-    let pseudoErreur = "";
+    let mdpErreur = "";
     let mailErreur = "";
     let ageErreur = "";
     let sexeErreur = "";
     let desobeissantErreur = "";
 
-    if (!this.state.pseudo) {
+    if (this.state.mdp.value.length < 5) {
       pseudoErreur = "le champ doit être rempli";
     }
 
@@ -114,7 +114,7 @@ class Inscription extends Component {
   handleSubmit() {
     const isValid = this.validate();
     let obj = {};
-    obj.pseudo = this.state.pseudo;
+    obj.mdp = this.state.mdp;
     obj.mail = this.state.mail;
     obj.age = this.state.age;
     obj.sexe = this.state.sexe;
@@ -135,19 +135,6 @@ class Inscription extends Component {
           <Form className="cadreSombre" method="POST">
             <h1 className="formTitle text-center">Inscription</h1>
             <FormGroup>
-              <h3>Pseudo</h3>
-              <Input
-                type="text"
-                name="pseudo"
-                id="pseudo"
-                placeholder=""
-                onChange={(item) => this.handleChange(item, "pseudo")}
-                required
-              />
-              <div className="erreur">{this.state.pseudoErreur}</div>
-            </FormGroup>
-
-            <FormGroup>
               <h3>Adresse Mail</h3>
               <Input
                 type="email"
@@ -158,6 +145,18 @@ class Inscription extends Component {
                 required
               />
               <div className="erreur">{this.state.mailErreur}</div>
+            </FormGroup>
+            <FormGroup>
+              <h3>Mot de passe</h3>
+              <Input
+                type="password"
+                name="mdp"
+                id="mdp"
+                placeholder=""
+                onChange={(item) => this.handleChange(item, "mdp")}
+                required
+              />
+              <div className="erreur">{this.state.mdpErreur}</div>
             </FormGroup>
             <FormGroup>
               <h3>Age</h3>
@@ -289,95 +288,6 @@ class Inscription extends Component {
                 <Label>non</Label>
               </FormGroup>
               <div className="erreur">{this.state.desobeissantErreur}</div>
-            </FormGroup>
-            <FormGroup>
-              <table id="tabDesobei">
-                <tbody>
-                  <tr>
-                    <th className="thead">Action</th>
-                    <th className="thead">Déjà réalisé</th>
-                    <th className="thead">Efficace</th>
-                  </tr>
-                  <tr>
-                    <td>Signer une pétition</td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="petitionRealise" />
-                    </td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="petitionEfficace" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Faire un don</td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="donRealise" />
-                    </td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="donEfficace" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Pratiquer le zéro déchet, changer mes habitudes</td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="ecologiqueRealise" />
-                    </td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="ecologiqueEfficace" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>M’informer à propos de l'actualité</td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="informerRealise" />
-                    </td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="informerEfficace" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>M’engager en politique</td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="politiqueRealise" />
-                    </td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="politiqueEfficace" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Faire la grève</td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="greveRealise" />
-                    </td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="greveEfficace" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Manifester</td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="manifesterRealise" />
-                    </td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="manifesterEfficace" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Faire de la désobéissance civile</td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="desobeissantRealise" />
-                    </td>
-                    <td className="radioTab">
-                      <Input type="checkbox" name="desobeissantEfficace" />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </FormGroup>
-            <br></br>
-            <FormGroup className="wrapper">
-              <Button className="btnLogin" onClick={() => this.handleSubmit()}>
-                <label>S'inscrire</label>
-              </Button>
             </FormGroup>
           </Form>
         </div>
