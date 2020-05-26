@@ -35,6 +35,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
+    "react-simplert": "^0.0.2",
     "reactstrap": "^8.4.1",
     "yarn": "^1.22.4"
   },

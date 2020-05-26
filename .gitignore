@@ -30,7 +30,3 @@ assets/fichier Quinoa
 *.lock
 node_modules
 public/build/
-
-###> lexik/jwt-authentication-bundle ###
-/config/jwt/*.pem
-###< lexik/jwt-authentication-bundle ###
