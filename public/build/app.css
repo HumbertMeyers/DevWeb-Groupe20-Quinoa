@@ -129,7 +129,7 @@ input.radioAge {
   text-align: center;
 }
 
-input[type="text"],
+input[type="password"],
 input[type="email"],
 textarea,
 select.form-control {
