@@ -4,17 +4,12 @@ import { ldtdata } from "./LDTData";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Simplert from 'react-simplert'
 
 class LigneDuTemps extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      showAlert: false,
-      typeAlert: 'success',
-      titleAlert: 'This is Title',
-      messageAlert: 'I am message alert',
       fiche: [
         { nom: "" },
         { periode: "" },
@@ -92,12 +87,20 @@ class LigneDuTemps extends Component {
       <div className="container center">
         <div className="row justify-content-md-center">
           <div className="cadreSombre">
-          <Simplert 
-            showSimplert={ this.state.showAlert }
-            type={ this.state.typeAlert }
-             title={ this.state.titleAlert }
-             message={ this.state.messageAlert }
-          />
+            <Modal
+              modalClassName="modal-dialog"
+              isOpen={this.state.modal}
+              fade={false}
+              toggle={this.toggle}
+            >
+              <ModalHeader toggle={this.toggle}>{ fiche.nom}</ModalHeader>
+              <ModalBody>{ fiche }</ModalBody>
+              <ModalFooter>
+                <Button color="secondary" onClick={this.toggle}>
+                  Close
+                </Button>
+              </ModalFooter>
+            </Modal>
             <h2 className="ldtTitre">
               Vos résultats aux questions des désobéissants
             </h2>
