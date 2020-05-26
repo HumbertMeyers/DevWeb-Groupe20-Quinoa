@@ -45,7 +45,7 @@ class Home extends Component {
             </NavItem>
             <LogOut />
           </Nav>
-          
+          </div>
           <Switch>
             <Redirect exact from="/" to="/accueil" />
             <Route path="/users" component={Users} />
@@ -57,7 +57,6 @@ class Home extends Component {
             <Route path="/lignedutemps" component={LigneDuTemps} />
             <Route path="/resultat" component={Resultat} />
           </Switch>
-          </div>
         </div>
       </div>
     );
