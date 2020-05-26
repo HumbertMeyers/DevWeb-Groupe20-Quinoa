@@ -223,6 +223,10 @@ ul {
   background: var(--third);
 }
 
+.numeroQuestion {
+  margin: 1em auto;
+}
+
 /* Accueil */
 
 .accueilTitre {
