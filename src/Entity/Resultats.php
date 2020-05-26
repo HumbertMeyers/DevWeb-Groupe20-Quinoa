@@ -942,4 +942,5 @@ class Resultats
             'reponse39' => $this->getReponse39(),
             'reponse40' => $this->getReponse40(),
         ];
+    }
 }
