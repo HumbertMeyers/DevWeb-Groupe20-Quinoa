@@ -131,7 +131,10 @@ input.radioAge {
 }
 
 input[type="email"],
-input[type="password"],
+input[type="password"] {
+  width: 50px;
+}
+
 input[type="text"],
 input[type="number"],
 textarea,
