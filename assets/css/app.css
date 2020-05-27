@@ -77,6 +77,13 @@ a:hover {
   color: var(--fourth);
 }
 
+.navCadre {
+  background-color: var(--third);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: auto;
+}
+
 /* Inscription & SeConnecter */
 
 button:hover {
