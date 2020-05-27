@@ -32,13 +32,13 @@ class Resultat extends Component {
             <h1 className="resultTitre">Tu as fini le Quizz Dezobeyi !</h1>
             <div className="resultatContenu">
               <b>
-                {this.statescore >= 16 ? (
+                {this.state.score >= 16 ? (
                   <label>
                     Bravo ! Tu es un-e incontestable désobéissant-e 😃...
                     Dezobeyi comporte encore bien d'autres facettes, n'hésite
                     pas à rejouer...
                   </label>
-                ) : this.score <= 15 && this.score >= 10 ? (
+                ) : this.state.score <= 15 && this.score >= 10 ? (
                   <label>
                     Tu es un-e désobéissant-e confirmé-e, bien joué ! et si tu
                     rejouais pour devenir un-e véritable expert-e ?
