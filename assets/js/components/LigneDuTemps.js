@@ -31,9 +31,6 @@ class LigneDuTemps extends Component {
       modal: false,
       activeModal: null,
     };
-    localStorage.getItem("reponses");
-    localStorage.getItem("bonnesReponses");
-    localStorage.getItem("listeQuestion");
 
     this.toggle = this.toggle.bind(this);
   }
@@ -46,6 +43,9 @@ class LigneDuTemps extends Component {
     .catch(error => {
       console.log(error);
     });
+    this.setState("reponses", localStorage.getItem("reponses"))
+    this.setState("bonnesReponses", localStorage.getItem("bonnesReponses"))
+    this.setState("listeQuestions", localStorage.getItem("listeQuestion"))
   }
 
   toggle() {
@@ -75,7 +75,7 @@ class LigneDuTemps extends Component {
       <tr key={id}>
         <td>{nom}</td>
         <td>{periode}</td>
-        <td className="reponseJoueur">{localStorage.getItem("reponses")}</td>
+        <td className="reponseJoueur">{this.state.reponses[id]}</td>
         <td>
           <Button color="secondary" onClick={this.toggle}>
             Plus d'information
