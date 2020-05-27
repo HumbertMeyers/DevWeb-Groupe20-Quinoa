@@ -300,7 +300,7 @@ class Administration extends Component{
 								placeholder="vidéo"
 								name="video"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.video}
 								onChange={this.handleChange}/>
 							</label><br/>
@@ -310,7 +310,7 @@ class Administration extends Component{
 								placeholder="article"
 								name="article"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.article}
 								onChange={this.handleChange}/>
 							</label><br/>
