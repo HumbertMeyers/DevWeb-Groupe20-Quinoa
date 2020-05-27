@@ -148,13 +148,21 @@ class APIController
         $victoire = $data['victoire'];
         $anecdote = $data['anecdote'];
         $citation = $data['citation'];
+        $question = $data['question'];
+        $reponse1 = $data['reponse1'];
+        $reponse2 = $data['reponse2'];
+        $reponse3 = $data['reponse3'];
+        $video = $data['video'];
+        $article = $data['Article'];
 
         if (empty($nom) || empty($periode) || empty($lieu) || empty($lutte) || empty($strategie) || empty($action)
-            || empty($victoire) || empty($anecdote) || empty($citation)) {
+            || empty($victoire) || empty($anecdote) || empty($citation) || empty($question) || empty($reponse1)
+            || empty($reponse2) || empty($reponse3)) {
             throw new NotFoundHttpException('Paramètres obligatoires attendus!');
         }
 
-        $this->evenementRepository->saveEvenement($nom, $periode, $lieu, $lutte, $strategie, $action, $victoire, $anecdote, $citation);
+        $this->evenementRepository->saveEvenement($nom, $periode, $lieu, $lutte, $strategie, $action, $victoire,
+            $anecdote, $citation, $question, $reponse1, $reponse2, $reponse3, $video, $article);
 
         return new JsonResponse(['status' => 'Evenement créé!'], Response::HTTP_CREATED);
     }

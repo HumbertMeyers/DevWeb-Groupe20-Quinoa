@@ -6,6 +6,8 @@ class Quizz extends React.Component {
 		super(props);
 
 		this.state = {
+			bonnesReponses: [],
+			mesReponses: [],
 			listQuestion: [],
 			currentQuestion: 0,
 			myAnswer: null,
@@ -55,33 +57,30 @@ class Quizz extends React.Component {
 						answer: res.data.reponse1,
 					},
 				];
-				console.log(data);
+				//console.log(data);
 				this.setState({quizzdata: data});
-				!(this.state.bonnesReponses) ?
-							this.setState({bonnesReponses: [data[0].answer]})
-						: this.setState({bonnesReponses: [this.state.bonnesReponses, data[0].answer]});
 			});
 	}
 
 	/**
-	 * Cette fonction permet de passer à la question suivante
+	 * Cette fonction permet de passer à la question suivante en enregistrant la bonne réponse ainsi que la réponse
+	 * de l'utilisateur et augmente le score si la réponse est correcte
 	 */
 	nextQuestionHandler = () => {
 		// console.log('test')
 		const { myAnswer, quizzdata, score } = this.state;
-		!(this.state.mesReponses) ?
-			this.setState({mesReponses: [myAnswer]})
-			: this.setState({bonnesReponses: [this.state.mesReponses, myAnswer]});
+		let joinedUserAnswer = this.state.mesReponses.concat(myAnswer);
+		this.setState({ mesReponses: joinedUserAnswer });
+		let joinedCorrectAnswer = this.state.bonnesReponses.concat(quizzdata[0].answer);
+		this.setState({ bonnesReponses: joinedCorrectAnswer });
 		if (myAnswer === quizzdata[0].answer) {
 			this.setState({
 				score: score + 1,
 			});
 		}
-
 		this.setState({
 			currentQuestion: this.state.currentQuestion + 1,
 		});
-		console.log(this.state.currentQuestion);
 	};
 
 	/**
@@ -108,14 +107,6 @@ class Quizz extends React.Component {
 	finishHandler = () => {
 		if (this.state.currentQuestion == 19) {
 			this.setState({isEnd: true,});
-		}
-		for(var i =0; i < 20; i++){
-			var listeEvent = this.state.listQuestion[i];
-			axios.get(`/api/quizz/${listeEvent}`)
-				.then((res) => {
-					let data = res.data.reponse1;
-					this.setState({bonneReponses: this.state.bonnesReponses.push(data)});
-				})
 		}
 	};
 
