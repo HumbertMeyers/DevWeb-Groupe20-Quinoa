@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
 
+/**
+ * Cette classe permet l'affichage d'une page d'ajout et de modification des evenement pour le quizz
+ */
+
 class Administration extends Component{
 	constructor(props) {
 		super(props);
@@ -14,17 +18,21 @@ class Administration extends Component{
 		//this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	/**
+	 * Cette fonction permet de mettre a jour la page suite à un evenement
+	 * @param event un evenement sur l'affichage
+	 */
 	handleChange(event) {
 		const target = event.target;
 		const value = target.value;
 		const name = target.name;
 		this.setState({[name]: value});
-		if(this.state.nom !== undefined) {
+		if(this.state.nom !== undefined && this.state.method === "get") {
 			let nom = this.state.nom;
 			axios
 				.get(`/api/evenements/${nom}`)
 				.then((res) => {
-					console.log(res);
+					//console.log(res);
 					this.setState({
 							periode: res.data.periode,
 							lieu: res.data.lieu,
@@ -47,6 +55,9 @@ class Administration extends Component{
 		}
 	}
 
+	/**
+	 * cette fonction permet l'envoi de données vers la base de données.
+	 */
 	handleSubmit() {
 		let nom = this.state.nom;
 		const eventObject = {
@@ -66,6 +77,7 @@ class Administration extends Component{
 			video: this.state.video,
 			article: this.state.article,
 		};
+
 		switch (method) {
 			case "post":
 				axios
@@ -97,8 +109,8 @@ class Administration extends Component{
 						console.log(error);
 					});
 				break;
-			default:
-				axios
+			default: alert('Une erreur est survenue');
+				/*axios
 					.get(`/api/evenements/${nom}`, eventObject)
 					.then((res) => {
 						console.log(res);
@@ -119,10 +131,21 @@ class Administration extends Component{
 							article: res.data.article}
 						);
 						//console.log(res.data);
-					});
+					});*/
 		}
 	}
 
+	handleClick = () => {
+		let enteredName = prompt('Entrez votre mot de passe')
+		if(enteredName === "Quinoa2020"){
+			this.handleSubmit();
+		}
+	}
+
+	/**
+	 * cette fonction permets le rendu visuel de la page
+	 * @returns {*}
+	 */
 	render() {
 		if(this.state.selectEvent){
 			return(
@@ -130,10 +153,11 @@ class Administration extends Component{
 					<div className="cadreSombre">
 						<h1>Page d'ajout ou de modification d'un évenement</h1>
 
-						<form onSubmit={this.handleSubmit}>
+						<form onSubmit={this.handleClick}>
 							<label>
 								Que voulez vous faire ? <span>   </span>
-								<select value={this.state.method} onChange={this.handleChange}>
+								<select value={this.state.method} name="method" onChange={this.handleChange}>
+									<option value="">--</option>
 									<option value="get">Verifier</option>
 									<option value="post">Ajouter</option>
 									<option value="put">Modifier</option>
