@@ -4,7 +4,6 @@ import { Button, FormGroup } from "reactstrap";
 class Resultat extends Component {
   constructor(props) {
     super(props);
-    const score = localStorage.getItem("score");
   }
 
   handleClick(page) {
@@ -22,7 +21,6 @@ class Resultat extends Component {
     }
   }
 
-  msgResultat() {}
 
   render() {
     return (
@@ -32,18 +30,18 @@ class Resultat extends Component {
             <h1 className="resultTitre">Tu as fini le Quizz Dezobeyi !</h1>
             <div className="resultatContenu">
               <b>
-                {score >= 16 ? (
+                {localStorage.getItem("score") >= 16 ? (
                   <label>
                     Bravo ! Tu es un-e incontestable désobéissant-e 😃...
                     Dezobeyi comporte encore bien d'autres facettes, n'hésite
                     pas à rejouer...
                   </label>
-                ) : score <= 15 && this.score >= 10 ? (
+                ) : localStorage.getItem("score") <= 15 && localStorage.getItem("score") >= 10 ? (
                   <label>
                     Tu es un-e désobéissant-e confirmé-e, bien joué ! et si tu
                     rejouais pour devenir un-e véritable expert-e ?
                   </label>
-                ) : score <= 9 && this.score >= 0 ? (
+                ) : localStorage.getItem("score") <= 9 && localStorage.getItem("score") >= 0 ? (
                   <label>
                     Tu es une graine de désobéissant-e ! continue de t'informer
                     dans nos pages et rejoue !
@@ -51,12 +49,12 @@ class Resultat extends Component {
                 ) : (
                   <label>erreur de score</label>
                 )}
-                }
               </b>
               <p>
-                Tu as eu {localStorage.getItem("score")} bonnes réponses sur 20 questions
-                Tu as eu {score !== null ? score : "erreur de score"} de bonnes
-                réponses sur 20
+                {localStorage.getItem("score") ===undefined ?
+                    ("Veuillez faire le quizz en premier")
+                  : ("Tu as eu "+localStorage.getItem('score')+" bonnes réponses sur 20")
+                }
               </p>
               <br></br>
               <FormGroup>

@@ -55,20 +55,6 @@ class Quizz extends React.Component {
       ];
       //console.log(data);
       this.setState({ quizzdata: data });
-      //création d'un localStorage
-      localStorage.setItem(
-        "listeQuestion",
-        JSON.stringify(this.state.listQuestion)
-      );
-      localStorage.setItem(
-        "listeReponses",
-        JSON.stringify(this.state.mesReponses)
-      );
-      localStorage.setItem("score", JSON.stringify(this.state.score));
-      localStorage.setItem(
-        "bonneReponse",
-        JSON.stringify(this.state.bonnesReponses)
-      );
     });
   };
 
@@ -97,7 +83,9 @@ class Quizz extends React.Component {
     }
     this.setState({
       currentQuestion: this.state.currentQuestion + 1,
+      disabled: true,
     });
+
   };
 
   /**
