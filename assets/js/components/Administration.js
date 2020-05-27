@@ -184,10 +184,9 @@ class Administration extends Component{
 								value={this.state.periode}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Lieu :<br/>
 								<textarea
-								className='textarea'
 								name="lieu"
 								rows="1"
 								cols="90"
@@ -195,10 +194,9 @@ class Administration extends Component{
 								value={this.state.lieu}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Lutte :<br/>
 								<textarea
-								className='textarea'
 								name="lutte"
 								placeholder="lutte"
 								rows="1"
@@ -206,121 +204,110 @@ class Administration extends Component{
 								value={this.state.lutte}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Strategie :<br/>
 								<textarea
 								placeholder="strategie"
-								className='textarea'
 								name="strategie"
 								rows="1"
 								cols="90"
 								value={this.state.strategie}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Action :<br/>
 								<textarea
 								placeholder="action"
-								className='textarea'
 								name="action"
 								rows="1"
 								cols="90"
 								value={this.state.action}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Victoire :<br/>
 								<textarea
 								placeholder="victoire"
-								className='textarea'
 								name="victoire"
 								rows="1"
 								cols="90"
 								value={this.state.victoire}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Anecdote :<br/>
 								<textarea
 								placeholder="anecdote"
-								className='textarea'
 								name="anecdote"
 								rows="1"
 								cols="90"
 								value={this.state.anecdote}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Citation :<br/>
 								<textarea
 								placeholder="citation"
-								className='textarea'
 								name="citation"
 								rows="1"
 								cols="90"
 								value={this.state.citation}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Question :<br/>
 								<textarea
 								placeholder="question"
-								className='textarea'
 								name="question"
 								rows="1"
 								cols="90"
 								value={this.state.question}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Première réponse (la réponse correcte) :<br/>
 								<textarea
 								placeholder="réponse 1"
-								className='textarea'
 								name="reponse1"
 								rows="1"
 								cols="90"
 								value={this.state.reponse1}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Deuxième réponse :<br/>
 								<textarea
 								placeholder="réponse 2"
-								className='textarea'
 								name="reponse2"
 								rows="1"
 								cols="90"
 								value={this.state.reponse2}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'> 
 								Troisième réponse :<br/>
 								<textarea
 								placeholder="réponse 3"
-								className='textarea'
 								name="reponse3"
 								rows="1"
 								cols="90"
 								value={this.state.reponse3}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Video :<br/>
 								<textarea
 								placeholder="vidéo"
-								className='textarea'
 								name="video"
 								rows="1"
 								cols="90"
 								value={this.state.video}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Article :<br/>
 								<textarea
 								placeholder="article"
-								className='textarea'
 								name="article"
 								rows="1"
 								cols="90"

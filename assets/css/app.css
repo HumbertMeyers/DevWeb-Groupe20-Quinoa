@@ -144,7 +144,6 @@ input[type="password"] {
 input[type="text"],
 input[type="number"],
 textarea,
-.textarea,
 select.form-control {
   background: rgba(255, 255, 255, 0.05);
   padding: 10px 16px;
@@ -155,6 +154,9 @@ select.form-control {
   width: auto;
 }
 
+.adminLabel {
+  width: auto;
+}
 input[type="text"]:focus,
 select.form-control:focus {
   -webkit-box-shadow: none;
