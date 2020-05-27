@@ -32,18 +32,18 @@ class Resultat extends Component {
             <h1 className="resultTitre">Tu as fini le Quizz Dezobeyi !</h1>
             <div className="resultatContenu">
               <b>
-                {this.state.score >= 16 ? (
+                {score >= 16 ? (
                   <label>
                     Bravo ! Tu es un-e incontestable désobéissant-e 😃...
                     Dezobeyi comporte encore bien d'autres facettes, n'hésite
                     pas à rejouer...
                   </label>
-                ) : this.state.score <= 15 && this.score >= 10 ? (
+                ) : score <= 15 && this.score >= 10 ? (
                   <label>
                     Tu es un-e désobéissant-e confirmé-e, bien joué ! et si tu
                     rejouais pour devenir un-e véritable expert-e ?
                   </label>
-                ) : this.state.score <= 9 && this.score >= 0 ? (
+                ) : score <= 9 && this.score >= 0 ? (
                   <label>
                     Tu es une graine de désobéissant-e ! continue de t'informer
                     dans nos pages et rejoue !
@@ -54,11 +54,8 @@ class Resultat extends Component {
                 }
               </b>
               <p>
-                Tu as eu{" "}
-                {this.state.score !== null
-                  ? this.state.score
-                  : "erreur de score"}{" "}
-                de bonnes réponses sur 20
+                Tu as eu {score !== null ? score : "erreur de score"} de bonnes
+                réponses sur 20
               </p>
               <br></br>
               <FormGroup>
