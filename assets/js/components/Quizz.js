@@ -60,7 +60,15 @@ class Quizz extends React.Component {
         "listeQuestion",
         JSON.stringify(this.state.listQuestion)
       );
-      localStorage.setItem("reponse", JSON.stringify(this.state.mesReponses));
+      localStorage.setItem(
+        "listeReponses",
+        JSON.stringify(this.state.mesReponses)
+      );
+      localStorage.setItem("score", JSON.stringify(this.state.score));
+      localStorage.setItem(
+        "bonneReponse",
+        JSON.stringify(this.state.bonnesReponses)
+      );
     });
   };
 
