@@ -17,7 +17,7 @@ body {
   font-size: 1.4em;
   /*font-family: comic;*/
   background-color: var(--primary);
-  background-image: url("../img/FondQuinoa.png");
+  background-image: url("../img/FOND.png");
   background-size: cover;
   background-attachment: fixed;
   /* height: auto;
@@ -75,6 +75,13 @@ a {
 
 a:hover {
   color: var(--fourth);
+}
+
+.navCadre {
+  background-color: var(--third);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: auto;
 }
 
 /* Inscription & SeConnecter */
@@ -358,6 +365,16 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* Administration */
+textarea[type="lieu"],
+select.form-control {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 2px solid var(--secondary);
+  font-size: 1em;
 }
 
 /* Responsive */
