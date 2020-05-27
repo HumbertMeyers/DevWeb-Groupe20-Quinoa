@@ -81,6 +81,7 @@ a:hover {
   background-color: var(--third);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  padding: auto;
 }
 
 /* Inscription & SeConnecter */
@@ -129,7 +130,7 @@ input.radioAge {
   text-align: center;
 }
 
-input[type="text"],
+input[type="password"],
 input[type="email"],
 textarea,
 select.form-control {

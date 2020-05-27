@@ -137,7 +137,7 @@ class Quizz extends React.Component {
 							<h2>Sujet de la question : {item.nom}</h2>
 							<br/>
 							<h3>{item.question}</h3>
-							<span>Questions {20 - currentQuestion} sur 20 restantes </span>
+							<span>Questions {20 - currentQuestion} sur 20 restantes<br /></span>
 						</div>
 					))}
 					{quizzdata.map((item, index) => (
