@@ -72,15 +72,15 @@ class Quizz extends React.Component {
     });
   };
 
-  saveQuestionHandler = () =>{
-    const { myAnswer, quizzdata} = this.state;
+  saveQuestionHandler = () => {
+    const { myAnswer, quizzdata } = this.state;
     let joinedUserAnswer = this.state.mesReponses.concat(myAnswer);
     this.setState({ mesReponses: joinedUserAnswer });
     let joinedCorrectAnswer = this.state.bonnesReponses.concat(
       quizzdata[0].answer
     );
     this.setState({ bonnesReponses: joinedCorrectAnswer });
-  }
+  };
 
   /**
    * Cette fonction permet de passer à la question suivante en enregistrant la bonne réponse ainsi que la réponse
@@ -89,7 +89,7 @@ class Quizz extends React.Component {
   nextQuestionHandler = () => {
     // console.log('test')
     const { myAnswer, quizzdata, score } = this.state;
-    this.saveQuestionHandler()
+    this.saveQuestionHandler();
     if (myAnswer === quizzdata[0].answer) {
       this.setState({
         score: score + 1,
@@ -125,12 +125,18 @@ class Quizz extends React.Component {
     if (this.state.currentQuestion == 19) {
       this.setState({ isEnd: true });
     }
-    this.saveQuestionHandler()
+    this.saveQuestionHandler();
     //création d'un localStorage
-    localStorage.setItem("listeQuestion", JSON.stringify(this.state.listQuestion));
-    localStorage.setItem("bonnesReponses", JSON.stringify(this.state.bonnesReponses));
+    localStorage.setItem(
+      "listeQuestion",
+      JSON.stringify(this.state.listQuestion)
+    );
+    localStorage.setItem(
+      "bonnesReponses",
+      JSON.stringify(this.state.bonnesReponses)
+    );
     localStorage.setItem("reponse", JSON.stringify(this.state.mesReponses));
-    localStorage.setItem('score', this.state.score);
+    localStorage.setItem("score", this.state.score);
   };
 
   render() {
@@ -163,9 +169,13 @@ class Quizz extends React.Component {
         <div className="App cadreSombre">
           {quizzdata.map((item, index) => (
             <div key={index}>
-              <h2>Sujet de la question : {item.nom}</h2>
+              <h2>
+                Sujet de la question :{" "}
+                <label className="sujet">{item.nom}</label>
+              </h2>
               <br />
-              <h3>{item.question}</h3>
+              <h3 className="question">{item.question}</h3>
+              <br />
               <span>
                 Questions {20 - currentQuestion} sur 20 restantes
                 <br />

@@ -240,6 +240,14 @@ ul {
   background: var(--third);
 }
 
+.sujet {
+  color: var(--five);
+}
+
+.question {
+  color: var(--secondary);
+}
+
 /* Accueil */
 
 .accueilTitre {
