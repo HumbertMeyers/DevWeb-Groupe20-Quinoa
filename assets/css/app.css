@@ -43,7 +43,7 @@ body {
   border-radius: 10px;
   padding: 10px 20px;
   margin: 30px 0;
-  width: 900px;
+  width: auto;
 }
 
 /* NAVBAR */
@@ -131,7 +131,15 @@ input.radioAge {
 }
 
 input[type="email"],
-input[type="password"],
+input[type="password"] {
+  width: 500px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 2px solid var(--secondary);
+  font-size: 1em;
+}
+
 input[type="text"],
 input[type="number"],
 textarea,
@@ -367,20 +375,12 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* Administration */
-textarea[type="lieu"],
-select.form-control {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px 16px;
-  border-radius: 20px;
-  border: 2px solid var(--secondary);
-  font-size: 1em;
-}
-
 /* Responsive */
 @media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
   body {
     font-size: 1.5em;
+    background-image: url("../img/FOND_gsm.png");
+    background-size: 1000px 2000px;
   }
 
   .accueilContenu {
