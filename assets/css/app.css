@@ -149,7 +149,7 @@ select.form-control {
   border-radius: 20px;
   border: 2px solid var(--secondary);
   font-size: 1em;
-  min-width: 500px;
+  min-width: 350px;
   width: auto;
 }
 
