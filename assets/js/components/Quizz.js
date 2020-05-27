@@ -55,14 +55,18 @@ class Quizz extends React.Component {
       ];
       //console.log(data);
       this.setState({ quizzdata: data });
-      //création d'un localStorage
-      localStorage.setItem(
-        "listeQuestion",
-        JSON.stringify(this.state.listQuestion)
-      );
-      localStorage.setItem("reponse", JSON.stringify(this.state.mesReponses));
     });
   };
+
+  saveQuestionHandler = () =>{
+    const { myAnswer, quizzdata} = this.state;
+    let joinedUserAnswer = this.state.mesReponses.concat(myAnswer);
+    this.setState({ mesReponses: joinedUserAnswer });
+    let joinedCorrectAnswer = this.state.bonnesReponses.concat(
+      quizzdata[0].answer
+    );
+    this.setState({ bonnesReponses: joinedCorrectAnswer });
+  }
 
   /**
    * Cette fonction permet de passer à la question suivante en enregistrant la bonne réponse ainsi que la réponse
@@ -71,12 +75,7 @@ class Quizz extends React.Component {
   nextQuestionHandler = () => {
     // console.log('test')
     const { myAnswer, quizzdata, score } = this.state;
-    let joinedUserAnswer = this.state.mesReponses.concat(myAnswer);
-    this.setState({ mesReponses: joinedUserAnswer });
-    let joinedCorrectAnswer = this.state.bonnesReponses.concat(
-      quizzdata[0].answer
-    );
-    this.setState({ bonnesReponses: joinedCorrectAnswer });
+    this.saveQuestionHandler()
     if (myAnswer === quizzdata[0].answer) {
       this.setState({
         score: score + 1,
@@ -112,6 +111,12 @@ class Quizz extends React.Component {
     if (this.state.currentQuestion == 19) {
       this.setState({ isEnd: true });
     }
+    this.saveQuestionHandler()
+    //création d'un localStorage
+    localStorage.setItem("listeQuestion", JSON.stringify(this.state.listQuestion));
+    localStorage.setItem("bonnesReponses", JSON.stringify(this.state.bonnesReponses));
+    localStorage.setItem("reponse", JSON.stringify(this.state.mesReponses));
+    localStorage.setItem('score', this.state.score);
   };
 
   render() {

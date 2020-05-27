@@ -7,6 +7,7 @@ class Resultat extends Component {
     this.state = {
       nbBonneReponse: "",
     };
+
   }
 
   handleClick(page) {
@@ -38,8 +39,7 @@ class Resultat extends Component {
                 </b>
               </p>
               <p>
-                Tu as eu ...{this.state.nbBonneReponse} de bonnes réponses sur
-                20
+                Tu as eu {localStorage.getItem("score")} bonnes réponses sur 20 questions
               </p>
               <br></br>
               <FormGroup>
