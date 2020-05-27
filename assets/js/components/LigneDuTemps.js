@@ -40,7 +40,7 @@ class LigneDuTemps extends Component {
             video: res.data.video,
             article: res.data.article,
           }];
-          let joined = this.state.fiche.concat(data);
+          let joined = this.state.fiche[0].concat(data);
           this.setState({ fiche: joined });
           console.log(this.state.fiche);
         })
