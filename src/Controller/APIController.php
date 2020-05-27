@@ -16,7 +16,7 @@ class APIController
 {
     private $inscriptionRepository;
     private $evenementRepository;
-    private $resultatsRepository;
+    //private $resultatsRepository;
 
     public function __construct(InscriptionRepository $inscriptionRepository, EvenementRepository $evenementRepository/*,
                                 ResultatsRepository $resultatsRepository*/)

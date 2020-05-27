@@ -21,7 +21,6 @@ class Resultat extends Component {
     }
   }
 
-
   render() {
     return (
       <div className="container center">

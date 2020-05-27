@@ -31,12 +31,6 @@ class Home extends Component {
               <NavLink className="nav-link" href="/quizz">
                 Quizz
               </NavLink>
-              <NavLink className="nav-link" href="/LigneDuTemps">
-                LigneDuTemps
-              </NavLink>
-              <NavLink className="nav-link" href="/resultat">
-                Resultat
-              </NavLink>
               <NavLink className="nav-link" href="/seconnecter">
                 Se connecter
               </NavLink>

@@ -125,6 +125,7 @@ class Quizz extends React.Component {
     );
     localStorage.setItem("reponse", JSON.stringify(this.state.mesReponses));
     localStorage.setItem("score", this.state.score);
+    this.props.history.push("/resultat");
   };
 
   render() {

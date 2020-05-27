@@ -10,24 +10,7 @@ class LigneDuTemps extends Component {
     super(props);
 
     this.state = {
-      fiche: [
-        { nom: "" },
-        { periode: "" },
-        { lieu: "" },
-        { lutte: "" },
-        { strategie: "" },
-        { action: "" },
-        { victoire: "" },
-        { anecdote: "" },
-        { citation: "" },
-        { question: "" },
-        { reponse1: "" },
-        { reponse2: "" },
-        { reponse3: "" },
-        { video: "" },
-        { article: "" },
-        { reponseJoueur: "" },
-      ],
+      fiche: [],
       modal: false,
       activeModal: null,
       reponses: localStorage.getItem("reponses"),
@@ -39,13 +22,32 @@ class LigneDuTemps extends Component {
   }
 
   componentDidMount() {
-    axios.get('/api/evenements/')
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+    for(var i=0; i < this.state.listeQuestions.length; i++){
+      axios.get(`/api/evenements/${this.state.listeQuestions[i]}`)
+        .then(res => {
+          //console.log(response.data);
+          let data = [{
+            id: res.data.id,
+            nom: res.data.nom,
+            periode: res.data.id,
+            lieu: res.data.lieu,
+            lutte: res.data.lutte,
+            strategie: res.data.strategie,
+            action: res.data.action,
+            victoire: res.data.victoire,
+            anecdote: res.data.anecdote,
+            citation: res.data.citation,
+            video: res.data.video,
+            article: res.data.article,
+          }];
+          let joined = this.state.fiche.concat(data);
+          this.setState({ fiche: joined });
+          console.log(this.state.fiche);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    }
   }
 
   toggle() {
@@ -54,11 +56,11 @@ class LigneDuTemps extends Component {
     }));
   }
 
-  reponse(reponse) {
-    if (reponse === 1) {
-      return <FontAwesomeIcon className="checkIcon" icon={faCheck} />;
-    }
-    return <FontAwesomeIcon className="falseIcon" icon={faTimes} />;
+  reponse(id) {
+    var correction;
+    correction = !!(this.state.reponses[id] = this.state.bonnesReponses[id]);
+    (correction[id] === 1) ? `<FontAwesomeIcon className="checkIcon" icon={faCheck} />`
+      : `<FontAwesomeIcon className="falseIcon" icon={faTimes} />`;
   }
 
   // changeVariable(periodes, noms, reponseJoueurs) {
@@ -74,11 +76,11 @@ class LigneDuTemps extends Component {
     /*this.state.listeQuestions.map(item, index){
       this.state.id = {item}
     }*/
-    return fiche.map(({ nom, id, periode,reponseJoueur }) => (
+    return fiche.map(({ nom, id, periode}) => (
       <tr key={id}>
         <td>{nom}</td>
         <td>{periode}</td>
-        <td className="reponseJoueur">{this.state.reponses}</td>
+        <td className="reponseJoueur">{}</td>
         <td>
           <Button color="secondary" onClick={this.toggle}>
             Plus d'information
@@ -120,7 +122,7 @@ class LigneDuTemps extends Component {
                   <th className="thead">Infos</th>
                 </tr>
               </thead>
-              <tbody>{this.ligneDuTemps()}</tbody>
+              <tbody>{/*this.ligneDuTemps()*/}</tbody>
             </table>
           </div>
         </div>
