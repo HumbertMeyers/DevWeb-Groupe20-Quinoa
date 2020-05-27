@@ -154,6 +154,10 @@ select.form-control {
   width: auto;
 }
 
+label {
+  width: auto;
+}
+
 input[type="text"]:focus,
 select.form-control:focus {
   -webkit-box-shadow: none;
