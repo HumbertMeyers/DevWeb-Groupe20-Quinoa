@@ -144,6 +144,7 @@ input[type="password"] {
 input[type="text"],
 input[type="number"],
 textarea,
+.textarea,
 select.form-control {
   background: rgba(255, 255, 255, 0.05);
   padding: 10px 16px;
@@ -151,10 +152,6 @@ select.form-control {
   border: 2px solid var(--secondary);
   font-size: 1em;
   min-width: 350px;
-  width: auto;
-}
-
-label {
   width: auto;
 }
 

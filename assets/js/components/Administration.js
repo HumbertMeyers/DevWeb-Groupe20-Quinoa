@@ -187,6 +187,7 @@ class Administration extends Component{
 							<label>
 								Lieu :<br/>
 								<textarea
+								className='textarea'
 								name="lieu"
 								rows="1"
 								cols="90"
@@ -197,7 +198,9 @@ class Administration extends Component{
 							<label>
 								Lutte :<br/>
 								<textarea
+								className='textarea'
 								name="lutte"
+								placeholder="lutte"
 								rows="1"
 								cols="90"
 								value={this.state.lutte}
@@ -206,6 +209,8 @@ class Administration extends Component{
 							<label>
 								Strategie :<br/>
 								<textarea
+								placeholder="strategie"
+								className='textarea'
 								name="strategie"
 								rows="1"
 								cols="90"
@@ -215,6 +220,8 @@ class Administration extends Component{
 							<label>
 								Action :<br/>
 								<textarea
+								placeholder="action"
+								className='textarea'
 								name="action"
 								rows="1"
 								cols="90"
@@ -224,6 +231,8 @@ class Administration extends Component{
 							<label>
 								Victoire :<br/>
 								<textarea
+								placeholder="victoire"
+								className='textarea'
 								name="victoire"
 								rows="1"
 								cols="90"
@@ -233,6 +242,8 @@ class Administration extends Component{
 							<label>
 								Anecdote :<br/>
 								<textarea
+								placeholder="anecdote"
+								className='textarea'
 								name="anecdote"
 								rows="1"
 								cols="90"
@@ -242,6 +253,8 @@ class Administration extends Component{
 							<label>
 								Citation :<br/>
 								<textarea
+								placeholder="citation"
+								className='textarea'
 								name="citation"
 								rows="1"
 								cols="90"
@@ -251,6 +264,8 @@ class Administration extends Component{
 							<label>
 								Question :<br/>
 								<textarea
+								placeholder="question"
+								className='textarea'
 								name="question"
 								rows="1"
 								cols="90"
@@ -260,6 +275,8 @@ class Administration extends Component{
 							<label>
 								Première réponse (la réponse correcte) :<br/>
 								<textarea
+								placeholder="réponse 1"
+								className='textarea'
 								name="reponse1"
 								rows="1"
 								cols="90"
@@ -269,6 +286,8 @@ class Administration extends Component{
 							<label>
 								Deuxième réponse :<br/>
 								<textarea
+								placeholder="réponse 2"
+								className='textarea'
 								name="reponse2"
 								rows="1"
 								cols="90"
@@ -278,6 +297,8 @@ class Administration extends Component{
 							<label>
 								Troisième réponse :<br/>
 								<textarea
+								placeholder="réponse 3"
+								className='textarea'
 								name="reponse3"
 								rows="1"
 								cols="90"
@@ -287,6 +308,8 @@ class Administration extends Component{
 							<label>
 								Video :<br/>
 								<textarea
+								placeholder="vidéo"
+								className='textarea'
 								name="video"
 								rows="1"
 								cols="90"
@@ -296,6 +319,8 @@ class Administration extends Component{
 							<label>
 								Article :<br/>
 								<textarea
+								placeholder="article"
+								className='textarea'
 								name="article"
 								rows="1"
 								cols="90"
