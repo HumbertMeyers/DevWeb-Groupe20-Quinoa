@@ -43,15 +43,23 @@ class Resultat extends Component {
                     Tu es un-e désobéissant-e confirmé-e, bien joué ! et si tu
                     rejouais pour devenir un-e véritable expert-e ?
                   </label>
-                ) : (
+                ) : this.state.score <= 9 && this.score >= 0 ? (
                   <label>
                     Tu es une graine de désobéissant-e ! continue de t'informer
                     dans nos pages et rejoue !
                   </label>
+                ) : (
+                  <label>erreur de score</label>
                 )}
                 }
               </b>
-              <p>Tu as eu {this.state.score} de bonnes réponses sur 20</p>
+              <p>
+                Tu as eu{" "}
+                {this.state.score !== null
+                  ? this.state.score
+                  : "erreur de score"}{" "}
+                de bonnes réponses sur 20
+              </p>
               <br></br>
               <FormGroup>
                 <Button
