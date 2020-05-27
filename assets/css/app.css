@@ -367,6 +367,16 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* Administration */
+textarea[type="lieu"],
+select.form-control {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 2px solid var(--secondary);
+  font-size: 1em;
+}
+
 /* Responsive */
 @media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
   body {
