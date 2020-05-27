@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Evenement;
 use App\Repository\EvenementRepository;
 use App\Repository\InscriptionRepository;
+//use App\Repository\ResultatsRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,11 +16,14 @@ class APIController
 {
     private $inscriptionRepository;
     private $evenementRepository;
+    private $resultatsRepository;
 
-    public function __construct(InscriptionRepository $inscriptionRepository, EvenementRepository $evenementRepository)
+    public function __construct(InscriptionRepository $inscriptionRepository, EvenementRepository $evenementRepository/*,
+                                ResultatsRepository $resultatsRepository*/)
     {
         $this->inscriptionRepository = $inscriptionRepository;
         $this->evenementRepository = $evenementRepository;
+        //$this->resultatsRepository = $resultatsRepository;
     }
 
     /**
@@ -338,4 +342,26 @@ class APIController
         return new JsonResponse($data, Response::HTTP_OK);
     }
 
+    /**
+     * @Route("/api/resultats/add/", name="update_resultats", methods={"POST"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    /*public function addResultats(Request $request): JsonResponse
+    {
+        $data = json_decode($request->getContent(), true);
+
+        $idSession = $data['idSession'];
+        for($i=1;$i<40;$i++){
+            '$reponse'.$i.' = $data[reponse'.$i.'];';
+        }
+        $reponse40=$data['reponse40'];
+
+        $reponseGroupe = "";
+        for($i=1;$i<40;$i++)
+            {$reponseGroupe.= '$reponse'.$i.', ';}
+        $this->resultatsRepository->saveResultats($idSession, $reponseGroupe, $reponse40);
+
+        return new JsonResponse(['status' => 'Résultats ajoutés!'], Response::HTTP_CREATED);
+    }*/
 }

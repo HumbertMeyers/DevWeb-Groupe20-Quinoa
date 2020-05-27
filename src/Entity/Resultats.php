@@ -15,207 +15,207 @@ class Resultats
      * @ORM\GeneratedValue()
      * @ORM\Column(type="datetime")
      */
-    private $finQuizz;
+    private $finQuizz = //date('d/m/Y H:i:s', NOW);
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse1;
+    private $reponse1 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse2;
+    private $reponse2 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse3;
+    private $reponse3 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse4;
+    private $reponse4 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse5;
+    private $reponse5 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse6;
+    private $reponse6 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse7;
+    private $reponse7 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse8;
+    private $reponse8 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse9;
+    private $reponse9 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse10;
+    private $reponse10 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse11;
+    private $reponse11 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse12;
+    private $reponse12 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse13;
+    private $reponse13 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse14;
+    private $reponse14 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse15;
+    private $reponse15 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse16;
+    private $reponse16 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse17;
+    private $reponse17 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse18;
+    private $reponse18 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse19;
+    private $reponse19 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse20;
+    private $reponse20 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse21;
+    private $reponse21 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse22;
+    private $reponse22 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse23;
+    private $reponse23 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse24;
+    private $reponse24 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse25;
+    private $reponse25 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse26;
+    private $reponse26 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse27;
+    private $reponse27 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse28;
+    private $reponse28 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse29;
+    private $reponse29 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse30;
+    private $reponse30 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse31;
+    private $reponse31 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse32;
+    private $reponse32 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse33;
+    private $reponse33 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse34;
+    private $reponse34 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse35;
+    private $reponse35 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse36;
+    private $reponse36 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse37;
+    private $reponse37 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse38;
+    private $reponse38 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse39;
+    private $reponse39 = NULL;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $reponse40;
+    private $reponse40 = NULL;
 
     /**
      * @return mixed

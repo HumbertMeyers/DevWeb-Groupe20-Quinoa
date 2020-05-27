@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Resultats;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -14,20 +15,26 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ResultatsRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private $manager;
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $manager)
     {
         parent::__construct($registry, Resultats::class);
+        $this->manager = $manager;
     }
 
     /**
      * Sauve les résultats en bases de donnes
      */
-    public function saveResultats($idSession, $reponse1, $reponse2, $reponse3, $reponse4, $reponse5, $reponse6,
-                                  $reponse7, $reponse8, $reponse9, $reponse10, $reponse11, $reponse12, $reponse13,
-                                  $reponse14, $reponse15, $reponse16, $reponse17, $reponse18, $reponse19, $reponse20,
-                                  $reponse21, $reponse22, $reponse23, $reponse24, $reponse25, $reponse26, $reponse27,
-                                  $reponse28, $reponse29, $reponse30, $reponse31, $reponse32, $reponse33, $reponse34,
-                                  $reponse35, $reponse36, $reponse37, $reponse38, $reponse39, $reponse40)
+    public function saveResultats($idSession, $reponse1 = NULL, $reponse2 = NULL, $reponse3 = NULL, $reponse4 = NULL,
+                                  $reponse5 = NULL, $reponse6 = NULL, $reponse7 = NULL, $reponse8 = NULL,
+                                  $reponse9 = NULL, $reponse10 = NULL, $reponse11 = NULL, $reponse12 = NULL,
+                                  $reponse13 = NULL, $reponse14 = NULL, $reponse15 = NULL, $reponse16 = NULL,
+                                  $reponse17 = NULL, $reponse18 = NULL, $reponse19 = NULL, $reponse20 = NULL,
+                                  $reponse21 = NULL, $reponse22 = NULL, $reponse23 = NULL, $reponse24 = NULL,
+                                  $reponse25 = NULL, $reponse26 = NULL, $reponse27 = NULL, $reponse28 = NULL,
+                                  $reponse29 = NULL, $reponse30 = NULL, $reponse31 = NULL, $reponse32 = NULL,
+                                  $reponse33 = NULL, $reponse34 = NULL, $reponse35 = NULL, $reponse36 = NULL,
+                                  $reponse37 = NULL, $reponse38 = NULL, $reponse39 = NULL, $reponse40 = NULL)
     {
         $newResultats = new Resultats();
 
@@ -79,7 +86,7 @@ class ResultatsRepository extends ServiceEntityRepository
 
     /**
      * @param Resultats $resultats
-     * @return Resultats permet de mettre à jours les résultats
+     * @return Resultats permet de mettre à jour les résultats
      */
     public function updateResultats(Resultats $resultats): Resultats
     {
