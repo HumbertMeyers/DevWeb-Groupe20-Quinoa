@@ -4,7 +4,7 @@ import { Button, FormGroup } from "reactstrap";
 class Resultat extends Component {
   constructor(props) {
     super(props);
-    const score = localStorage.getItem("score", JSON.stringify(score));
+    const score = localStorage.getItem("score");
   }
 
   handleClick(page) {
