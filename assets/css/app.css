@@ -379,6 +379,8 @@ input:checked + .slider:before {
 @media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
   body {
     font-size: 1.5em;
+    background-image: url("../img/FOND_gsm.png");
+    background-size: 1000px 2000px;
   }
 
   .accueilContenu {
