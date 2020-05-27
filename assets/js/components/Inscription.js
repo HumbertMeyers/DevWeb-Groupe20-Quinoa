@@ -65,18 +65,20 @@ class Inscription extends Component {
   }
 
   validate() {
+    var validator = require("email-validator");
+    let email = this.state.mail; //change form to id or containment selector
     let mdpErreur = "";
     let mailErreur = "";
     let ageErreur = "";
     let sexeErreur = "";
     let desobeissantErreur = "";
 
-    if (this.state.mdp.value.length < 5) {
-      pseudoErreur = "le champ doit être rempli";
+    if (this.state.mdp.length < 8) {
+      mdpErreur = "le champ doit être plus long";
     }
 
-    if (!this.state.mail.includes("@")) {
-      mailErreur = "l'email est invalide";
+    if(!validator.validate(email)){
+      mailErreur = "Veuillez entrer une adresse valide";
     }
 
     if (!this.state.age) {
@@ -93,14 +95,14 @@ class Inscription extends Component {
 
     if (
       mailErreur ||
-      pseudoErreur ||
+      mdpErreur ||
       ageErreur ||
       sexeErreur ||
       desobeissantErreur
     ) {
       this.setState({
         mailErreur,
-        pseudoErreur,
+        mdpErreur,
         ageErreur,
         sexeErreur,
         desobeissantErreur,

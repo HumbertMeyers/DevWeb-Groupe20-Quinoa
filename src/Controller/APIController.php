@@ -33,7 +33,7 @@ class APIController
     {
         $data = json_decode($request->getContent(), true);
 
-        $pseudo = $data['pseudo'];
+        $pseudo = $data['mdp'];
         $mail = $data['mail'];
         $age = $data['age'];
         $desobeissant = $data['desobeissant'];
