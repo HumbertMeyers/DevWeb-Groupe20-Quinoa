@@ -184,121 +184,133 @@ class Administration extends Component{
 								value={this.state.periode}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Lieu :<br/>
 								<textarea
 								name="lieu"
 								rows="1"
-								cols="90"
+								cols="95"
 								placeholder="lieu"
 								value={this.state.lieu}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Lutte :<br/>
 								<textarea
 								name="lutte"
+								placeholder="lutte"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.lutte}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Strategie :<br/>
 								<textarea
+								placeholder="strategie"
 								name="strategie"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.strategie}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Action :<br/>
 								<textarea
+								placeholder="action"
 								name="action"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.action}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Victoire :<br/>
 								<textarea
+								placeholder="victoire"
 								name="victoire"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.victoire}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Anecdote :<br/>
 								<textarea
+								placeholder="anecdote"
 								name="anecdote"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.anecdote}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Citation :<br/>
 								<textarea
+								placeholder="citation"
 								name="citation"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.citation}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Question :<br/>
 								<textarea
+								placeholder="question"
 								name="question"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.question}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Première réponse (la réponse correcte) :<br/>
 								<textarea
+								placeholder="réponse 1"
 								name="reponse1"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.reponse1}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Deuxième réponse :<br/>
 								<textarea
+								placeholder="réponse 2"
 								name="reponse2"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.reponse2}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'> 
 								Troisième réponse :<br/>
 								<textarea
+								placeholder="réponse 3"
 								name="reponse3"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.reponse3}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Video :<br/>
 								<textarea
+								placeholder="vidéo"
 								name="video"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.video}
 								onChange={this.handleChange}/>
 							</label><br/>
-							<label>
+							<label className='adminLabel'>
 								Article :<br/>
 								<textarea
+								placeholder="article"
 								name="article"
 								rows="1"
-								cols="90"
+								cols="95"
 								value={this.state.article}
 								onChange={this.handleChange}/>
 							</label><br/>

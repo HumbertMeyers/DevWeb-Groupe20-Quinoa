@@ -4,10 +4,7 @@ import { Button, FormGroup } from "reactstrap";
 class Resultat extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      nbBonneReponse: "",
-    };
-
+    const score = localStorage.getItem("score");
   }
 
   handleClick(page) {
@@ -25,6 +22,8 @@ class Resultat extends Component {
     }
   }
 
+  msgResultat() {}
+
   render() {
     return (
       <div className="container center">
@@ -32,14 +31,32 @@ class Resultat extends Component {
           <div className="cadreSombre">
             <h1 className="resultTitre">Tu as fini le Quizz Dezobeyi !</h1>
             <div className="resultatContenu">
-              <p>
-                Tu es un{" "}
-                <b>
-                  <u>(3 types de personnes)</u>
-                </b>
-              </p>
+              <b>
+                {score >= 16 ? (
+                  <label>
+                    Bravo ! Tu es un-e incontestable désobéissant-e 😃...
+                    Dezobeyi comporte encore bien d'autres facettes, n'hésite
+                    pas à rejouer...
+                  </label>
+                ) : score <= 15 && this.score >= 10 ? (
+                  <label>
+                    Tu es un-e désobéissant-e confirmé-e, bien joué ! et si tu
+                    rejouais pour devenir un-e véritable expert-e ?
+                  </label>
+                ) : score <= 9 && this.score >= 0 ? (
+                  <label>
+                    Tu es une graine de désobéissant-e ! continue de t'informer
+                    dans nos pages et rejoue !
+                  </label>
+                ) : (
+                  <label>erreur de score</label>
+                )}
+                }
+              </b>
               <p>
                 Tu as eu {localStorage.getItem("score")} bonnes réponses sur 20 questions
+                Tu as eu {score !== null ? score : "erreur de score"} de bonnes
+                réponses sur 20
               </p>
               <br></br>
               <FormGroup>

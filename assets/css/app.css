@@ -56,6 +56,7 @@ body {
   height: 100px;
   justify-content: space-between;
   width: 80vw;
+  height: auto;
 }
 
 NavItem {
@@ -149,8 +150,13 @@ select.form-control {
   border-radius: 20px;
   border: 2px solid var(--secondary);
   font-size: 1em;
+  min-width: 350px;
+  width: auto;
 }
 
+.adminLabel {
+  width: auto;
+}
 input[type="text"]:focus,
 select.form-control:focus {
   -webkit-box-shadow: none;
@@ -379,8 +385,6 @@ input:checked + .slider:before {
 @media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
   body {
     font-size: 1.5em;
-    background-image: url("../img/FOND_gsm.png");
-    background-size: 1000px 2000px;
   }
 
   .accueilContenu {
