@@ -149,6 +149,8 @@ select.form-control {
   border-radius: 20px;
   border: 2px solid var(--secondary);
   font-size: 1em;
+  min-width: 500px;
+  width: auto;
 }
 
 input[type="text"]:focus,
@@ -379,8 +381,6 @@ input:checked + .slider:before {
 @media only screen and (min-device-width: 300px) and (max-device-width: 800px) {
   body {
     font-size: 1.5em;
-    background-image: url("../img/FOND_gsm.png");
-    background-size: 1000px 2000px;
   }
 
   .accueilContenu {
