@@ -83,7 +83,9 @@ class Quizz extends React.Component {
     }
     this.setState({
       currentQuestion: this.state.currentQuestion + 1,
+      disabled: true,
     });
+
   };
 
   /**
