@@ -18,7 +18,7 @@ class LigneDuTemps extends Component {
         { strategie: "" },
         { action: "" },
         { victoire: "" },
-        { annecdote: "" },
+        { anecdote: "" },
         { citation: "" },
         { question: "" },
         { reponse1: "" },

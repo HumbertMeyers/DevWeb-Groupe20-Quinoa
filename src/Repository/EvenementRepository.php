@@ -23,7 +23,8 @@ class EvenementRepository extends ServiceEntityRepository
         $this->manager = $manager;
     }
 
-    public function saveEvenement($nom, $periode, $lieu, $lutte, $strategie, $action, $victoire, $anecdote, $citation)
+    public function saveEvenement($nom, $periode, $lieu, $lutte, $strategie, $action, $victoire, $anecdote, $citation,
+                                  $question, $reponse1, $reponse2, $reponse3, $video, $article)
     {
         $newEvenement = new Evenement();
 
@@ -36,6 +37,12 @@ class EvenementRepository extends ServiceEntityRepository
         $newEvenement->setVictoire($victoire);
         $newEvenement->setAnecdote($anecdote);
         $newEvenement->setCitation($citation);
+        $newEvenement->setCitation($question);
+        $newEvenement->setCitation($reponse1);
+        $newEvenement->setCitation($reponse2);
+        $newEvenement->setCitation($reponse3);
+        $newEvenement->setCitation($video);
+        $newEvenement->setCitation($article);
 
         $this->manager->persist($newEvenement);
         $this->manager->flush();
