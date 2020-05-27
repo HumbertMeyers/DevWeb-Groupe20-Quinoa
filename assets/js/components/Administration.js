@@ -189,7 +189,7 @@ class Administration extends Component{
 								<textarea
 								name="lieu"
 								rows="1"
-								cols="90"
+								cols="auto"
 								placeholder="lieu"
 								value={this.state.lieu}
 								onChange={this.handleChange}/>
@@ -200,7 +200,7 @@ class Administration extends Component{
 								name="lutte"
 								placeholder="lutte"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.lutte}
 								onChange={this.handleChange}/>
 							</label><br/>
@@ -210,7 +210,7 @@ class Administration extends Component{
 								placeholder="strategie"
 								name="strategie"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.strategie}
 								onChange={this.handleChange}/>
 							</label><br/>
@@ -220,7 +220,7 @@ class Administration extends Component{
 								placeholder="action"
 								name="action"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.action}
 								onChange={this.handleChange}/>
 							</label><br/>
@@ -230,7 +230,7 @@ class Administration extends Component{
 								placeholder="victoire"
 								name="victoire"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.victoire}
 								onChange={this.handleChange}/>
 							</label><br/>
@@ -240,7 +240,7 @@ class Administration extends Component{
 								placeholder="anecdote"
 								name="anecdote"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.anecdote}
 								onChange={this.handleChange}/>
 							</label><br/>
@@ -250,7 +250,7 @@ class Administration extends Component{
 								placeholder="citation"
 								name="citation"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.citation}
 								onChange={this.handleChange}/>
 							</label><br/>
@@ -260,7 +260,7 @@ class Administration extends Component{
 								placeholder="question"
 								name="question"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.question}
 								onChange={this.handleChange}/>
 							</label><br/>
@@ -270,7 +270,7 @@ class Administration extends Component{
 								placeholder="réponse 1"
 								name="reponse1"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.reponse1}
 								onChange={this.handleChange}/>
 							</label><br/>
@@ -280,7 +280,7 @@ class Administration extends Component{
 								placeholder="réponse 2"
 								name="reponse2"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.reponse2}
 								onChange={this.handleChange}/>
 							</label><br/>
@@ -290,7 +290,7 @@ class Administration extends Component{
 								placeholder="réponse 3"
 								name="reponse3"
 								rows="1"
-								cols="90"
+								cols="auto"
 								value={this.state.reponse3}
 								onChange={this.handleChange}/>
 							</label><br/>

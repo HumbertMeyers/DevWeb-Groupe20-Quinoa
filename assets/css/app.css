@@ -155,7 +155,7 @@ select.form-control {
 }
 
 .adminLabel {
-  width: auto;
+  min-width: 500px;
 }
 input[type="text"]:focus,
 select.form-control:focus {
