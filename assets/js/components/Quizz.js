@@ -160,7 +160,9 @@ class Quizz extends React.Component {
             <div key={index}>
               <h2>
                 Sujet de la question :{" "}
-                <label className="sujet">{item.nom}</label>
+                <label className="sujet">
+                  <b>{item.nom}</b>
+                </label>
               </h2>
               <br />
               <h3 className="question">{item.question}</h3>

@@ -71,11 +71,6 @@ class Resultat extends Component {
                 </Button>
               </FormGroup>
               <br></br>
-              <p>
-                <a href="http://www.quinoa.be">
-                  S'inscire à la newsletter de Quinoa
-                </a>
-              </p>
             </div>
           </div>
         </div>
