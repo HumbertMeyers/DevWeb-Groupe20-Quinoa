@@ -1,19 +1,15 @@
 <?php
 
-
 namespace App\Entity;
 
+use App\Repository\ResultatsRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity(repositoryClass=ResultatsRepository::class)
+ */
 class Resultats
 {
-
-    /**
-     * @ORM\Id()
-     * @ORM\Column(type="integer")
-     */
-    private $idSession;
-
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

@@ -4,8 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Resultats;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method Resultats|null find($id, $lockMode = null, $lockVersion = null)
@@ -15,14 +14,14 @@ use Doctrine\ORM\EntityManagerInterface;
  */
 class ResultatsRepository extends ServiceEntityRepository
 {
-    private $manager;
-
-    public function __construct(ManagerRegistry $registry, EntityManagerInterface $manager)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Resultats::class);
-        $this->manager = $manager;
     }
 
+    /**
+     * Sauve les résultats en bases de donnes
+     */
     public function saveResultats($idSession, $reponse1, $reponse2, $reponse3, $reponse4, $reponse5, $reponse6,
                                   $reponse7, $reponse8, $reponse9, $reponse10, $reponse11, $reponse12, $reponse13,
                                   $reponse14, $reponse15, $reponse16, $reponse17, $reponse18, $reponse19, $reponse20,
@@ -78,6 +77,10 @@ class ResultatsRepository extends ServiceEntityRepository
         $this->manager->flush();
     }
 
+    /**
+     * @param Resultats $resultats
+     * @return Resultats permet de mettre à jours les résultats
+     */
     public function updateResultats(Resultats $resultats): Resultats
     {
         $this->manager->persist($resultats);
@@ -86,6 +89,9 @@ class ResultatsRepository extends ServiceEntityRepository
         return $resultats;
     }
 
+    /**
+     * @param Resultats $resultats retire les resultats
+     */
     public function removeResultats(Resultats $resultats)
     {
         $this->manager->remove($resultats);
